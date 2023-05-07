@@ -1,0 +1,52 @@
+@import '../../../style/variables.scss';
+
+.price{}
+.price-block{}
+.price-item-head{
+	font-size: 1.875rem;
+	line-height: 1.875rem;
+	text-transform: uppercase;
+	color: $text-color;
+	padding: 25px 0 25px 10px;
+	border-bottom: 1px solid $btn_2-color;
+}
+.price-item {
+	display: none;
+}
+.price-item.active {
+	display: block;
+}
+.price-item-row{
+	//display: grid;
+//	grid-template-columns: auto 1fr 1fr 30%;
+	font-size: 1.125rem;
+	line-height: 1.5rem;
+	//text-transform: uppercase;
+	//height: 64px;
+	align-items:center;
+	color: $text-color;
+	//&:nth-child(odd) {
+	//	background: #F7F7F7;
+	//}
+	&:first-child {
+	//	background: #D7D7D7;
+	//	border-width: 1px 1px 1px 1px;
+	//	border-style: solid;
+	//	border-color: $bg_grey-color;
+	//	flex: none;
+	//	order: 0;
+	//	flex-grow: 0;
+	//	font-weight: 500;
+	//	font-size: 1.25rem;
+	//	line-height: 1.5rem;
+	//	color: $text-color;
+	}
+	//div {
+	//	margin: 0 2px;
+	//	padding: 0 3px;
+	//	font-size: 1.25rem;
+	//	&:last-child {
+	//		text-align: right;
+	//	}
+	//}
+}

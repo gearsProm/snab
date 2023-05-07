@@ -1,0 +1,22 @@
+.App {
+	max-width: 1440px;
+	margin: 0 auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+.app-head {
+	position: sticky;
+	top: 0px;
+	z-index: 11;
+	background-color: #fff;
+}
+.app-main {
+	height: 100%;
+	flex: 1 1 auto;
+	max-width: 1440px;
+
+}
+.app-footer {
+	bottom: 0;
+}

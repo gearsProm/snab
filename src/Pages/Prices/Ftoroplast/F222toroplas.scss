@@ -1,0 +1,19 @@
+@import '../../../style/variables.scss';
+
+.ppppp{}
+.p-b{}
+.p-h{}
+.p-i{
+	display: grid;
+	grid-template-columns: 30% 1fr 1fr 30%;
+	font-size: 2rem;
+	line-height: 2rem;
+	//text-transform: uppercase;
+//	height: 64px;
+	align-items:center;
+	color: $text-color;
+	//display: none;
+}
+.p-i.active {
+	display: block;
+}

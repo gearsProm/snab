@@ -1,0 +1,49 @@
+@import '../../style/variables.scss';
+
+
+.row-price {
+	display: grid;
+//	grid-column-start: 1;
+//	grid-column-end: 5;
+	grid-template-columns: 35% 25% 20% 20%;
+	font-size: 1.125rem;
+	line-height: 1.5rem;
+
+	//text-transform: uppercase;
+	height: 64px;
+	align-items:center;
+	color: $text-color;
+	&:nth-child(odd) {
+		background: #F7F7F7;
+	}
+	&:first-child {
+		background: #D7D7D7;
+	//	border-width: 1px 1px 1px 1px;
+	//	border-style: solid;
+	//	border-color: $bg_grey-color;
+		font-weight: 500;
+		font-size: 1.25rem;
+		line-height: 1.5rem;
+		text-transform: uppercase;
+		font-weight: 500;
+		color: $text-color;
+		@media (max-width: 998px) {
+			font-size: 0.5rem;
+			line-height: 0.5rem;
+
+		}
+	}
+	div {
+		
+		padding: 0 6px;
+		font-size: 1.25rem;
+		text-align: left;
+		&:last-child {
+			text-align: right;
+		}
+		@media (max-width: 798px) {
+			font-size: 0.75rem;
+			line-height: 0.75rem;
+		}
+	}
+}

@@ -1,0 +1,44 @@
+
+
+$text-color: #1D1D1D;
+$main-color: #FFFFFF;
+$text_2-color: #706F6D;
+$bg_grey-color: #F7F7F7;
+
+
+$input-color: #F1F0EB;
+$line-color: #D7D7D7;
+$scroll-color: #323C46;
+
+
+$btn-color: #989898;
+$btn_2-color: #C4C3BF;
+
+$black-color: #2C2C2C;
+
+$dark: #000000;
+
+
+$grey: #5C5C5C;
+
+h1 {
+	font-weight: 600;
+	font-size: 2.5rem;
+	line-height: 2.5rem;
+	color: $text-color;
+	padding: 50px 0;
+}
+h2 {
+
+}
+h3 {
+	font-weight: 400;
+
+}
+p {
+font-weight: 300;
+font-size: 1rem;
+line-height: 1.375rem;
+color: $text_2-color;
+padding: 0 0 10px 0;
+}
