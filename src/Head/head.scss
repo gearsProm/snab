@@ -2,7 +2,7 @@
 
 
 .head_head {
-	min-height: 100px;
+	min-height: 80px;
 	border-bottom: 1px solid $btn-color;
 	display: flex;
 	align-items: center;
@@ -73,7 +73,7 @@
 //	background-color:aqua;
 	
 	flex-direction: column;
-	padding: 30px 30px;
+	padding: 30px 30px 30px 0px;
 }
 .sub-menu>li {
 	background-color: $bg_grey-color;
@@ -82,20 +82,18 @@
 .sub-item {
 	
 }
-@media (min-width: 850px) {
-	.sub-menu.sub {
-	display: flex;
-	}
 
-	.nav_list>li:hover {
+.head_head.mouse .nav_list>li:hover {
 	.sub-menu {
 	display: flex;
-		
-	}
-	
 		}
 	}
-
+	.head_head.touch .sub-menu {
+		display: block;
+	}
+	.head_head.touch .sub-menu.sub {
+		display: block;
+	}
 
 
 //------------burger -----------------
@@ -204,6 +202,7 @@
 		display: block;
 		left: 0;
 		transition: 0.5s;
+		overflow: scroll;
 	}
 	.nav_menu {
 		max-width: 320px;
@@ -228,11 +227,5 @@
 	.sub-menu>li {
 		
 		padding: 10px 20px;
-	}
-	.sub-menu.sub {
-		display: block;
-	}
-	.nav_list>li:hover {
-
 	}
 }

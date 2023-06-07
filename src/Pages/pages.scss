@@ -1,0 +1,45 @@
+@import '../style/variables.scss';
+
+.text-section {
+	p {
+		font-style: normal;
+		font-weight: 300;
+		font-size: 18px;
+		line-height: 24px;
+		color: $text_2-color;
+		text-align: justify;
+		margin-bottom: 10px;
+		}
+	ul, li, {
+		font-style: normal;
+		font-weight: 300;
+		font-size: 18px;
+		line-height: 24px;
+		color: $text_2-color;
+		list-style-type: circle;
+		list-style-position: outside;
+		padding: 0 0 10px 0;
+		margin: 0 0 0 10px
+		}
+	img {
+		float: left;
+		margin-right: 10px;
+		margin-bottom: 10px;
+		padding: 5px;
+	}
+}
+.text-head {
+	padding: 40px 0 30px 0;
+}
+table {
+	width: 100%;
+	padding: 20px 5px;
+}
+td  {
+	border-bottom: 1px solid $grey;
+	border-right: 1px solid $btn-color;
+}
+th {
+	border-bottom: 1px solid $grey;
+	border-right: 1px solid $btn-color;
+}

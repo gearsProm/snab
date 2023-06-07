@@ -22,13 +22,13 @@ function Footer () {
 							<div className="footer-icon">
 							<img src={require('./footer_img/Mail.png')} />
 							</div>
-							<a href="mail"><div className="footer-href">info@snab.kiev.ua</div></a>
+							<a href="mailto:info@snab.kiev.ua"><div className="footer-href">info@snab.kiev.ua</div></a>
 						</div>
 						<div className="footer-info_item">
 							<div className="footer-icon">
 							<img src={require('./footer_img/Phone.png')} />
 							</div>
-							<a href="telephone"><div className="footer-href">050 462 50 83</div></a>
+							<a href="tel:+380504625083"><div className="footer-href">050 462 50 83</div></a>
 						</div>
 						</div>
 				</div>

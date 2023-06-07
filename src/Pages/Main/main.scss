@@ -1,1 +1,152 @@
-@import '../style/variables.scss';
+.main-head {
+	background-image: url('mainhead.jpeg');
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+//	background: #000;
+	color: #fff;
+	height: 600px;
+	position: relative;
+}
+.main-head-title {
+	position: absolute;
+	left: 0;
+	bottom: 30px;
+	
+	h1 {
+		color: #fff;
+		font-weight: 600;
+		font-size: 60px;
+		line-height: 60px;
+		font-weight: 0;
+		padding-top: 0;
+		padding-bottom: 27px;
+
+	}
+}
+.main-head-text {
+	display: flex;
+	
+	
+}
+.text-item {
+	font-size: 18px;
+	line-height: 18px;
+	//text-align: center;
+	color: #D7D7D7;
+	padding: 0 12px;
+	border-right: 1px solid #D7D7D7;
+	&:last-child {
+		border-right: none;
+	}
+}
+.main-title {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 40px 0;
+	@media (max-width: 850px) {
+		grid-template-columns: 1fr;
+		padding: 0;
+	}
+	
+}
+.main-title-head {
+	padding: 30px;
+	font-weight: 400;
+	font-size: 40px;
+	line-height: 48px;
+	color: #1D1D1D;
+	margin: auto;
+	
+	h2 {
+	//	width: 416px;
+	}
+}
+.main-title-text {
+	padding: 10px;
+	border-left: 1px solid #D7D7D7;
+	padding: 40px;
+	@media (max-width: 850px) {
+		border-left: none;
+		border-top: 1px solid #D7D7D7;
+	}
+	p {
+		font-weight: 300;
+font-size: 14px;
+line-height: 22px;
+color: #1D1D1D;
+//padding-top: 40px;
+	}
+}
+.main-services {
+	border-bottom: 1px solid #989898;
+	h2 {
+		text-align: center;
+		margin-top: 50px;
+		margin-bottom: 50px;
+		@media (max-width: 480px) {
+			margin-top: 50px;
+		}
+	}
+
+}
+.main-services-block {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 30px;
+	@media (max-width: 850px) {
+		grid-template-columns: 1fr 1fr;
+	}
+	@media (max-width: 480px) {
+		grid-template-columns: 1fr;
+	}
+	h3 {
+		padding: 40px 0;
+		margin: auto;
+	}
+}
+.main-works {
+	margin-top: 100px;
+	@media (max-width: 850px) {
+		margin-top: 80px;
+	}
+	@media (max-width: 480px) {
+		margin-top: 50px;
+	}
+}
+@media (max-width: 850px) {
+	.main-head {
+		height: 620px;
+	}
+	.main-head-title {
+		position: absolute;
+		left: 0;
+		bottom: 87px;
+		
+		h1 {
+			
+			font-weight: 600;
+			font-size: 38px;
+			line-height: 36px;
+			padding-top: 0;
+			padding-bottom: 27px;
+	
+		}
+	}
+	.main-head-text {
+		display: flex;
+		flex-direction: column;
+	}
+	.text-item {
+		width: 200px;
+		font-size: 14px;
+		line-height: 14px;
+//		text-align: center;
+		padding: 15px 0 15px 0;
+		border-right: none;
+		border-bottom: 1px solid #D7D7D7;
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+}

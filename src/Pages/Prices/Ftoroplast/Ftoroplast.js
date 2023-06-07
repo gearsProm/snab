@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-
+import Rowprice from '../../../Components/TablePrice/Rowprice';
 
 function Ftoroplast
  ({column1, column2, column3,column4}) {
@@ -16,23 +16,30 @@ function Ftoroplast
 		<div className="price-item-head" onClick={active}>Фторопласт</div>
 			<div className={`price-item ${clas ? 'active' : ''}`}>
 				<div className="price-item-row">
-					<div>1</div>
-					<div>2</div>
-					<div>3</div>
-					<div>4</div>
+					<Rowprice 
+						column1="Наіменування" 
+						column2="Розміри" 
+						column3="од. виміру"
+						column4="Ціна"
+					/>
+					<Rowprice 
+						column1="Лист" 
+						column2="2-20 мм" 
+						column3="кг"
+						column4="550 грн"
+					/>
+					<Rowprice 
+						column1="Стрижні" 
+						column2="20-200 мм" 
+						column3="кг"
+						column4="550 грн"
+					/>
 				</div>
-				<div className="price-item-row">
-					<div>1</div>
-					<div>2</div>
-					<div>3</div>
-					<div>4</div>
-				</div>
-				
 			</div>
 		</div>
 	</div>
 	)
-}
+};
 
 export default Ftoroplast
 ;

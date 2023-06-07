@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import './tekstolit.scss';
-import Rowprice from '../Rowprice';
+import Rowprice from '../../../Components/TablePrice/Rowprice';
 
-function Tekstolit ({column1, column2, column3,column4}) {
+function TekstolitPrice ({column1, column2, column3,column4}) {
 
 	const [clas, setClas] = useState(false);
 
@@ -108,4 +108,4 @@ function Tekstolit ({column1, column2, column3,column4}) {
 	)
 }
 
-export default Tekstolit;
+export default TekstolitPrice;
