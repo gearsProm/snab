@@ -13,7 +13,7 @@ function KaprolonPrice ({column1, column2, column3,column4}) {
 	return (
 	<div>
 		<div className="price-block"> 
-			<div className="price-item-head" onClick={active}>Капролон стрижні</div>
+			<div className={`price-item-head ${clas ? 'active' : ''}`} onClick={active}><div></div>Капролон стрижні</div>
 			<div className={`price-item ${clas ? 'active' : ''}`}>
 				<div className="price-item-row">
 					<Rowprice 

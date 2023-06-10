@@ -13,7 +13,7 @@ function OrgskloPrice ({column1, column2, column3,column4}) {
 	return (
 	<div>
 		<div className="price-block"> 
-			<div className="price-item-head" onClick={active}>Оргскло</div>
+			<div className={`price-item-head ${clas ? 'active' : ''}`} onClick={active}><div></div>Оргскло</div>
 			<div className={`price-item ${clas ? 'active' : ''}`}>
 				<div className="price-item-row">
 					<Rowprice 

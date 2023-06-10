@@ -13,7 +13,7 @@ function TekstolitPrice ({column1, column2, column3,column4}) {
 	return (
 	<div>
 		<div className="price-block"> 
-			<h3 className="price-item-head" onClick={active}>Текстоліт</h3>
+			<h3 className={`price-item-head ${clas ? 'active' : ''}`} onClick={active}> <div></div> Текстоліт</h3>
 			<div className={`price-item ${clas ? 'active' : ''}`}>
 				<div className="price-item-row">
 					<Rowprice 

@@ -13,7 +13,7 @@ function Ftoroplast
 	return (
 	<div>
 		<div className="price-block"> 
-		<div className="price-item-head" onClick={active}>Фторопласт</div>
+		<div className={`price-item-head ${clas ? 'active' : ''}`} onClick={active}><div></div>Фторопласт</div>
 			<div className={`price-item ${clas ? 'active' : ''}`}>
 				<div className="price-item-row">
 					<Rowprice 

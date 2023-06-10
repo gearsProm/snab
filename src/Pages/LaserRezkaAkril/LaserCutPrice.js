@@ -10,7 +10,7 @@ function LaserCutPrice () {
 	return (
 		<div>
 			<div className="price-block"> 
-				<h3 className="price-item-head" onClick={active}>Лазерна різка оргскла</h3>
+				<h3 className={`price-item-head ${clas ? 'active' : ''}`} onClick={active}><div></div>Лазерна різка оргскла</h3>
 				<div className={`price-item ${clas ? 'active' : ''}`}>
 					<div className="price-item-row">
 						<Rowprice 
