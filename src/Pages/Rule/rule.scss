@@ -1,0 +1,21 @@
+@import '../pages.scss';
+
+.rule {
+	ul, li, {
+	font-style: normal;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 24px;
+	color: $text_2-color;
+	list-style-type: circle;
+	list-style-position: outside;
+	padding: 0 0 10px 0;
+	margin: 0 0 0 10px
+	}
+ul {
+	margin-top: 20px;
+}
+h1, h2, h3, h4 {
+	padding: 20px 0 10px 0;
+}
+}

@@ -73,6 +73,7 @@ if (isMobile.any()) {
 						<Submenu subname="Лазерна різка фанери та ДВП" sublink="/ua/rezka-faneri" />
 						<Submenu subname="Лазерна гравірування" sublink="/ua/laser-gravirovka" />
 						<Submenu subname="Виготовлення виробів" sublink="/ua/yslygi" />
+						<Submenu subname="Вимоги до макетів" sublink="/ua/rule" />
 					</ul>
 				)}
 			</li>
@@ -96,7 +97,7 @@ if (isMobile.any()) {
 					<Submenu subname="Оргскло" sublink="/ua/prays-orgsteklo" />
 					<Submenu subname="Капролон" sublink="/ua/kaprolon-v-sterzhnyakh" />
 					<Submenu subname="Фторопласт" sublink="/ua/ftoroplast" />
-					<Submenu subname="Текстоліт" sublink="/ua/laser-gravirovka" />
+					<Submenu subname="Текстоліт" sublink="/ua/textolit" />
 				</ul>
 				)}
 			</li>
@@ -122,7 +123,7 @@ function Head() {
 			<div className={`head_head ${mmm}`}>
 				<a href="/ua">
 					<div className="head_logo">
-						<img src={require("./head-img/Logo - sign.png")} />
+						<img src={require("./head-img/Logo - sign.png")} alt="logo"/>
 					</div>
 				</a>
 
@@ -149,17 +150,17 @@ function Head() {
 				</div>
 				<div className="head_contact">
 					<a href="tel:+380671275775">
-						<img src={require("./head-img/telephone.png")} />
+						<img src={require("./head-img/telephone.png")} alt="телефон"/>
 					</a>
 					<a
 						href="//t.me/PromPostach"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						<img src={require("./head-img/telegram.png")} />
+						<img src={require("./head-img/telegram.png")} alt="телеграм"/>
 					</a>
 					<a href="viber://chat?number=%2B380504625083">
-						<img src={require("./head-img/viber.png")} />
+						<img src={require("./head-img/viber.png")} alt="вайбер"/>
 					</a>
 				</div>
 				<div className={`burger-menu ${clas ? "active" : ""}`} onClick={active}>

@@ -11,7 +11,12 @@
 	position: relative;
 	
 }
-
+.head_logo {
+	img {
+		width: 99px;
+		height: 31px;
+	}
+}
 .nav_list {
 	display: flex;
 	gap: 31px;
@@ -53,7 +58,8 @@
 .head_contact {
 	img {
 		height: 34px;
-		padding: 0 10px;
+		width: 34px;
+		margin: 0 10px;
 	}
 }
 .nav_menu {
