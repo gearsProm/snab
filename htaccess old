@@ -1,0 +1,68 @@
+
+# BEGIN WordPress
+# Директивы (строки) между `BEGIN WordPress` и `END WordPress`
+# созданы автоматически и подлежат изменению только через фильтры WordPress.
+# Сделанные вручную изменения между этими маркерами будут перезаписаны.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Встановлюємо index як головну сторінку (без .html)
+DirectoryIndex index index.html
+
+# Якщо звертаються до папки ua або ru — показує index
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(ua|ru)/?$ $1/index [L]
+
+
+
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+#RewriteCond %{HTTP_HOST} ^(www\.)?example\.com$ [NC]
+#RewriteCond %{REQUEST_URI} !^/site1/
+#RewriteRule ^(.*)$ /site1/$1 [L]
+
+# Для україномовного варіанту (ua)
+#RewriteCond %{HTTP_HOST} ^snab\.kiev\.ua\ua$ [NC]
+#RewriteCond %{REQUEST_URI} !^/ua/
+#RewriteRule ^(.*)$ /ua/$1 [L]
+#Options -MultiViews
+#RewriteEngine On
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule ^ index.html [QSA,L]
+
+# php -- BEGIN cPanel-generated handler, do not edit
+<IfModule fcgid_module>
+    <IfModule mime_module>
+        AddHandler fcgid-script .php .php7 .phtml
+        FcgidWrapper /usr/local/cpanel/cgi-sys/ea-php74 .php
+        FcgidWrapper /usr/local/cpanel/cgi-sys/ea-php74 .php7
+        FcgidWrapper /usr/local/cpanel/cgi-sys/ea-php74 .phtml
+    </IfModule>
+</IfModule>
+
+
+# Якщо URL не містить "ua" або "ru" — редирект у /ru/
+RewriteCond %{REQUEST_URI} !^/(ua|ru)/ [NC]
+RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|ico|html)$ [NC]
+RewriteRule ^(.*)$ /ru/$1 [R=301,L]
+
+# Старі сторінки .php
+Redirect 301 /org_price.php /ru/prays-orgsteklo
+Redirect 301 /org_1.php /ru/orgsteklo
+Redirect 301 /kaprolon.php /ru/kaprolon-v-sterzhnyakh
+Redirect 301 /tekstolit_1.php /ru/tekstolit
+Redirect 301 /index.php /ru/
+
+# Сторінка 404
+ErrorDocument 404 /404
+
+# php -- END cPanel-generated handler, do not edit

@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preload" href="/fonts/montserrat/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-Light.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+	* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul,
+li {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+h1,
+h2 {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	display: inline-block;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Light.woff2") format("woff2");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Medium.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-SemiBold.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+body {
+	font-weight: 400;
+    font-family: "Montserrat", "Segoe UI", "Roboto", sans-serif;
+	font-size: 14px;
+	line-height: 1.57;
+	color: #1D1D1D;
+	background-color: #FFF;
+}
+
+.app {
+	padding: 0;
+	max-width: 1440px;
+	margin: 0 auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+	color: #1D1D1D;
+}
+
+h1 {
+	font-weight: 600;
+	font-size: 2rem;
+	line-height: 2rem;
+	padding: 50px 0 25px 0;
+}
+
+@media screen and (max-width: 768px) {
+	h1 {
+		font-size: 1.5rem;
+		line-height: 1.5rem;
+		padding: 25px 0 12px 0;
+	}
+}
+
+h2 {
+	font-weight: 500;
+	font-size: 1.875rem;
+	line-height: 1.875rem;
+	padding: 30px 0 15px 0;
+}
+
+@media screen and (max-width: 768px) {
+	h2 {
+		font-size: 1.25rem;
+		line-height: 1.25rem;
+		padding: 15px 0 7px 0;
+	}
+}
+h3 {
+	font-weight: 500;
+	font-size: 1.7rem;
+	line-height: 1.7rem;
+	padding: 25px 0 12px 0;
+}
+@media screen and (max-width: 768px) {
+	h3 {
+		font-size: 1.2rem;
+		line-height: 1.2rem;
+		padding: 15px 0 7px 0;
+	}
+}
+
+p {
+	font-weight: 300;
+	font-size: 1rem;
+	line-height: 1.6rem;
+	color: #706F6D;
+	padding: 10px 0;
+}
+
+.header {
+	width: 100%;
+	height: 80px;
+	position: sticky;
+	top: 0;
+	z-index: 11;
+	border-bottom: 1px solid #989898;
+}
+
+.header-menu {
+	display: flex;
+	height: 80px;
+	justify-content: space-between;
+	align-items: center;
+	flex-grow: 1;
+}
+
+.header-list {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+	color: #706F6D;
+}
+
+.header-list a {
+	position: relative;
+}
+
+.header-list a::before {
+	content: "";
+	position: absolute;
+	width: 0%;
+	height: 1px;
+	bottom: -3px;
+	left: 50%;
+	background-color: #1D1D1D;
+}
+
+.header-item {
+	padding: 10px 0;
+}
+
+.sub-list {
+	display: none;
+	width: 400px;
+	margin-top: 0;
+	position: absolute;
+	top: 30px;
+	background-color: #f7f7f7;
+	padding: 30px;
+}
+
+.header-link {
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+.sub-item {
+	padding: 5px 0;
+}
+
+.sub-link {
+	text-transform: none;
+}
+
+.header-contact {
+	display: flex;
+	gap: 20px;
+}
+
+.header-contact img {
+	width: 34px;
+	height: 34px;
+}
+
+.header-burger {
+	display: none;
+	width: 24px;
+	height: 13px;
+	margin: 25px 5px 25px 10px;
+	position: relative;
+}
+
+.header-burger span {
+	width: 100%;
+	height: 2px;
+	background-color: #000;
+}
+
+.header-burger::before,
+.header-burger::after {
+	background-color: #000;
+	content: "";
+	height: 2px;
+	position: absolute;
+	width: 100%;
+}
+
+.header-burger::before {
+	top: 0;
+}
+
+.header-burger::after {
+	bottom: 0;
+}
+
+@media (max-width: 768px) {
+	.header-burger {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.header-list {
+		flex-direction: column;
+		gap: 18px;
+		background-color: #1D1D1D;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 78px;
+		left: -100%;
+		color: #FFF;
+		padding-left: 20px;
+		justify-content: flex-start;
+		padding-top: 30px;
+	}
+
+	.sub-list {
+		color: #1D1D1D;
+		position: static;
+	}
+}
+
+.language-switcher {
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+@media (min-width: 769px) {
+	.header-item {
+		position: relative;
+	}
+
+	.sub-list {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background-color: white;
+		display: none;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(10px);
+		z-index: 10;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+		padding: 10px 0;
+	}
+
+	.sub-list .sub-item {
+		padding: 0 20px;
+		white-space: nowrap;
+	}
+
+	.sub-list .sub-link {
+		display: block;
+		padding: 8px 0;
+		text-decoration: none;
+	}
+}
+
+.rule li {
+	font-style: normal;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 24px;
+	color: #706F6D;
+	list-style-position: outside;
+	padding: 0 0 10px 0;
+	margin: 0 0 0 10px;
+}
+
+.container {
+	max-width: 1440px;
+	padding: 0 110px;
+}
+
+@media (max-width: 1200px) {
+	.container {
+		padding: 0 50px;
+	}
+}
+
+@media (max-width: 820px) {
+	.container {
+		padding: 0 15px;
+	}
+}
+</style>
+
+<link rel="preload" href="/css/style-light.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/style-light.css"></noscript>
+	<title>Ціни та Прайс-лист на Оргскло, Текстоліт, Фторопласт, Капролон</title>
+	<meta name="description" content=" ">
+	<meta name="keywords" content=" ">
+	<meta name="author" content="ПП &quot;ПРОМПОСТАЧ&quot;">
+	<meta name="robots" content="index, follow">
+
+	<link rel="stylesheet" href="/css/price-item.css"/>
+	
+	<link rel="alternate" hreflang="ru" href="https://snab.kiev.ua/ru/price" />
+	<link rel="alternate" hreflang="uk" href="https://snab.kiev.ua/ua/price" />
+	<link rel="canonical" href="https://snab.kiev.ua/ua/price" />
+</head>
+
+<body>
+
+		<div class="app">
+<div class="container">
+  <header class="header">
+    <nav class="header-menu">
+      <div class="logo">
+        <div class="logo-img">
+          <a href="/ua/">
+            <img src="/img/logo1.png" alt="logo" width="40" height="40">
+          </a>
+        </div>
+      </div>
+
+      <ul class="header-list">
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">послуги</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./lazernaya-rezka-akrila" class="sub-link">Лазерна різка оргскла</a></li>
+            <li class="sub-item"><a href="./rizka-fanery" class="sub-link">Лазерна різка фанери та ДВП</a></li>
+            <li class="sub-item"><a href="./lazerne-hraviyuvannya" class="sub-link">Лазерне гравірування</a></li>
+            <li class="sub-item"><a href="./posluhy" class="sub-link">Виготовлення виробів</a></li>
+            <li class="sub-item"><a href="./rule" class="sub-link">Вимоги до макетів</a></li>
+          </ul>
+        </li>
+
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">каталог товарів</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./prays-orgsteklo" class="sub-link">Оргскло</a></li>
+            <li class="sub-item"><a href="./kaprolon-v-sterzhnyakh" class="sub-link">Капролон</a></li>
+            <li class="sub-item"><a href="./ftoroplast" class="sub-link">Фторопласт</a></li>
+            <li class="sub-item"><a href="./tekstolit" class="sub-link">Текстоліт</a></li>
+            <li class="sub-item"><a href="./deflektor" class="sub-link">Дефлектор для кондиціонера</a></li>
+            <li class="sub-item"><a href="./stellaj-nastenni" class="sub-link">Стелаж для авто</a></li>
+          </ul>
+        </li>
+
+        <li class="header-item">
+          <a href="./price" class="header-link">ціни</a>
+        </li>
+
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">блог</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./sfery-primeneniya-orgstekla" class="sub-link">Використання оргскла</a></li>
+            <li class="sub-item"><a href="./sposoby-primeneniya-orgstekla" class="sub-link">Способи застосування оргскла</a></li>
+            <li class="sub-item"><a href="./rezka-kaprolona" class="sub-link">Різка капролона</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="language-switcher">
+        <a href="#" onclick="switchLanguage('uk')">ua</a> | 
+        <a href="#" onclick="switchLanguage('ru')">ru</a>
+      </div>
+
+      <div class="header-contact">
+        <a href="tel:+380971275775">
+          <img src="/img/telephone.png" alt="Телефон" width="34" height="34">
+        </a>
+        <a href="viber://chat?number=%2B380504625083">
+          <img src="/img/viber.png" alt="Вайбер" width="34" height="34">
+        </a>
+        <a href="//t.me/PromPostach" target="_blank" rel="noopener noreferrer">
+          <img src="/img/telegram.png" alt="Телеграм" width="34" height="34">
+        </a>
+      </div>
+
+      <div class="header-burger">
+        <span></span>
+      </div>
+    </nav>
+  </header>
+</div>	<div class="price">
+	<h1 class="price-head">Прайс</h1>
+
+
+
+	<div class="price-table">
+		<div class="price-block"> 
+				<div class="price-item-head "><div class="up"></div>Оргскло</div>
+				<div class="price-item ">
+					<div class="price-item-row">
+						<div class="row-price">
+							<div>Лист</div>
+							<div>Колір</div>
+							<div>Ціна</div>
+						</div>
+						<div class="row-price">
+							<div>1 мм 1250х2050</div>
+							<div>прозор.</div>
+							<div><span class="eur" data-eur="25"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>1,5 мм 3050х2050</div>
+							<div>прозор.</div>
+							<div><span class="eur" data-eur="74.62"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>1,8 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="84.50"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>2 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="86.39"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>2 мм 3050х2050</div>
+							<div>мол.</div>
+							<div><span class="eur" data-eur="93.71"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>2,7 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="126.8"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>2,7 мм 3050х2050</div>
+							<div>мол.</div>
+							<div><span class="eur" data-eur="135"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>3 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="132.45"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>3 мм 3050х2050</div>
+							<div>мол.</div>
+							<div><span class="eur" data-eur="147.93"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>4 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="178.35"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>4 мм 3050х2050</div>
+							<div>мол.</div>
+							<div><span class="eur" data-eur="197.136"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>5 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="223.72"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>5 мм 3050х2050</div>
+							<div>мол.</div>
+							<div><span class="eur" data-eur="246.57"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>6 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="267.53"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>8 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="365.40"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>10 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="456.15"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>15 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="836.75"></span> грн</div>
+						</div>
+
+					</div>
+				</div>
+				
+		</div>
+	</div>
+
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      // Завантажимо курс із файлу exchangeRate.txt
+      fetch('../../exchangeRate.txt')
+        .then(response => response.text()) // завантажимо як текст
+        .then(text => {
+          // перетворимо текст у число
+          const exchangeRate = parseFloat(text.trim());
+
+          if (isNaN(exchangeRate)) {
+            console.error('Не вдалося розпарсити курс із файлу.');
+            return;
+          }
+
+          // Вказуємо ціни у грн
+          document.querySelectorAll('.eur').forEach(el => {
+            const eur = parseFloat(el.dataset.eur);
+            if (!isNaN(eur)) {
+              const uah = (eur * exchangeRate).toFixed(2);
+              el.textContent = `${uah} `;
+            } else {
+              el.textContent = 'Помилка';
+            }
+          });
+        })
+        .catch(error => console.error(error));
+
+    });
+  </script>
+
+	<div class="price-table">
+		<div class="price-block"> 
+				<div class="price-item-head "><div class="up"></div>Капролон стрижні</div>
+				<div class="price-item ">
+					<div class="price-item-row">
+						<div class="row-price">
+							<div>Диаметр</div>
+							
+							<div>вага 1 м.п</div>
+							<div>Ціна 1 кг</div>
+						</div>
+						<div class="row-price">
+							<div>20 мм</div>
+							
+							<div>0.5</div>
+							<div>249.60 грн</div>
+						</div>
+						<div class="row-price">
+							<div>25 мм</div>
+							
+							<div>0.75</div>
+							<div>249.60 грн</div>
+						</div>
+						<div class="row-price">
+							<div>30 мм</div>
+							
+							<div>3.05</div>
+							<div>249.60 грн</div>
+						</div>
+						<div class="row-price">
+							<div>35 мм</div>
+							
+							<div>1.5</div>
+							<div>249.60 грн</div>
+						</div>
+						<div class="row-price">
+							<div>40 мм</div>
+							
+							<div>1.8</div>
+							<div>249.60 грн</div>
+						</div>
+						<div class="row-price">
+							<div>50 мм</div>
+							
+							<div>2.6</div>
+							<div>249.60 грн</div>
+						</div>
+						<div class="row-price">
+							<div>60 мм</div>
+							
+							<div>3.5</div>
+							<div>249.60 грн</div>
+						</div>
+						<div class="row-price">
+							<div>70 мм</div>
+							
+							<div>5.5</div>
+							<div>249.60 грн</div>
+						</div>
+						<div class="row-price">
+							<div>80 мм</div>
+							
+							<div>6.5</div>
+							<div>249.60 грн</div>
+						</div>
+						<div class="row-price">
+							<div>90 мм</div>
+							
+							<div>9.6</div>
+							<div>249.60 грн</div>
+						</div>
+						<div class="row-price">
+							<div>100 мм</div>
+							
+							<div>10.3</div>
+							<div>249.60 грн</div>
+						</div>
+						<div class="row-price">
+							<div>110 мм</div>
+							
+							<div>11.5</div>
+							<div>249.60 грн</div>
+						</div>
+						<div class="row-price">
+							<div>120 мм</div>
+							
+							<div>15.2</div>
+							<div>249.60 грн</div>
+						</div>
+						<div class="row-price">
+							<div>130 мм</div>
+							
+							<div>17.2</div>
+							<div>249.60 грн</div>
+						</div>
+						<div class="row-price">
+							<div>140 мм</div>
+							
+							<div>19.3</div>
+							<div>249.60 грн</div>
+						</div>
+						<div class="row-price">
+							<div>150 мм</div>
+							
+							<div>22</div>
+							<div>249.60 грн</div>
+						</div>
+						<div class="row-price">
+							<div>160 мм</div>
+							
+							<div>25</div>
+							<div>249.60 грн</div>
+						</div>
+						<div class="row-price">
+							<div>170 мм</div>
+							
+							<div>28</div>
+							<div>249.60 грн</div>
+						</div>
+						<div class="row-price">
+							<div>180 мм</div>
+							
+							<div>33</div>
+							<div>249.60 грн</div>
+						</div>
+						<div class="row-price">
+							<div>200 мм</div>
+							
+							<div>42</div>
+							<div>249.60 грн</div>
+						</div>
+
+					</div>
+				</div>
+				
+		</div>
+	</div>
+
+
+<div class="price-table">
+	<div class="price-block"> 
+			<div class="price-item-head "><div class="up"></div>Текстоліт</div>
+			<div class="price-item ">
+				<div class="price-item-row">
+					<div class="row-price">
+						<div>Наіменування</div>
+						
+						<div>товщина</div>
+						<div>Ціна за кг</div>
+					</div>
+					<div class="row-price">
+						<div>Текстоліт ПТ 1000х2000</div>
+						
+						<div>2 мм</div>
+						<div>240.00 грн</div>
+					</div>
+					<div class="row-price">
+						<div>Текстоліт ПТ 1000х2000</div>
+						
+						<div>3 мм</div>
+						<div>240.00 грн</div>
+					</div>
+					<div class="row-price">
+						<div>Текстоліт ПТ 1000х2000</div>
+						
+						<div>4 мм</div>
+						<div>240.00 грн</div>
+					</div>
+					<div class="row-price">
+						<div>Текстоліт ПТ 1000х2000</div>
+						
+						<div>5 мм</div>
+						<div>240.00 грн</div>
+					</div>
+					<div class="row-price">
+						<div>Текстоліт ПТ 1000х2000</div>
+						
+						<div>6 мм</div>
+						<div>240.00 грн</div>
+					</div>
+					<div class="row-price">
+						<div>Текстоліт ПТ 1000х2000</div>
+						
+						<div>8 мм</div>
+						<div>240.00 грн</div>
+					</div>
+					<div class="row-price">
+						<div>Текстоліт ПТ 1000х2000</div>
+						
+						<div>10 мм</div>
+						<div>240.00 грн</div>
+					</div>
+					<div class="row-price">
+						<div>Текстоліт ПТ 1000х2000</div>
+						
+						<div>15 мм</div>
+						<div>240.00 грн</div>
+					</div>
+					<div class="row-price">
+						<div>Текстоліт ПТ 1000х2000</div>
+						
+						<div>20 мм</div>
+						<div>240.00 грн</div>
+					</div>
+					
+				</div>
+			</div>
+			
+	</div>
+</div>
+
+
+<div class="price-table">
+	<div class="price-block"> 
+			<div class="price-item-head "><div class="up"></div>Фторопласт</div>
+			<div class="price-item ">
+				<div class="price-item-row">
+					<div class="row-price">
+						<div>Наіменування</div>
+						
+						<div>параметри</div>
+						<div>Ціна 1 кг</div>
+					</div>
+					<div class="row-price">
+						<div>Лист</div>
+						
+						<div>2-20 мм</div>
+						<div>550.00 грн</div>
+					</div>
+					<div class="row-price">
+						<div>Стрижні</div>
+						
+						<div>20-200 мм</div>
+						<div>550.00 грн</div>
+					</div>
+
+
+				</div>
+			</div>
+			
+	</div>
+</div>
+
+
+<div class="price-table">
+	<div class="price-block"> 
+			<div class="price-item-head "><div class="up"></div>Лазерна різка оргскла</div>
+			<div class="price-item ">
+				<div class="price-item-row">
+					<div class="row-price">
+						<div>Товщина</div>
+						
+						<div>Вартість < 100 м</div>
+						<div>Вартість > 100 м</div>
+					</div>
+					<div class="row-price">
+						<div>1 мм</div>
+						
+						<div>7.00 грн</div>
+						<div>6.00 грн</div>
+					</div>
+					<div class="row-price">
+						<div>1.5 мм</div>
+						
+						<div>9.00 грн</div>
+						<div>7.00 грн</div>
+					</div><div class="row-price">
+						<div>2 мм</div>
+						
+						<div>10.00 грн</div>
+						<div>8.00 грн</div>
+					</div><div class="row-price">
+						<div>3 мм</div>
+						
+						<div>12.00 грн</div>
+						<div>9.00 грн</div>
+					</div><div class="row-price">
+						<div>4 мм</div>
+						
+						<div>16.00 грн</div>
+						<div>12.00 грн</div>
+					</div><div class="row-price">
+						<div>5 мм</div>
+						
+						<div>20.00 грн</div>
+						<div>15.00 грн</div>
+					</div><div class="row-price">
+						<div>6 мм</div>
+						
+						<div>24.00 грн</div>
+						<div>18.00 грн</div>
+					</div><div class="row-price">
+						<div>8 мм</div>
+						
+						<div>32.00 грн</div>
+						<div>24.00 грн</div>
+					</div><div class="row-price">
+						<div>10 мм</div>
+						
+						<div>40.00 грн</div>
+						<div>30.00 грн</div>
+					</div>
+					
+
+
+				</div>
+			</div>
+			
+	</div>
+</div>
+	</div>
+
+<footer class="app-footer">
+	<div class="footer-footer">
+		<div class="footer-container">
+			<div class="footer"></div>
+			<div class="footer-bg"></div>
+			<div class="footer-content">
+				<div class="footer-info">
+					<div class="footer-head">Наші контакти</div>
+					<div class="footer-info-title">Ми працюємо з 8:30 - 17:00</div>
+				</div>	
+				<div class="footer-info-contact">
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Location.png" alt="Адреса" width="24" height="24">
+						</div>
+						<a href="https://maps.google.com/maps?ll=50.522475,30.480653&z=15&t=m&hl=ru&gl=US&mapclient=embed&cid=7827649011644501388" target="_blank" rel="nofollow"><div class="footer-href">м. Київ, вул. Гетьмана <br>Данила Апостола, буд. 6</div></a>
+					</div>
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Mail.png" alt="Пошта" width="24" height="24">
+						</div>
+						<a href="mailto:info@snab.kiev.ua"><div class="footer-href">info@snab.kiev.ua</div></a>
+					</div>
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Phone.png" alt="Телефон" width="24" height="24">
+						</div>
+						<a href="tel:+380504625083"><div class="footer-href">050 462 50 83</div></a>
+					</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</footer>			
+		</div>
+	<script src="/js/price.js"></script>
+<script src="/js/script.js" defer></script>
+
+<script>
+  window.addEventListener('scroll', function gtagLazyLoad() {
+    const s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y5JKLT28XD';
+    s.defer = true;
+    document.head.appendChild(s);
+    window.removeEventListener('scroll', gtagLazyLoad);
+
+    s.onload = function () {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y5JKLT28XD');
+    };
+  });
+</script>	</body>
+</html>

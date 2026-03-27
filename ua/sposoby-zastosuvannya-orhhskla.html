@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preload" href="/fonts/montserrat/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-Light.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+	* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul,
+li {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+h1,
+h2 {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	display: inline-block;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Light.woff2") format("woff2");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Medium.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-SemiBold.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+body {
+	font-weight: 400;
+    font-family: "Montserrat", "Segoe UI", "Roboto", sans-serif;
+	font-size: 14px;
+	line-height: 1.57;
+	color: #1D1D1D;
+	background-color: #FFF;
+}
+
+.app {
+	padding: 0;
+	max-width: 1440px;
+	margin: 0 auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+	color: #1D1D1D;
+}
+
+h1 {
+	font-weight: 600;
+	font-size: 2rem;
+	line-height: 2rem;
+	padding: 50px 0 25px 0;
+}
+
+@media screen and (max-width: 768px) {
+	h1 {
+		font-size: 1.5rem;
+		line-height: 1.5rem;
+		padding: 25px 0 12px 0;
+	}
+}
+
+h2 {
+	font-weight: 500;
+	font-size: 1.875rem;
+	line-height: 1.875rem;
+	padding: 30px 0 15px 0;
+}
+
+@media screen and (max-width: 768px) {
+	h2 {
+		font-size: 1.25rem;
+		line-height: 1.25rem;
+		padding: 15px 0 7px 0;
+	}
+}
+h3 {
+	font-weight: 500;
+	font-size: 1.7rem;
+	line-height: 1.7rem;
+	padding: 25px 0 12px 0;
+}
+@media screen and (max-width: 768px) {
+	h3 {
+		font-size: 1.2rem;
+		line-height: 1.2rem;
+		padding: 15px 0 7px 0;
+	}
+}
+
+p {
+	font-weight: 300;
+	font-size: 1rem;
+	line-height: 1.6rem;
+	color: #706F6D;
+	padding: 10px 0;
+}
+
+.header {
+	width: 100%;
+	height: 80px;
+	position: sticky;
+	top: 0;
+	z-index: 11;
+	border-bottom: 1px solid #989898;
+}
+
+.header-menu {
+	display: flex;
+	height: 80px;
+	justify-content: space-between;
+	align-items: center;
+	flex-grow: 1;
+}
+
+.header-list {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+	color: #706F6D;
+}
+
+.header-list a {
+	position: relative;
+}
+
+.header-list a::before {
+	content: "";
+	position: absolute;
+	width: 0%;
+	height: 1px;
+	bottom: -3px;
+	left: 50%;
+	background-color: #1D1D1D;
+}
+
+.header-item {
+	padding: 10px 0;
+}
+
+.sub-list {
+	display: none;
+	width: 400px;
+	margin-top: 0;
+	position: absolute;
+	top: 30px;
+	background-color: #f7f7f7;
+	padding: 30px;
+}
+
+.header-link {
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+.sub-item {
+	padding: 5px 0;
+}
+
+.sub-link {
+	text-transform: none;
+}
+
+.header-contact {
+	display: flex;
+	gap: 20px;
+}
+
+.header-contact img {
+	width: 34px;
+	height: 34px;
+}
+
+.header-burger {
+	display: none;
+	width: 24px;
+	height: 13px;
+	margin: 25px 5px 25px 10px;
+	position: relative;
+}
+
+.header-burger span {
+	width: 100%;
+	height: 2px;
+	background-color: #000;
+}
+
+.header-burger::before,
+.header-burger::after {
+	background-color: #000;
+	content: "";
+	height: 2px;
+	position: absolute;
+	width: 100%;
+}
+
+.header-burger::before {
+	top: 0;
+}
+
+.header-burger::after {
+	bottom: 0;
+}
+
+@media (max-width: 768px) {
+	.header-burger {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.header-list {
+		flex-direction: column;
+		gap: 18px;
+		background-color: #1D1D1D;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 78px;
+		left: -100%;
+		color: #FFF;
+		padding-left: 20px;
+		justify-content: flex-start;
+		padding-top: 30px;
+	}
+
+	.sub-list {
+		color: #1D1D1D;
+		position: static;
+	}
+}
+
+.language-switcher {
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+@media (min-width: 769px) {
+	.header-item {
+		position: relative;
+	}
+
+	.sub-list {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background-color: white;
+		display: none;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(10px);
+		z-index: 10;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+		padding: 10px 0;
+	}
+
+	.sub-list .sub-item {
+		padding: 0 20px;
+		white-space: nowrap;
+	}
+
+	.sub-list .sub-link {
+		display: block;
+		padding: 8px 0;
+		text-decoration: none;
+	}
+}
+
+.rule li {
+	font-style: normal;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 24px;
+	color: #706F6D;
+	list-style-position: outside;
+	padding: 0 0 10px 0;
+	margin: 0 0 0 10px;
+}
+
+.container {
+	max-width: 1440px;
+	padding: 0 110px;
+}
+
+@media (max-width: 1200px) {
+	.container {
+		padding: 0 50px;
+	}
+}
+
+@media (max-width: 820px) {
+	.container {
+		padding: 0 15px;
+	}
+}
+</style>
+
+<link rel="preload" href="/css/style-light.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/style-light.css"></noscript>
+	<title>Способи застосування оргскла: від будівництва до медицини</title>
+	<meta name="description" content="Дізнайтеся про різноманітні способи застосування оргскла в сучасному світі">
+	<meta name="keywords" content="оргскло, застосування оргскла, полімери, будівництво, меблі, транспорт, сільське господарство, світлотехніка">
+	<meta name="author" content="ПП &quot;ПРОМПОСТАЧ&quot;">
+	<meta name="robots" content="index, follow">
+
+<link rel="alternate" hreflang="uk" href="https://snab.kiev.ua/ua/sposoby-zastosuvannya-orhhskla" />
+<link rel="alternate" hreflang="ru" href="https://snab.kiev.ua/ru/sposoby-primeneniya-orgstekla" />
+<link rel="alternate" hreflang="x-default" href="https://snab.kiev.ua/ua/sposoby-zastosuvannya-orhhskla" />
+
+<link rel="canonical" href="https://snab.kiev.ua/ua/sposoby-zastosuvannya-orhhskla" />
+
+</head>
+
+<body>
+
+		<div class="app">
+<div class="container">
+  <header class="header">
+    <nav class="header-menu">
+      <div class="logo">
+        <div class="logo-img">
+          <a href="/ua/">
+            <img src="/img/logo1.png" alt="logo" width="40" height="40">
+          </a>
+        </div>
+      </div>
+
+      <ul class="header-list">
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">послуги</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./lazernaya-rezka-akrila" class="sub-link">Лазерна різка оргскла</a></li>
+            <li class="sub-item"><a href="./rizka-fanery" class="sub-link">Лазерна різка фанери та ДВП</a></li>
+            <li class="sub-item"><a href="./lazerne-hraviyuvannya" class="sub-link">Лазерне гравірування</a></li>
+            <li class="sub-item"><a href="./posluhy" class="sub-link">Виготовлення виробів</a></li>
+            <li class="sub-item"><a href="./rule" class="sub-link">Вимоги до макетів</a></li>
+          </ul>
+        </li>
+
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">каталог товарів</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./prays-orgsteklo" class="sub-link">Оргскло</a></li>
+            <li class="sub-item"><a href="./kaprolon-v-sterzhnyakh" class="sub-link">Капролон</a></li>
+            <li class="sub-item"><a href="./ftoroplast" class="sub-link">Фторопласт</a></li>
+            <li class="sub-item"><a href="./tekstolit" class="sub-link">Текстоліт</a></li>
+            <li class="sub-item"><a href="./deflektor" class="sub-link">Дефлектор для кондиціонера</a></li>
+            <li class="sub-item"><a href="./stellaj-nastenni" class="sub-link">Стелаж для авто</a></li>
+          </ul>
+        </li>
+
+        <li class="header-item">
+          <a href="./price" class="header-link">ціни</a>
+        </li>
+
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">блог</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./sfery-primeneniya-orgstekla" class="sub-link">Використання оргскла</a></li>
+            <li class="sub-item"><a href="./sposoby-primeneniya-orgstekla" class="sub-link">Способи застосування оргскла</a></li>
+            <li class="sub-item"><a href="./rezka-kaprolona" class="sub-link">Різка капролона</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="language-switcher">
+        <a href="#" onclick="switchLanguage('uk')">ua</a> | 
+        <a href="#" onclick="switchLanguage('ru')">ru</a>
+      </div>
+
+      <div class="header-contact">
+        <a href="tel:+380971275775">
+          <img src="/img/telephone.png" alt="Телефон" width="34" height="34">
+        </a>
+        <a href="viber://chat?number=%2B380504625083">
+          <img src="/img/viber.png" alt="Вайбер" width="34" height="34">
+        </a>
+        <a href="//t.me/PromPostach" target="_blank" rel="noopener noreferrer">
+          <img src="/img/telegram.png" alt="Телеграм" width="34" height="34">
+        </a>
+      </div>
+
+      <div class="header-burger">
+        <span></span>
+      </div>
+    </nav>
+  </header>
+</div><div class='container'>
+<div class="text-section">
+	<h1>Способи застосування оргскла</h1>
+    
+    <p>Сучасні технології роблять <strong>оргскло</strong> функціональним матеріалом. Переваги оргскла зумовлюють величезний попит та інтерес виробників побутової техніки, будівельних матеріалів, предметів господарського призначення, деталей та елементів автомобілів. Секрет успіху – високі експлуатаційні можливості. До них можна віднести:</p>
+    
+    <ul>
+        <li>стійкість до хімікатів</li>
+        <li>ударостійкість</li>
+        <li>екологічність</li>
+        <li>легкість</li>
+        <li>стійкість до атмосферних явищ</li>
+        <li>світлопроникність</li>
+    </ul>
+    
+    <p>Розглянемо способи застосування оргскла на конкретних прикладах.</p>
+    
+    <h3>1. Будівництво та ремонт</h3>
+    <p>Висока прозорість та легкість цього полімеру знайшла своє застосування в конструюванні дверних та віконних прорізів, стін, підлог, стель. Останні модні тенденції – скляна підлога з органічного скла. Вона відрізняється міцністю (що немаловажливо) та оригінальним сучасним дизайном.</p>
+    
+    <h3>2. Виробництво меблів та інтер'єрних композицій</h3>
+    <p>Оргскло може приймати будь-яку форму і чудово вбудовується в столи, шафи, полички, офісні та побутові меблі. Скляні стільниці та варильні поверхні не тільки виглядають ефектно, але й повністю виконують свою пряму функцію.</p>
+    
+    <h3>3. Транспортна сфера</h3>
+    <p>Скління суден, літаків, автомобілів та іншої техніки вирішує проблеми:</p>
+    <ul>
+        <li>безпеки – має високу стійкість до механічних пошкоджень, і якщо вже й пошкоджується, то не створює травмонебезпечної ситуації;</li>
+        <li>простого конструювання – легка вага та зручна форма (листи, блоки, трубки, прути);</li>
+        <li>невеликої ваги;</li>
+        <li>прозорості.</li>
+    </ul>
+    
+    <h3>4. Сільське господарство</h3>
+    <p>Органічні теплиці – це полімерні споруди, які суттєво економлять і час, і гроші. Вони пропускають світло, захищають від негоди, зберігають внутрішній мікроклімат та теплоізоляцію.</p>
+    
+    <h3>5. Аквариумістика та навіси</h3>
+    <p>Вибираючи акваріум для рибок, споживач зупиняється на акриловому, оскільки він має меншу питому вагу. Павільйони та навіси також часто виготовляють з оргскла.</p>
+    
+    <h3>6. Світлотехніка</h3>
+    <p>Висока світлопроникність робить оргскло незамінним матеріалом у виробництві світлотехніки (панельні розсіювачі, прожектори, лампи, світильники, ліхтарі).</p>
+    
+    <h3>7. Харчова промисловість</h3>
+    <p>Висока екологічність та той факт, що оргскло не виділяє отруйних речовин, дозволяє йому контактувати з харчовими продуктами. Це і панелі холодильника, і полиці в кухонних шафах, і навіть велике різноманіття посуду та ємностей для продуктів.</p>
+    
+    <h3>8. Медицина</h3>
+    <p>Оргскло – матеріал, який не спотворює зображення. Воно знайшло своє застосування в медичній галузі. Підходить для виготовлення оптичних приладів, лінз та протезування.</p>
+    
+    <h3>Інші застосування оргскла:</h3>
+    <ol>
+        <li>Декоративні елементи в інтер'єрі найрізноманітніших форм, кольорів, розмірів</li>
+        <li>Органайзери, ємності, коробочки</li>
+        <li>Фігурні написи, об'ємні літери</li>
+        <li>Рекламні вітрини, цінові таблички, білборди, захисні стекла</li>
+        <li>Душові кабіни, колби для солярію, покриття басейнів</li>
+        <li>Архітектурні композиції, фонтани, фігури, статуетки</li>
+        <li>Прикраси, біжутерія</li>
+        <li>Захисні перегородки в охоронних комплексах та офісах</li>
+        <li>Циферблати для технічних приладів, годинників</li>
+        <li>Презентаційні стенди, дисплеї, подіуми, лайтбокси</li>
+    </ol>
+    
+    <p>Як бачите, у всіх виробничих сферах знаходиться застосування універсального матеріалу – органічного скла. Якісні експлуатаційні характеристики роблять його кращим за інші полімерні матеріали та створюють їм солідну конкуренцію.</p>
+
+</div></div>
+
+<footer class="app-footer">
+	<div class="footer-footer">
+		<div class="footer-container">
+			<div class="footer"></div>
+			<div class="footer-bg"></div>
+			<div class="footer-content">
+				<div class="footer-info">
+					<div class="footer-head">Наші контакти</div>
+					<div class="footer-info-title">Ми працюємо з 8:30 - 17:00</div>
+				</div>	
+				<div class="footer-info-contact">
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Location.png" alt="Адреса" width="24" height="24">
+						</div>
+						<a href="https://maps.google.com/maps?ll=50.522475,30.480653&z=15&t=m&hl=ru&gl=US&mapclient=embed&cid=7827649011644501388" target="_blank" rel="nofollow"><div class="footer-href">м. Київ, вул. Гетьмана <br>Данила Апостола, буд. 6</div></a>
+					</div>
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Mail.png" alt="Пошта" width="24" height="24">
+						</div>
+						<a href="mailto:info@snab.kiev.ua"><div class="footer-href">info@snab.kiev.ua</div></a>
+					</div>
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Phone.png" alt="Телефон" width="24" height="24">
+						</div>
+						<a href="tel:+380504625083"><div class="footer-href">050 462 50 83</div></a>
+					</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</footer>			
+		</div>
+<script src="/js/script.js" defer></script>
+
+<script>
+  window.addEventListener('scroll', function gtagLazyLoad() {
+    const s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y5JKLT28XD';
+    s.defer = true;
+    document.head.appendChild(s);
+    window.removeEventListener('scroll', gtagLazyLoad);
+
+    s.onload = function () {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y5JKLT28XD');
+    };
+  });
+</script>	</body>
+</html>

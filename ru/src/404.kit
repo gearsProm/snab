@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- @import '../../css/style-css.html' -->
+
+	<title>Oops! Page Not Found</title>
+
+    <!-- Додаткові мета-теги -->
+    <meta name="author" content="ПП "ПРОМПОСТАЧ">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="">
+	 <style>
+   .page404 {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f9f9f9;
+      color: #333;
+      text-align: center;
+    }
+    h1 {
+      font-size: 6rem;
+      margin: 0;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    .buttons {
+      margin-top: 2rem;
+    }
+    button, a.home-link {
+      background-color:rgb(47, 48, 50);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      text-decoration: none;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    button:hover, .home-link:hover {
+      background-color:rgb(95, 101, 107);
+    }
+  </style>
+</head>
+<body>
+
+	<div class="app">
+		<!-- @import 'head.html' -->
+		<div class='container'>
+			<div class="page404">
+				<h1>404</h1>
+				<p>Ой! Ми загубили цю сторінку. Може вона втекла на обід 🤷</p>
+				<div class="buttons">
+					<button onclick="history.back()">⬅ Назад</button>
+					<a href="/" class="home-link">🏠 На головну</a>
+				</div>
+			</div>
+		</div>
+	<!-- @import 'footer.html' -->
+
+	</div>
+		<!--@import "../../js/scrip.html" -->
+</body>
+</html>

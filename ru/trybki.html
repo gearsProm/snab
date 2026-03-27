@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preload" href="/fonts/montserrat/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-Light.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+	* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul,
+li {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+h1,
+h2 {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	display: inline-block;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Light.woff2") format("woff2");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Medium.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-SemiBold.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+body {
+	font-weight: 400;
+    font-family: "Montserrat", "Segoe UI", "Roboto", sans-serif;
+	font-size: 14px;
+	line-height: 1.57;
+	color: #1D1D1D;
+	background-color: #FFF;
+}
+
+.app {
+	padding: 0;
+	max-width: 1440px;
+	margin: 0 auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+	color: #1D1D1D;
+}
+
+h1 {
+	font-weight: 600;
+	font-size: 2rem;
+	line-height: 2rem;
+	padding: 50px 0 25px 0;
+}
+
+@media screen and (max-width: 768px) {
+	h1 {
+		font-size: 1.5rem;
+		line-height: 1.5rem;
+		padding: 25px 0 12px 0;
+	}
+}
+
+h2 {
+	font-weight: 500;
+	font-size: 1.875rem;
+	line-height: 1.875rem;
+	padding: 30px 0 15px 0;
+}
+
+@media screen and (max-width: 768px) {
+	h2 {
+		font-size: 1.25rem;
+		line-height: 1.25rem;
+		padding: 15px 0 7px 0;
+	}
+}
+h3 {
+	font-weight: 500;
+	font-size: 1.7rem;
+	line-height: 1.7rem;
+	padding: 25px 0 12px 0;
+}
+@media screen and (max-width: 768px) {
+	h3 {
+		font-size: 1.2rem;
+		line-height: 1.2rem;
+		padding: 15px 0 7px 0;
+	}
+}
+
+p {
+	font-weight: 300;
+	font-size: 1rem;
+	line-height: 1.6rem;
+	color: #706F6D;
+	padding: 10px 0;
+}
+
+.header {
+	width: 100%;
+	height: 80px;
+	position: sticky;
+	top: 0;
+	z-index: 11;
+	border-bottom: 1px solid #989898;
+}
+
+.header-menu {
+	display: flex;
+	height: 80px;
+	justify-content: space-between;
+	align-items: center;
+	flex-grow: 1;
+}
+
+.header-list {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+	color: #706F6D;
+}
+
+.header-list a {
+	position: relative;
+}
+
+.header-list a::before {
+	content: "";
+	position: absolute;
+	width: 0%;
+	height: 1px;
+	bottom: -3px;
+	left: 50%;
+	background-color: #1D1D1D;
+}
+
+.header-item {
+	padding: 10px 0;
+}
+
+.sub-list {
+	display: none;
+	width: 400px;
+	margin-top: 0;
+	position: absolute;
+	top: 30px;
+	background-color: #f7f7f7;
+	padding: 30px;
+}
+
+.header-link {
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+.sub-item {
+	padding: 5px 0;
+}
+
+.sub-link {
+	text-transform: none;
+}
+
+.header-contact {
+	display: flex;
+	gap: 20px;
+}
+
+.header-contact img {
+	width: 34px;
+	height: 34px;
+}
+
+.header-burger {
+	display: none;
+	width: 24px;
+	height: 13px;
+	margin: 25px 5px 25px 10px;
+	position: relative;
+}
+
+.header-burger span {
+	width: 100%;
+	height: 2px;
+	background-color: #000;
+}
+
+.header-burger::before,
+.header-burger::after {
+	background-color: #000;
+	content: "";
+	height: 2px;
+	position: absolute;
+	width: 100%;
+}
+
+.header-burger::before {
+	top: 0;
+}
+
+.header-burger::after {
+	bottom: 0;
+}
+
+@media (max-width: 768px) {
+	.header-burger {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.header-list {
+		flex-direction: column;
+		gap: 18px;
+		background-color: #1D1D1D;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 78px;
+		left: -100%;
+		color: #FFF;
+		padding-left: 20px;
+		justify-content: flex-start;
+		padding-top: 30px;
+	}
+
+	.sub-list {
+		color: #1D1D1D;
+		position: static;
+	}
+}
+
+.language-switcher {
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+@media (min-width: 769px) {
+	.header-item {
+		position: relative;
+	}
+
+	.sub-list {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background-color: white;
+		display: none;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(10px);
+		z-index: 10;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+		padding: 10px 0;
+	}
+
+	.sub-list .sub-item {
+		padding: 0 20px;
+		white-space: nowrap;
+	}
+
+	.sub-list .sub-link {
+		display: block;
+		padding: 8px 0;
+		text-decoration: none;
+	}
+}
+
+.rule li {
+	font-style: normal;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 24px;
+	color: #706F6D;
+	list-style-position: outside;
+	padding: 0 0 10px 0;
+	margin: 0 0 0 10px;
+}
+
+.container {
+	max-width: 1440px;
+	padding: 0 110px;
+}
+
+@media (max-width: 1200px) {
+	.container {
+		padding: 0 50px;
+	}
+}
+
+@media (max-width: 820px) {
+	.container {
+		padding: 0 15px;
+	}
+}
+</style>
+
+<link rel="preload" href="/css/style-light.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/style-light.css"></noscript>	<title>Трубки электроизоляционные •</title>
+<meta name="description" content="Трубки из поливинилхлоридного пластиката ТВ-40 ГОСТ 19034-82 Трубки из поливинилхлоридного пластиката марки ТВ-40 применяются для защиты и дополнительной">
+<meta name="keywords" content=" ">
+
+    <!-- Додаткові мета-теги -->
+    <meta name="author" content="ПП "ПРОМПОСТАЧ">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="">
+
+</head>
+<body>
+
+<div class="app">
+
+<div class="container">
+  <header class="header">
+    <nav class="header-menu">
+      <div class="logo">
+        <div class="logo-img">
+          <a href="/ru/">
+            <img src="/img/logo1.png" alt="logo" width="40" height="40">
+          </a>
+        </div>
+      </div>
+
+      <ul class="header-list">
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">Услуги</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./lazernaya-rezka-akrila" class="sub-link">Лазерная резка оргстекла</a></li>
+            <li class="sub-item"><a href="./rezka-faneri" class="sub-link">Лазерная резка фанеры и ДВП</a></li>
+            <li class="sub-item"><a href="./laser-gravirovka" class="sub-link">Лазерная гравировка</a></li>
+            <li class="sub-item"><a href="./yslygi" class="sub-link">Изготовление изделий</a></li>
+            <li class="sub-item"><a href="./rule" class="sub-link">Требования к макетам</a></li>
+          </ul>
+        </li>
+
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">Каталог товаров</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./prays-orgsteklo" class="sub-link">Оргстекло</a></li>
+            <li class="sub-item"><a href="./kaprolon-v-sterzhnyakh" class="sub-link">Капролон</a></li>
+            <li class="sub-item"><a href="./ftoroplast" class="sub-link">Фторопласт</a></li>
+            <li class="sub-item"><a href="./tekstolit" class="sub-link">Текстолит</a></li>
+            <li class="sub-item"><a href="./deflektor" class="sub-link">Дефлектор для кондиционера</a></li>
+            <li class="sub-item"><a href="./stellaj-nastenni" class="sub-link">Стеллаж для машинок</a></li>
+          </ul>
+        </li>
+
+        <li class="header-item">
+          <a href="./price" class="header-link">Цены</a>
+        </li>
+
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">Блог</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./sfery-primeneniya-orgstekla" class="sub-link">Сферы применения оргстекла</a></li>
+            <li class="sub-item"><a href="./sposoby-primeneniya-orgstekla" class="sub-link">Способы использования оргстекла</a></li>
+            <li class="sub-item"><a href="./rezka-kaprolona" class="sub-link">Резка капролона</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="language-switcher">
+        <a href="#" onclick="switchLanguage('uk')">ua</a> | 
+        <a href="#" onclick="switchLanguage('ru')">ru</a>
+      </div>
+
+      <div class="header-contact">
+        <a href="tel:+380971275775">
+          <img src="/img/telephone.png" alt="Телефон" width="34" height="34">
+        </a>
+        <a href="viber://chat?number=%2B380504625083">
+          <img src="/img/viber.png" alt="Вайбер" width="34" height="34">
+        </a>
+        <a href="//t.me/PromPostach" target="_blank" rel="noopener noreferrer">
+          <img src="/img/telegram.png" alt="Телеграм" width="34" height="34">
+        </a>
+      </div>
+
+      <div class="header-burger">
+        <span></span>
+      </div>
+    </nav>
+  </header>
+</div><div class='container'>
+<h1>Трубки электроизоляционные</h1>
+
+Трубки из поливинилхлоридного пластиката ТВ-40
+<strong>ГОСТ 19034-82</strong>
+<p align="left">Трубки из поливинилхлоридного пластиката марки ТВ-40 применяются для защиты и дополнительной изоляции проводов и кабелей, работающих при напряжении до 1000В постоянного и переменного тока частотой 50Гц. Температурный диапазон эксплуатации в статическом состоянии от -40°С до +70°С.</p>
+<p class="style15"><strong>Основные технические характеристики</strong></p>
+<p class="style15" align="center"><span class="style8">ТВ-40</span></p>
+
+<table border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width="201">
+<p class="style29" align="center"><strong>Наименование</strong>
+<strong>показателя</strong></p>
+</td>
+<td valign="top" width="101">
+<p class="style29" align="center"><strong>Единица</strong>
+<strong>измерения</strong></p>
+</td>
+<td valign="top" width="201">
+<p class="style29" align="center"><strong>Значение показател</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p class="style29">Внешний вид</p>
+</td>
+<td valign="top">
+<p class="style29" align="center">-</p>
+</td>
+<td valign="top">
+<p class="style29">Наружная поверхность трубок должна быть ровной, гладкой без трещин, пор, пузырей и отслоений, видимых не вооруженным глазом.</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p class="style29">Цвет</p>
+</td>
+<td valign="top">
+<p class="style29" align="center">-</p>
+</td>
+<td valign="top">
+<p class="style29" align="center">По согласованию с потебителем</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p class="style29">Удельное объемное электрическое сопротивление,
+не менее</p>
+</td>
+<td valign="top">
+<p class="style29" align="center">Ом*см</p>
+</td>
+<td valign="top">
+<p class="style29" align="center">        <span class="style30">10</span>
+1*10</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p class="style29">Электрическая прочность</p>
+</td>
+<td valign="top">
+<p class="style29" align="center">кВ/мм</p>
+</td>
+<td valign="top">
+<p class="style29" align="center">15,8</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p class="style29">Прочность при растяжении.</p>
+</td>
+<td valign="top">
+<p class="style29" align="center">МПа (кг/см2)</p>
+</td>
+<td valign="top">
+<p class="style29" align="center">16,3 (170)</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p class="style29">Относительное удлинение при разрыве , не менее</p>
+</td>
+<td valign="top">
+<p class="style29" align="center">%</p>
+</td>
+<td valign="top">
+<p class="style29" align="center">220</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p align="left">Трубки сматываются в бухты весом 8-10 кг. Длина трубки должна быть не менее 5 метров. Бухты упаковываются в мешки из пленки ПВХ. Гарантийиный срок хранения трубок – 12,5 лет со дня изготовления.</p>
+
+<h2 id="TKP" title="Трубка ТКР">Трубка ТКР</h2>
+<p class="style25" align="left"><span class="style2"><span class="style8"><strong>Трубки электроизоляционные гибкие марки ТКР</strong>
+</span></span><span class="style10"><strong>ТУ 2541-001-48423543-99</strong></span></p>
+<p align="left">Трубки электроизоляционные гибкие марки ТКР изготавливаются из высококачественной кремнийорганической (силиконовой) резины.Используются для изоляции выводных и монтажных проводов электрооборудования, токоведущих элементов электротехнических устройств и радиоаппаратуры, пучков изолированных проводов, концевой заделки и ремонта высоковольтных кабелей, работающих при постоянном и переменном напряжении до 1000 В, частотой до 500 Гц.</p>
+<p class="style15"><strong>Основные технические характеристики</strong></p>
+<p class="style15" align="center"><span class="style8">ТКР</span></p>
+
+<table border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width="330">
+<p class="style29" align="center"><strong>Наименование</strong>
+<strong>Показателя</strong></p>
+</td>
+<td colspan="2" valign="top" width="413">
+<p class="style29" align="center"><strong>Значение показателей</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="330">
+<p class="style29"><strong>Испытательное напряжение переменного тока частоты 50 Гц, кВ, не менее</strong></p>
+</td>
+<td valign="top" width="192">
+<p class="style29" align="center"><strong>660 В</strong></p>
+</td>
+<td valign="top" width="221">
+<p class="style29" align="center"><strong>1000В</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="330">
+<p class="style29">в исходном состоянии (15±35 °С, влажность 45—70 %)</p>
+</td>
+<td valign="top" width="192">
+<p class="style29" align="center">4,0</p>
+</td>
+<td valign="top" width="221">
+<p class="style29" align="center">12,0</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="330">
+<p class="style29">после воздействия повышенной температуры 210±10 °С в течение 45±0,5 ч,</p>
+</td>
+<td valign="top" width="192">
+<p class="style29" align="center">3,0</p>
+</td>
+<td valign="top" width="221">
+<p class="style29" align="center">10,0</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="330">
+<p class="style29">пониженной температуры -60±2 °С в течение 1±0,1ч, при воздействии воды 15±35</p>
+</td>
+<td valign="top" width="192">
+<p class="style29" align="center">1,0</p>
+</td>
+<td valign="top" width="221">
+<p class="style29" align="center">6,0</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="330">
+<p class="style29">под воздействием продавливающей нагрузки, кВ, не менее</p>
+</td>
+<td valign="top" width="192">
+<p class="style29" align="center">-</p>
+</td>
+<td valign="top" width="221">
+<p class="style29" align="center">6,0</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="330">
+<p class="style29">Условная прочность при растяжении, МПа, не менее</p>
+</td>
+<td valign="top" width="192">
+<p class="style29" align="center">4,5</p>
+</td>
+<td valign="top" width="221">
+<p class="style29" align="center">4,0</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="330">
+<p class="style29">Относительное удлинение при разрыве, %, не менее</p>
+</td>
+<td valign="top" width="192">
+<p class="style29" align="center">300</p>
+</td>
+<td valign="top" width="221">
+<p class="style29" align="center">300</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="style13" align="left">Гарантийный срок хранения трубок – 18 месяцев со дня изготовления.готовления.</p>
+
+<h2 id="TLV" title="Трубка ТЛВ">Трубка ТЛВ</h2>
+<p class="style25" align="left"><span class="style2"><span class="style8"><strong>Электроизоляционные трубки марки ТЛВ, ТЛМ</strong>
+</span></span><span class="style10"><strong>ТУ 16-89</strong></span></p>
+<p align="left">Электроизоляционные трубки марки ТЛВ, ТЛМ представляют собой пропитанные электроизоляционным лаком хлопчатобумажные шнур чулки. Трубки применяются для изоляции проводов электротехнических и радиотехнических изделий, работающих при постоянном и переменном напряжении до 660 В частоты 50 ГЦ. Температурный диапазон использования трубок от -50 град. °С до +105 град. °С. Маслостойкие: Трубки изготавливаются диаметром от 0.75 мм до 11.0 мм длиной 1000 мм.Трубки электроизоляционные гибкие марки ТКР изготавливаются из высококачественной кремнийорганической (силиконовой) резины. Используются для изоляции выводных и монтажных проводов электрооборудования, токоведущих элементов электротехнических устройств и радиоаппаратуры, пучков изолированных проводов, концевой заделки и ремонта высоковольтных кабелей, работающих при постоянном и переменном напряжении до 1000 В, частотой до 500 Гц. Класс нагревостойкости: 200 по ГОСТ 8865-93.</p>
+<p class="style15"><strong>Основные технические характеристики</strong></p>
+<p class="style15" align="center"><span class="style8">ТЛВ, ТЛМ</span></p>
+
+<table border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width="653">
+<p class="style29" align="center"><strong>Наименование</strong>
+<strong>Показателя</strong></p>
+</td>
+<td valign="top" width="321">
+<p class="style29" align="center"><strong>Значение показателей</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="653">
+<p class="style29"><strong>Пробивное напряжение переменного тока частотой 50 Гц, кВ, не менее</strong></p>
+</td>
+<td valign="top" width="321">
+<p class="style29" align="center"><strong> </strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="653">
+<p class="style29">В исходном состоянии при температуре (15-35) °С и относительной влажности (45-75) %</p>
+</td>
+<td valign="top" width="321">
+<p class="style29" align="center">5,0</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="653">
+<p class="style29">После перегиба на угол ?/2, рад(90°)</p>
+</td>
+<td valign="top" width="321">
+<p class="style29" align="center">3,0</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="653">
+<p class="style29">После перегиба вокруг стержня на угол ?, рад(180°)</p>
+</td>
+<td valign="top" width="321">
+<p class="style29" align="center">1,0</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="653">
+<p class="style29">После выдержки в бензине в течении (24±0,5) ч. при температуре (15-35) °С</p>
+</td>
+<td valign="top" width="321">
+<p class="style29" align="center">4,0</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="653">
+<p class="style29">После выдержки в трансформаторном масле при температуре (90±5) °С в течении:
+(8±0,4) ч. Для трубок марки ТЛВ
+(72±0,4) ч. Для трубок марки ТЛМ</p>
+</td>
+<td valign="top" width="321">
+<p class="style29" align="center">5,0
+6,0</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="653">
+<p class="style29">После выдержки в термостате при температуре (120±5) °С в течении (48±0,5) ч.</p>
+</td>
+<td valign="top" width="321">
+<p class="style29" align="center">5,0</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="653">
+<p class="style29">После выдержки при относительной влажности воздуха (95±2)% при температуре (15-35) °С в течении (24±0,5) ч.</p>
+</td>
+<td valign="top" width="321">
+<p class="style29" align="center">2,0</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="653">
+<p class="style29">После выдержки при температуре минус (50±2) °С в течении (2±0,1) ч.</p>
+</td>
+<td valign="top" width="321">
+<p class="style29" align="center">1,0</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="653">
+<p class="style29">После истирания внутренней поверхности трубки</p>
+</td>
+<td valign="top" width="321">
+<p class="style29" align="center">3,0</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="653">
+<p class="style29">Сопротивление изоляции при напряжении 500В, МОм, не менее</p>
+</td>
+<td valign="top" width="321">
+<p class="style29" align="center">1500</p>
+</td>
+</tr>
+</tbody>
+</table>
+--&gt;
+<p align="left">Трубки одной марки одного диаметра длиной (1000±50) мм собирают  в пачки по 10-100 шт. Гарантийный срок хранения трубок – 18 месяцев со дня изготовления.</p>
+
+<h2 id="TYT" title="Трубка ТУТ">Трубка ТУТ</h2>
+<p class="style25" align="left"><span class="style2"><span class="style8"><strong>Термоусаживающиеся трубки ТУТ</strong>
+</span></span><span class="style10"><strong>ТУ 95.1613-87</strong></span></p>
+<p align="left">Термоусаживающиеся трубки ТУТ  применяются для ремонта испорченной изоляции и покрытия проводов, изоляции и герметизации мест пайки разъемов электрических кабелей и кабелей связи, изоляции соединений проводов и их ожгутовки, создания защитного покрытия от механических и химических воздействий, защитного покрытия проводов и деталей с надписями или маркировкой, соединения и ремонта гидравлических трубопроводов, фазировка проводов электрических соединений.</p>
+<p class="style15"><strong>Основные технические характеристики</strong></p>
+<p class="style15" align="center"><span class="style8">ТУТ</span></p>
+
+<table border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width="458">
+<p class="style29" align="center"><strong>Наименование</strong>
+<strong>Показателя</strong></p>
+</td>
+<td valign="top" width="276">
+<p class="style29" align="center"><strong>Значение показателей</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="458">
+<p class="style29">Относительное удлинение при разрыве</p>
+</td>
+<td valign="top" width="276">
+<p class="style29" align="center">не менее 300%</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="458">
+<p class="style29"> Радиальная усадка</p>
+</td>
+<td valign="top" width="276">
+<p class="style29" align="center">не менее 50%</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="458">
+<p class="style29"> Температура усадки</p>
+</td>
+<td valign="top" width="276">
+<p class="style29" align="center">90-140°С</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="458">
+<p class="style29"> Температурный диапазон в режиме эксплуатации</p>
+</td>
+<td valign="top" width="276">
+<p class="style29" align="center">от –55 до +125°С</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="458">
+<p class="style29"> Сопротивление</p>
+</td>
+<td valign="top" width="276">
+<p class="style29" align="center">более 1014 Ом/см</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="458">
+<p class="style29"> Прочность на растяжение</p>
+</td>
+<td valign="top" width="276">
+<p class="style29" align="center">не менее 15MПа</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="458">
+<p class="style29"> Диэлектрическая прочность</p>
+</td>
+<td valign="top" width="276">
+<p class="style29" align="center">не менее 20кВ/мм</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="458">
+<p class="style29"> Рабочее напряжение</p>
+</td>
+<td valign="top" width="276">
+<p class="style29" align="center">до 1 кВ</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="458">
+<p class="style29"> Диаметр трубки в раздутом состоянии</p>
+</td>
+<td valign="top" width="276">
+<p class="style29" align="center">от 2 до 110 мм</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="458">
+<p class="style29"> Стандартные цвета</p>
+</td>
+<td valign="top" width="276">
+<p class="style29" align="center">черный, белый
+(красный, синий, зеленый, желтый — по инд. заказу)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p align="left">Термоусаживаемая трубка поставляется в рулонах. Гарантийный срок хранения трубок – не менее 10 лет со дня изготовления.</p>
+
+</div>
+<!-- <link rel="stylesheet" href=""/>  -->
+<footer class="app-footer">
+	<div class="footer-footer">
+		<div class="footer-container">
+			<div class="footer"></div>
+			<div class="footer-bg"></div>
+			<div class="footer-content">
+				<div class="footer-info">
+					<div class="footer-head">Наши контакты</div>
+					<div class="footer-info-title">Мы работаем 9:00 - 17:00</div>
+				</div>	
+				<div class="footer-info-contact">
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Location.png" alt="Адрес" width="24" height="24">
+						</div>
+						<a href="https://maps.google.com/maps?ll=50.522475,30.480653&z=15&t=m&hl=ru&gl=US&mapclient=embed&cid=7827649011644501388" target="_blank" rel="nofollow"><div class="footer-href">Киев, ул. Гетьмана <br>Данила Апостола, д. 6</div></a>
+					</div>
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Mail.png" alt="Почта" width="24" height="24">
+						</div>
+						<a href="mailto:info@snab.kiev.ua"><div class="footer-href">info@snab.kiev.ua</div></a>
+					</div>
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Phone.png" alt="Телефон" width="24" height="24">
+						</div>
+						<a href="tel:+380504625083"><div class="footer-href">050 462 50 83</div></a>
+					</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</footer>			
+</div>
+<script src="/js/script.js" defer></script>
+
+<script>
+  window.addEventListener('scroll', function gtagLazyLoad() {
+    const s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y5JKLT28XD';
+    s.defer = true;
+    document.head.appendChild(s);
+    window.removeEventListener('scroll', gtagLazyLoad);
+
+    s.onload = function () {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y5JKLT28XD');
+    };
+  });
+</script>	</body>
+</html>

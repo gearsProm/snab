@@ -1,0 +1,112 @@
+#RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+
+# 🔁 Редірект з кореня сайту на /index
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/(\s|\?)
+RewriteRule ^$ /index [R=301,L]
+
+# Якщо точний запит /ua — редірект на /ua/index
+RewriteRule ^ua/?$ /ua/index [R=301,L]
+
+# Якщо точний запит /ru — редірект на /ru/index
+RewriteRule ^ru/?$ /ru/index [R=301,L]
+
+# 🔁 Редірект з *.html на чистий URL без .html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+
+# ✅ Якщо файл існує з .html — відкриваємо його по чистому URL
+#RewriteCond %{REQUEST_FILENAME}.html -f
+#RewriteRule ^(.+?)/?$ $1.html [L]
+
+# ✅ Якщо існує файл або папка — показуємо як є
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Перенаправлення файлів з подвійною двокрапкою в кінці до папки /ru/
+RewriteRule ^(.*)::$ /ru/$1 [R=301,L]
+
+# 🔁 Ручні редіректи
+Redirect 301 /org_price.php /ru/prays-orgsteklo
+Redirect 301 /org_1.php /ru/prays-orgsteklo
+Redirect 301 /kaprolon.php /ru/kaprolon-v-sterzhnyakh
+Redirect 301 /tekstolit_1.php /ru/tekstolit
+Redirect 301 /ru/tekstolit_1.php /ru/tekstolit
+Redirect 301 /ru/uslugi /ru/yslygi
+Redirect 301 /lazer_cut.php /ru/lazernaya-rezka-akrila
+Redirect 301 /yslygi.php /ru/yslygi
+Redirect 301 /asbo_price.php /ru/asboizdeliya
+Redirect 301 /pvh.php /ru/listy-pvkh-vspenennyy
+Redirect 301 /emali /ru/emali-2
+
+Redirect 301 /orgsteklo-v-interere /ru/orgsteklo-v-interere
+Redirect 301 /stelazh-dlya-modelej-z-akrilu /ua/stellaj-nastenni
+Redirect 301 /ctef /ru/ctef
+Redirect 301 /laki92 /ru/laki92
+Redirect 301 /uslugi /ru/yslygi
+Redirect 301 /izdeliya-iz-akrila /ru/izdeliya-iz-akrila
+Redirect 301 /stekloplastik /ru/izdeliy-ctekloplastik
+
+Redirect 301 /index.php /index
+Redirect 301 /ru/index.php /index
+
+Redirect 301 /orgsklo-lysty /ua/prays-orgsteklo
+Redirect 301 /orgsteklo /ru/prays-orgsteklo
+Redirect 301 /lazernaya-rezka-akrila /ru/lazernaya-rezka-akrila
+Redirect 301 /rezka-faneri /ru/rezka-faneri
+Redirect 301 /laser-gravirovka /ru/laser-gravirovka
+Redirect 301 /yslygi /ru/yslygi
+Redirect 301 /rule /ru/rule
+Redirect 301 /prays-orgsteklo /ru/prays-orgsteklo
+Redirect 301 /ftoroplast /ru/ftoroplast
+Redirect 301 /tekstolit /ru/tekstolit
+Redirect 301 /stellaj-nastenni /ru/stellaj-nastenni
+Redirect 301 /price /ru/price
+Redirect 301 /izdeliya-iz-polimerov /ru/izdeliy-ctekloplastik
+Redirect 301 /ru/izdeliya-iz-polimerov /ru/izdeliy-ctekloplastik
+Redirect 301 /game-box /ru/game-box
+Redirect 301 /kaprolon-v-sterzhnyakh /ru/kaprolon-v-sterzhnyakh
+Redirect 301 /kaprolon-v-stryzhnyah /ua/kaprolon-v-sterzhnyakh
+Redirect 301 /ru/orgsklo-lysty /ru/prays-orgsteklo
+Redirect 301 /ru/stekloplastik /ru/izdeliy-ctekloplastik
+Redirect 301 /ru/stelazh-dlya-modelej-z-akrilu /ru/stellaj-nastenni
+Redirect 301 /vodnye-gorki /ru/vodnye-gorki
+Redirect 301 /stellaj-nastenni/ /ru/stellaj-nastenni
+Redirect 301 /listy-pvkh-vspenennyy /ru/listy-pvkh-vspenennyy
+Redirect 301 /sfery-primeneniya-orgstekla /ru/sfery-primeneniya-orgstekla
+
+Redirect 301 /lazerne-rizannya-akrilu /ua/lazernaya-rezka-akrila
+Redirect 301 /statti/obshhie-rekomendacii-po-mexanicheskoj-obrabotke-poliamida /ru/obshhie-rekomendacii-po-mexanicheskoj-obrabotke-poliamida
+Redirect 301 /sverlenie-otverstij-v-kaprolone /ru/sverlenie-otverstij-v-kaprolone
+Redirect 301 /sposoby-primeneniya-orgstekla /ru/sposoby-primeneniya-orgstekla
+Redirect 301 /emali-2 /ru/emali-2
+Redirect 301 /prays /ru/price
+Redirect 301 /polikarbonat /ru/polikarbonat
+Redirect 301 /uk/ /ua/
+Redirect 301 /hamam /ru/hamam
+Redirect 301 /ua/lazernaya-rezka-akrila/ /ua/lazernaya-rezka-akrila
+Redirect 301 /price-laki /ru/price-laki
+Redirect 301 /tehplastina-cena /ru/tehplastina-cena
+Redirect 301 /izdeliya-iz-akrila /ru/yslygi
+
+
+# ❌ 404 сторінка
+ErrorDocument 404 /404
+
+# php -- BEGIN cPanel-generated handler, do not edit
+<IfModule fcgid_module>
+    <IfModule mime_module>
+        AddHandler fcgid-script .php .php7 .phtml
+        FcgidWrapper /usr/local/cpanel/cgi-sys/ea-php74 .php
+        FcgidWrapper /usr/local/cpanel/cgi-sys/ea-php74 .php7
+        FcgidWrapper /usr/local/cpanel/cgi-sys/ea-php74 .phtml
+    </IfModule>
+</IfModule>
+
+# php -- END cPanel-generated handler, do not edit

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preload" href="/fonts/montserrat/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-Light.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+	* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul,
+li {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+h1,
+h2 {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	display: inline-block;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Light.woff2") format("woff2");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Medium.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-SemiBold.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+body {
+	font-weight: 400;
+    font-family: "Montserrat", "Segoe UI", "Roboto", sans-serif;
+	font-size: 14px;
+	line-height: 1.57;
+	color: #1D1D1D;
+	background-color: #FFF;
+}
+
+.app {
+	padding: 0;
+	max-width: 1440px;
+	margin: 0 auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+	color: #1D1D1D;
+}
+
+h1 {
+	font-weight: 600;
+	font-size: 2rem;
+	line-height: 2rem;
+	padding: 50px 0 25px 0;
+}
+
+@media screen and (max-width: 768px) {
+	h1 {
+		font-size: 1.5rem;
+		line-height: 1.5rem;
+		padding: 25px 0 12px 0;
+	}
+}
+
+h2 {
+	font-weight: 500;
+	font-size: 1.875rem;
+	line-height: 1.875rem;
+	padding: 30px 0 15px 0;
+}
+
+@media screen and (max-width: 768px) {
+	h2 {
+		font-size: 1.25rem;
+		line-height: 1.25rem;
+		padding: 15px 0 7px 0;
+	}
+}
+h3 {
+	font-weight: 500;
+	font-size: 1.7rem;
+	line-height: 1.7rem;
+	padding: 25px 0 12px 0;
+}
+@media screen and (max-width: 768px) {
+	h3 {
+		font-size: 1.2rem;
+		line-height: 1.2rem;
+		padding: 15px 0 7px 0;
+	}
+}
+
+p {
+	font-weight: 300;
+	font-size: 1rem;
+	line-height: 1.6rem;
+	color: #706F6D;
+	padding: 10px 0;
+}
+
+.header {
+	width: 100%;
+	height: 80px;
+	position: sticky;
+	top: 0;
+	z-index: 11;
+	border-bottom: 1px solid #989898;
+}
+
+.header-menu {
+	display: flex;
+	height: 80px;
+	justify-content: space-between;
+	align-items: center;
+	flex-grow: 1;
+}
+
+.header-list {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+	color: #706F6D;
+}
+
+.header-list a {
+	position: relative;
+}
+
+.header-list a::before {
+	content: "";
+	position: absolute;
+	width: 0%;
+	height: 1px;
+	bottom: -3px;
+	left: 50%;
+	background-color: #1D1D1D;
+}
+
+.header-item {
+	padding: 10px 0;
+}
+
+.sub-list {
+	display: none;
+	width: 400px;
+	margin-top: 0;
+	position: absolute;
+	top: 30px;
+	background-color: #f7f7f7;
+	padding: 30px;
+}
+
+.header-link {
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+.sub-item {
+	padding: 5px 0;
+}
+
+.sub-link {
+	text-transform: none;
+}
+
+.header-contact {
+	display: flex;
+	gap: 20px;
+}
+
+.header-contact img {
+	width: 34px;
+	height: 34px;
+}
+
+.header-burger {
+	display: none;
+	width: 24px;
+	height: 13px;
+	margin: 25px 5px 25px 10px;
+	position: relative;
+}
+
+.header-burger span {
+	width: 100%;
+	height: 2px;
+	background-color: #000;
+}
+
+.header-burger::before,
+.header-burger::after {
+	background-color: #000;
+	content: "";
+	height: 2px;
+	position: absolute;
+	width: 100%;
+}
+
+.header-burger::before {
+	top: 0;
+}
+
+.header-burger::after {
+	bottom: 0;
+}
+
+@media (max-width: 768px) {
+	.header-burger {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.header-list {
+		flex-direction: column;
+		gap: 18px;
+		background-color: #1D1D1D;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 78px;
+		left: -100%;
+		color: #FFF;
+		padding-left: 20px;
+		justify-content: flex-start;
+		padding-top: 30px;
+	}
+
+	.sub-list {
+		color: #1D1D1D;
+		position: static;
+	}
+}
+
+.language-switcher {
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+@media (min-width: 769px) {
+	.header-item {
+		position: relative;
+	}
+
+	.sub-list {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background-color: white;
+		display: none;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(10px);
+		z-index: 10;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+		padding: 10px 0;
+	}
+
+	.sub-list .sub-item {
+		padding: 0 20px;
+		white-space: nowrap;
+	}
+
+	.sub-list .sub-link {
+		display: block;
+		padding: 8px 0;
+		text-decoration: none;
+	}
+}
+
+.rule li {
+	font-style: normal;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 24px;
+	color: #706F6D;
+	list-style-position: outside;
+	padding: 0 0 10px 0;
+	margin: 0 0 0 10px;
+}
+
+.container {
+	max-width: 1440px;
+	padding: 0 110px;
+}
+
+@media (max-width: 1200px) {
+	.container {
+		padding: 0 50px;
+	}
+}
+
+@media (max-width: 820px) {
+	.container {
+		padding: 0 15px;
+	}
+}
+</style>
+
+<link rel="preload" href="/css/style-light.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/style-light.css"></noscript>	<title>Лаки пропиточные •</title>
+<meta name="description" content="Лак МЛ–92 представляет собой раствор смеси глифталевого лака и меламино формальдегидной смолы в органических растворителях. Лак МЛ–92 предназначается для">
+<meta name="keywords" content=" ">
+
+    <!-- Додаткові мета-теги -->
+    <meta name="author" content="ПП "ПРОМПОСТАЧ">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="">
+
+</head>
+<body>
+
+<div class="app">
+
+<div class="container">
+  <header class="header">
+    <nav class="header-menu">
+      <div class="logo">
+        <div class="logo-img">
+          <a href="/ru/">
+            <img src="/img/logo1.png" alt="logo" width="40" height="40">
+          </a>
+        </div>
+      </div>
+
+      <ul class="header-list">
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">Услуги</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./lazernaya-rezka-akrila" class="sub-link">Лазерная резка оргстекла</a></li>
+            <li class="sub-item"><a href="./rezka-faneri" class="sub-link">Лазерная резка фанеры и ДВП</a></li>
+            <li class="sub-item"><a href="./laser-gravirovka" class="sub-link">Лазерная гравировка</a></li>
+            <li class="sub-item"><a href="./yslygi" class="sub-link">Изготовление изделий</a></li>
+            <li class="sub-item"><a href="./rule" class="sub-link">Требования к макетам</a></li>
+          </ul>
+        </li>
+
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">Каталог товаров</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./prays-orgsteklo" class="sub-link">Оргстекло</a></li>
+            <li class="sub-item"><a href="./kaprolon-v-sterzhnyakh" class="sub-link">Капролон</a></li>
+            <li class="sub-item"><a href="./ftoroplast" class="sub-link">Фторопласт</a></li>
+            <li class="sub-item"><a href="./tekstolit" class="sub-link">Текстолит</a></li>
+            <li class="sub-item"><a href="./deflektor" class="sub-link">Дефлектор для кондиционера</a></li>
+            <li class="sub-item"><a href="./stellaj-nastenni" class="sub-link">Стеллаж для машинок</a></li>
+          </ul>
+        </li>
+
+        <li class="header-item">
+          <a href="./price" class="header-link">Цены</a>
+        </li>
+
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">Блог</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./sfery-primeneniya-orgstekla" class="sub-link">Сферы применения оргстекла</a></li>
+            <li class="sub-item"><a href="./sposoby-primeneniya-orgstekla" class="sub-link">Способы использования оргстекла</a></li>
+            <li class="sub-item"><a href="./rezka-kaprolona" class="sub-link">Резка капролона</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="language-switcher">
+        <a href="#" onclick="switchLanguage('uk')">ua</a> | 
+        <a href="#" onclick="switchLanguage('ru')">ru</a>
+      </div>
+
+      <div class="header-contact">
+        <a href="tel:+380971275775">
+          <img src="/img/telephone.png" alt="Телефон" width="34" height="34">
+        </a>
+        <a href="viber://chat?number=%2B380504625083">
+          <img src="/img/viber.png" alt="Вайбер" width="34" height="34">
+        </a>
+        <a href="//t.me/PromPostach" target="_blank" rel="noopener noreferrer">
+          <img src="/img/telegram.png" alt="Телеграм" width="34" height="34">
+        </a>
+      </div>
+
+      <div class="header-burger">
+        <span></span>
+      </div>
+    </nav>
+  </header>
+</div><div class='container'>
+<div class="text-section">
+<h1>Лаки пропиточные</h1>
+<p><strong>Лак МЛ–92</strong> представляет собой раствор смеси глифталевого лака и меламино формальдегидной смолы в органических растворителях.
+<strong>Лак МЛ–92</strong> предназначается для пропитки обмоток электрических машин, аппаратов и трансформаторов и для покрытия электроизоляционных деталей.
+Перед нанесением лака МЛ–92 поверхность должна быть очищена от пыли, жировых и других загрязнений и обезжирена. Перед применением лак МЛ – 92 тщательно перемешивают и при необходимости разбавляют растворителями. Растворители: толуол, ксилол или смесь одного их этих растворителей с уайт-спиритом в соотношении не менее 3 : 1.</p>
+
+<h2 id="GF95" title="Лак пропиточный ГФ-95">Лак пропиточный ГФ-95</h2>
+<p><strong>Лак ГФ-95-ГОСТ 8018-70</strong> электроизоляционный пропиточный лак с добавкой меламиноформальдегидной смолы, предназначается для пропитки обмоток электрических машин, аппаратов и трансформаторов с изоляцией класса нагревостойкости В.</p>
+
+<h2 id="FL" title="Лак пропиточный ФЛ-98">Лак пропиточный ФЛ-98</h2>
+<p><strong>Лак ФЛ-98</strong> представляет собой смесь растворов алкидной и фенолоформальдегидной смол в органических растворителях. Лак ФЛ-98 -это электроизоляционный пропиточный маслостойкий лак.</p>
+<p><strong>Лак ФЛ-98</strong> предназначается для пропитки обмоток электродвигателей с изоляцией классов нагревостойкости А, Е, В и для машин тропического исполнения.
+<strong>Лак ФЛ-98 обладает:</strong></p>
+<div class="rule">
+<ul>
+ 	<li>высокой цементирующей способностью;</li>
+ 	<li>термоэластичность;</li>
+ 	<li>способность отверждаться в толстых слоях;</li>
+ 	<li>влагостойкость;</li>
+ 	<li>тропикостойкость;</li>
+</ul>
+</div>
+<p>Лак ФЛ-98 наносят окунанием. Обмотки, пропитанные лаком ФЛ-98, сушат при температуре 125-140 С. При необходимости лак ФЛ-98 разбавляют до рабочей вязкости ксилолом.
+<h2 id="KO-921" title="Лак пропиточный КО-921">Лак пропиточный КО-921</h2>
+<strong>Лак КО-921 ГОСТ 16508-70</strong> для пропитки стеклянной оплетки проводов и кабелей
+<strong>Лак КО-921</strong> применяется для пропитки стеклянной оплетки проводов и кабелей, в качестве нагревостойкого пропиточного и покрывного средства, выдерживающего температуру до 250 град.С, для изоляции и защиты электрических машин и аппаратов от влаги и грибковой плесени, для получения термостойких, органосиликатных и электроизоляционных эмалей.</p>
+
+<p>ОСОБЕННОСТИ ЛАКА КО-921:</p>
+<div class="rule">
+<ul>
+ 	<li>высокая пропитывающая способность, которая обусловлена минимальной вязкостью, малым поверхностным натяжением;</li>
+ 	<li>быстрая высыхаемость пленки лака;</li>
+ 	<li>имеет пониженную температуру сушки;</li>
+ 	<li>пленка лака обладает диэлектрическими свойствами;</li>
+ 	<li>характеризуется влагостойкостью и грибкостойкостью.</li>
+</ul>
+</div>
+<p><strong>ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ ЛАКА КО-921 ГОСТ 16508-70:</strong></p>
+<div class="rule">
+<ul>
+ 	<li>Внешний вид лака - однородный прозрачный раствор без механических включений. Оттенок не нормируется. Допускается опалесценсия</li>
+ 	<li>Массовая доля нелетучих веществ - 48-52 %</li>
+ 	<li>Условная вязкость по вискозиметру ВЗ-4- 17-27сек</li>
+ 	<li>Время высыхания лаковой пленки до степени 3 - 15мин</li>
+ 	<li>Массовая доля водорода, связанного с кремнием - 0.001%</li>
+ 	<li>Термоэластичность пленки лака - 75ч</li>
+ 	<li>Оптическая плотность лака, не более 0,5</li>
+</ul>
+</div>
+<p>ГАРАНТИЙНЫЙ СРОК ХРАНЕНИЯ 12 МЕСЯЦЕВ.</p>
+
+
+&nbsp;
+<h2 id="KO-916" title="Лак пропиточный КО-916К">Лак пропиточный КО-916К</h2>
+<p><strong>Лак КО-916К ТУ 2311-396-05763441-2003</strong></p>
+
+<p><strong>Лак КО-916</strong> представляет собой раствор полиметилфенилсилоксановои смолы, модифицированной полиэфиром в ксилоле.</p>
+<p><strong>Лак КО-916К применяют</strong> для пропитки обмоток электрических машин и аппаратов, длительно работающих при темпераруре около 180°С, а также для пропитки обмоток усиленного влагостойкого, тропического и химически стойкого исполнения. Лаки наносят окунанием или обливом.</p>
+<p><strong>Технические характеристики Лак КО-916К</strong></p>
+
+<table class="w100" border="0">
+<thead>
+<tr>
+<th>Наименование показателя</th>
+<th>Норма показателя</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Внешний вид лака Однородный прозрачный раствор без механически включений. Допускается легкая опалесценция Массовая доля нелетучих веществ, %</th>
+<th>64-68</th>
+</tr>
+<tr>
+<th>Вязкость по ВЗ-4,сопло 4 мм, с</th>
+<th>45-65</th>
+</tr>
+<tr>
+<th>Время высыхания до степени 3 при температуре (200±5)°С, мин. не более</th>
+<th>15</th>
+</tr>
+<tr>
+<th>Цементирующая способность лакового покрытия при (20±5)°С, Н (кгс), не менее</th>
+<th>294 (30)</th>
+</tr>
+<tr>
+<th>Термоэластичность пленки лака при температуре (200±5)°С, ч, не менее</th>
+<th>50</th>
+</tr>
+<tr>
+<th>Удельное объемное электрическое сопротивление лаковой пленки, Ом*м, не менее К, М (15-35 °С) 45-75%</th>
+<th>1.0*1013</th>
+</tr>
+<tr>
+<th>К, М (200 °С) 20%</th>
+<th>1.6*1010</th>
+</tr>
+<tr>
+<th>М (15-35 °С) 45-75%</th>
+<th>1.5*1012</th>
+</tr>
+<tr>
+<th>Электрическая прочность пленки лака, МВ/м, не менее</th>
+<th></th>
+</tr>
+<tr>
+<th>К, М (15-35 °С) 45-75%</th>
+<th>75</th>
+</tr>
+<tr>
+<th>Р*, М (200 °С) 20%</th>
+<th>50</th>
+</tr>
+<tr>
+<th>М (15-35 °С) 45-75%</th>
+<th>50</th>
+</tr>
+<tr>
+<th>Оптическая плотность лака, не более</th>
+<th>1,0</th>
+</tr>
+</tbody>
+</table>
+<p>Гарантийный срок хранения: 6 месяцев.</p>
+
+<h2 id="KO-815" title="Лак пропиточный КО-815">Лак пропиточный КО-815</h2>
+<p><strong>Лак КО-815 ГОСТ 11066-74:</strong>
+умеренно опасное вещество (3 класс опасности);
+ПДК паров ксилола в воздухе рабочей зоны - 50 мг./куб.м;
+ПДК паров толуола в воздухе рабочей зоны - 50 мг./куб.м;
+<strong>пожароопасное вещество.</strong></p>
+
+<p><strong>ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ ЛАКА КО-815 ГОСТ 11066-74:</strong></p>
+<div class="rule">
+<ul>
+ 	<li>Прозрачная жидкость от светло-желтого до коричневого цвета без видимых механических примесей.</li>
+ 	<li>Содержание нелетучих веществ, % ............................................................ 33-37</li>
+ 	<li>Условная вязкость по вискозиметру ВЗ-4, сек................................................. 10-13</li>
+ 	<li>Время высыхания лаковой пленки до степени 3, при темп. 150 0С, ч, не более ..........1</li>
+ 	<li>Кислотное число, мг. КОН/гр. лака, не более.................................................... 10</li>
+</ul>
+</div>
+&nbsp;
+<h2 id="LBS" title="Лак пропиточный ЛБС-1">Лак пропиточный ЛБС-1</h2>
+<p><strong>Лак бакелитовый ЛБС-1 ГОСТ 901-78</strong> раствор фенолоформальдегидной смолы резольного типа в этиловом спирте.</p>
+<p>Применяется для склеивания, пропитки различных материалов, в производстве прессовочных масс графитопластов, изоляционных материалов, в качестве антикоррозионного покрытия в электротехнике, в производстве абразивного инструмента и других целей.</p>
+<p>Внешний вид прозрачный раствор от красноватого до красно-бурого цвета, не содержащий взвешенных частиц</p>
+<p>Технические показатели лак бакелитовый ЛБС-1 ГОСТ 901-78</p>
+
+<table class="w100" border="0">
+<thead>
+<tr>
+<th>Наименование показателя</th>
+<th>Норма показателя</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Массовая доля смолы, %</th>
+<th>50-60</th>
+</tr>
+<tr>
+<th>Вязкость динамическая, мПа/сек</th>
+<th>60-1000</th>
+</tr>
+<tr>
+<th>Время желатинизации, сек</th>
+<th>50-120</th>
+</tr>
+<tr>
+<th>Массовая доля воды, %</th>
+<th>не более 17</th>
+</tr>
+<tr>
+<th>Массовая доля свободного фенола, %</th>
+<th>не более 10</th>
+</tr>
+</tbody>
+</table>
+<p><strong>Пожароопасен, токсичен.</strong> При работе с бакелитовым лаком в помещениях требуется вентиляция, защита кожи, органов дыхания, глаз. При попадании на кожу, пораженный участок промывают этиловым спиртом, а затем большим количеством воды.</p>
+<p><strong>Транспортируют любым видом транспорта</strong> с обязательным предохранением от попадания солнечных лучей и атмосферных осадков. Лак хранят в плотно закрытой таре при температуре не выше +20º С в крытых складских помещениях без нарушения герметичности упаковки.</p>
+<p><strong>При поступлении к потребителю бакелитового лака</strong> с повышенной температурой его следует охладить до температуры не выше +20ºС, а при поступлении в замерзшем состоянии его следует оттаять в теплом помещении при температуре не выше +20ºС. Принудительный разогрев не допускается.</p>
+<p><strong>Гарантийный срок хранения 3 месяца</strong> с момента изготовления при температуре не выше +20ºС в плотно закрытой таре. Исключается попадание прямых солнечных лучей и атмосферных осадков. Срок хранения может быть увеличен при снижении температуры хранения и транспортирования.</p>
+
+<h2 id="BT" title="Лак пропиточный БТ-99 БТ-987 БТ-988">Лак пропиточный БТ-99 БТ-987 БТ-988</h2>
+<p>Электроизоляционные лаки БТ-99, БТ-987, БТ-988.</p>
+<p>Электроизоляционные лаки БТ-99, БТ-987, БТ-988. При высыхании лака БТ-99 образуется черная однородная пленка, стойкая к разбрызгиванию (при нанесении на тафтяную лентуЛаками БТ-987, БТ-988, БТ-980 окрашивают для пропитки обмоток электрических машин.</p>
+
+
+</div>
+</div>
+<!-- <link rel="stylesheet" href=""/>  -->
+<footer class="app-footer">
+	<div class="footer-footer">
+		<div class="footer-container">
+			<div class="footer"></div>
+			<div class="footer-bg"></div>
+			<div class="footer-content">
+				<div class="footer-info">
+					<div class="footer-head">Наши контакты</div>
+					<div class="footer-info-title">Мы работаем 9:00 - 17:00</div>
+				</div>	
+				<div class="footer-info-contact">
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Location.png" alt="Адрес" width="24" height="24">
+						</div>
+						<a href="https://maps.google.com/maps?ll=50.522475,30.480653&z=15&t=m&hl=ru&gl=US&mapclient=embed&cid=7827649011644501388" target="_blank" rel="nofollow"><div class="footer-href">Киев, ул. Гетьмана <br>Данила Апостола, д. 6</div></a>
+					</div>
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Mail.png" alt="Почта" width="24" height="24">
+						</div>
+						<a href="mailto:info@snab.kiev.ua"><div class="footer-href">info@snab.kiev.ua</div></a>
+					</div>
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Phone.png" alt="Телефон" width="24" height="24">
+						</div>
+						<a href="tel:+380504625083"><div class="footer-href">050 462 50 83</div></a>
+					</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</footer>			
+</div>
+<script src="/js/script.js" defer></script>
+
+<script>
+  window.addEventListener('scroll', function gtagLazyLoad() {
+    const s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y5JKLT28XD';
+    s.defer = true;
+    document.head.appendChild(s);
+    window.removeEventListener('scroll', gtagLazyLoad);
+
+    s.onload = function () {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y5JKLT28XD');
+    };
+  });
+</script>	</body>
+</html>

@@ -1,0 +1,233 @@
+/* head.scss test7*/
+.header {
+//	position: relative;
+	width: 100%;
+	height: 80px;
+	position: sticky;
+	top: 0;
+	z-index: 11;
+	border-bottom: 1px solid $btn-activ;
+}
+
+.header-header {
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: flex;
+	width: 100%;
+	padding: 0;
+}
+
+@media (max-width: 1100px) {
+	.header-header {
+		padding: 0;
+	}
+}
+
+.header-menu {
+	display: flex;
+	height: 80px;
+	justify-content: space-between;
+	align-items: center;
+	flex-grow: 1;
+}
+
+.header-list {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+	color: $text-2;
+}
+
+.header-list a {
+	position: relative;
+}
+
+.header-list a::before {
+	content: "";
+	position: absolute;
+	width: 0%;
+	height: 1px;
+	bottom: -3px;
+	left: 50%;
+//	background-color: #333;
+	background-color: $text;
+	transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.header-list a:hover:before {
+	width: 100%;
+	left: 0;
+}
+
+.header-item {
+	padding: 10px 0;
+}
+
+.sub-list {
+	display: none;
+	width: 400px;
+	margin-top: 0;
+	position: absolute;
+	top: 30px;
+	background-color: $line-for-price;
+	padding: 30px;
+}
+
+.header-link {
+	font-size: $fz-p;
+	text-transform: uppercase;
+}
+
+.sub-item {
+	padding: 5px 0;
+}
+
+.sub-link {
+	text-transform: none;
+}
+
+.header-contact {
+	display: flex;
+	gap: 20px;
+}
+
+.header-contact img {
+	width: 34px;
+	height: 34px;
+}
+
+.header-burger {
+	display: none;
+	width: 24px;
+	height: 13px;
+	margin: 25px 5px;
+	position: relative;
+	margin-left: 10px;
+}
+
+.header-burger span {
+	width: 100%;
+	height: 2px;
+	background-color: $black;
+}
+
+.header-burger:after,
+.header-burger:before {
+	background-color: $black;
+	content: "";
+	height: 2px;
+	position: absolute;
+	transition: all 0.3s ease 0s;
+	width: 100%;
+}
+
+.header-burger::before {
+	top: 0;
+}
+
+.header-burger::after {
+	bottom: 0;
+}
+
+.header-burger.active::before {
+	transform: rotate(45deg);
+	top: 5.5px;
+}
+
+.header-burger.active::after {
+	transform: rotate(-45deg);
+	bottom: 5.5px;
+}
+
+.header-burger.active span {
+	transform: scale(0);
+}
+
+@media (max-width: 768px) {
+	.header-burger {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.header-list {
+		position: absolute;
+		flex-direction: column;
+		gap: 18px;
+		background-color: $text;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 78px;
+		left: -100%;
+		transition: 0.5s;
+		color: $mean;
+		padding-left: 20px;
+		justify-content: flex-start;
+		padding-top: 30px;
+	}
+
+	.header-list.active {
+		left: 0;
+	}
+
+	
+	.sub-list {
+		color: $text;
+		position: static;
+	}
+}
+.language-switcher {
+	font-size: $fz-p;
+	text-transform: uppercase;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+@media (min-width: 769px) {
+  .header-item {
+    position: relative;
+
+    &:hover .sub-list {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+
+  .sub-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white; // або твій фон
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+
+    .sub-item {
+      padding: 0 20px;
+      white-space: nowrap;
+    }
+
+    .sub-link {
+      display: block;
+      padding: 8px 0;
+//      color: #333;
+      text-decoration: none;
+
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+}

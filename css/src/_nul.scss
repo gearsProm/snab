@@ -1,0 +1,42 @@
+/* nul.scss */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box; // сучасні браузери підтримують без -webkit-
+}
+
+ul,
+li,
+dl {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	display: inline-block;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+input[type="number"] {
+	appearance: textfield; // кросбраузерна альтернатива
+}

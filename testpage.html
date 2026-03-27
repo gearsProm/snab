@@ -1,0 +1,19 @@
+<!-- htdocs/твій_сайт/testpage.html -->
+<!DOCTYPE html>
+<html>
+  <head><title>Test Page</title></head>
+  <body><h1>Test</h1></body>
+</html>
+<body>
+	<p>Ціна: <span class="price" data-uah="1500"></span> USD</p>
+
+<script>
+  const exchangeRate = 39.5; // курс гривні до долара (приклад)
+
+  document.querySelectorAll('.price').forEach(el => {
+    const uah = parseFloat(el.getAttribute('data-uah'));
+    const usd = (uah / exchangeRate).toFixed(2);
+    el.textContent = usd;
+  });
+</script>
+</body>

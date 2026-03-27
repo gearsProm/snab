@@ -1,0 +1,134 @@
+
+
+	<div class="price-table">
+		<div class="price-block"> 
+				<div class="price-item-head "><div class="up"></div>Оргстекло</div>
+				<div class="price-item ">
+					<div class="price-item-row">
+						<div class="row-price">
+							<div>Лист</div>
+							<div>Цвет</div>
+							<div>Цена</div>
+						</div>
+						<div class="row-price">
+							<div>1 мм 1250х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="25"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>1,5 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="74.62"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>1,8 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="84.50"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>2 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="86.39"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>2 мм 3050х2050</div>
+							<div>мол.</div>
+							<div><span class="eur" data-eur="93.71"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>2,7 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="126.8"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>2,7 мм 3050х2050</div>
+							<div>мол.</div>
+							<div><span class="eur" data-eur="135"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>3 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="132.45"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>3 мм 3050х2050</div>
+							<div>мол.</div>
+							<div><span class="eur" data-eur="147.93"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>4 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="178.35"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>4 мм 3050х2050</div>
+							<div>мол.</div>
+							<div><span class="eur" data-eur="197.136"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>5 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="223.72"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>5 мм 3050х2050</div>
+							<div>мол.</div>
+							<div><span class="eur" data-eur="246.57"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>6 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="267.53"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>8 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="365.40"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>10 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="456.15"></span> грн</div>
+						</div>
+						<div class="row-price">
+							<div>15 мм 3050х2050</div>
+							<div>прозр.</div>
+							<div><span class="eur" data-eur="836.75"></span> грн</div>
+						</div>
+
+					</div>
+				</div>
+				
+		</div>
+	</div>
+
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      // Завантажимо курс із файлу exchangeRate.txt
+      fetch('../../exchangeRate.txt')
+        .then(response => response.text()) // завантажимо як текст
+        .then(text => {
+          // перетворимо текст у число
+          const exchangeRate = parseFloat(text.trim());
+
+          if (isNaN(exchangeRate)) {
+            console.error('Не вдалося розпарсити курс із файлу.');
+            return;
+          }
+
+          // Вказуємо ціни у грн
+          document.querySelectorAll('.eur').forEach(el => {
+            const eur = parseFloat(el.dataset.eur);
+            if (!isNaN(eur)) {
+              const uah = (eur * exchangeRate).toFixed(2);
+              el.textContent = `${uah} `;
+            } else {
+              el.textContent = 'Помилка';
+            }
+          });
+        })
+        .catch(error => console.error(error));
+
+    });
+  </script>

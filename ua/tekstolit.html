@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preload" href="/fonts/montserrat/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-Light.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+	* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul,
+li {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+h1,
+h2 {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	display: inline-block;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Light.woff2") format("woff2");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Medium.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-SemiBold.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+body {
+	font-weight: 400;
+    font-family: "Montserrat", "Segoe UI", "Roboto", sans-serif;
+	font-size: 14px;
+	line-height: 1.57;
+	color: #1D1D1D;
+	background-color: #FFF;
+}
+
+.app {
+	padding: 0;
+	max-width: 1440px;
+	margin: 0 auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+	color: #1D1D1D;
+}
+
+h1 {
+	font-weight: 600;
+	font-size: 2rem;
+	line-height: 2rem;
+	padding: 50px 0 25px 0;
+}
+
+@media screen and (max-width: 768px) {
+	h1 {
+		font-size: 1.5rem;
+		line-height: 1.5rem;
+		padding: 25px 0 12px 0;
+	}
+}
+
+h2 {
+	font-weight: 500;
+	font-size: 1.875rem;
+	line-height: 1.875rem;
+	padding: 30px 0 15px 0;
+}
+
+@media screen and (max-width: 768px) {
+	h2 {
+		font-size: 1.25rem;
+		line-height: 1.25rem;
+		padding: 15px 0 7px 0;
+	}
+}
+h3 {
+	font-weight: 500;
+	font-size: 1.7rem;
+	line-height: 1.7rem;
+	padding: 25px 0 12px 0;
+}
+@media screen and (max-width: 768px) {
+	h3 {
+		font-size: 1.2rem;
+		line-height: 1.2rem;
+		padding: 15px 0 7px 0;
+	}
+}
+
+p {
+	font-weight: 300;
+	font-size: 1rem;
+	line-height: 1.6rem;
+	color: #706F6D;
+	padding: 10px 0;
+}
+
+.header {
+	width: 100%;
+	height: 80px;
+	position: sticky;
+	top: 0;
+	z-index: 11;
+	border-bottom: 1px solid #989898;
+}
+
+.header-menu {
+	display: flex;
+	height: 80px;
+	justify-content: space-between;
+	align-items: center;
+	flex-grow: 1;
+}
+
+.header-list {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+	color: #706F6D;
+}
+
+.header-list a {
+	position: relative;
+}
+
+.header-list a::before {
+	content: "";
+	position: absolute;
+	width: 0%;
+	height: 1px;
+	bottom: -3px;
+	left: 50%;
+	background-color: #1D1D1D;
+}
+
+.header-item {
+	padding: 10px 0;
+}
+
+.sub-list {
+	display: none;
+	width: 400px;
+	margin-top: 0;
+	position: absolute;
+	top: 30px;
+	background-color: #f7f7f7;
+	padding: 30px;
+}
+
+.header-link {
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+.sub-item {
+	padding: 5px 0;
+}
+
+.sub-link {
+	text-transform: none;
+}
+
+.header-contact {
+	display: flex;
+	gap: 20px;
+}
+
+.header-contact img {
+	width: 34px;
+	height: 34px;
+}
+
+.header-burger {
+	display: none;
+	width: 24px;
+	height: 13px;
+	margin: 25px 5px 25px 10px;
+	position: relative;
+}
+
+.header-burger span {
+	width: 100%;
+	height: 2px;
+	background-color: #000;
+}
+
+.header-burger::before,
+.header-burger::after {
+	background-color: #000;
+	content: "";
+	height: 2px;
+	position: absolute;
+	width: 100%;
+}
+
+.header-burger::before {
+	top: 0;
+}
+
+.header-burger::after {
+	bottom: 0;
+}
+
+@media (max-width: 768px) {
+	.header-burger {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.header-list {
+		flex-direction: column;
+		gap: 18px;
+		background-color: #1D1D1D;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 78px;
+		left: -100%;
+		color: #FFF;
+		padding-left: 20px;
+		justify-content: flex-start;
+		padding-top: 30px;
+	}
+
+	.sub-list {
+		color: #1D1D1D;
+		position: static;
+	}
+}
+
+.language-switcher {
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+@media (min-width: 769px) {
+	.header-item {
+		position: relative;
+	}
+
+	.sub-list {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background-color: white;
+		display: none;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(10px);
+		z-index: 10;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+		padding: 10px 0;
+	}
+
+	.sub-list .sub-item {
+		padding: 0 20px;
+		white-space: nowrap;
+	}
+
+	.sub-list .sub-link {
+		display: block;
+		padding: 8px 0;
+		text-decoration: none;
+	}
+}
+
+.rule li {
+	font-style: normal;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 24px;
+	color: #706F6D;
+	list-style-position: outside;
+	padding: 0 0 10px 0;
+	margin: 0 0 0 10px;
+}
+
+.container {
+	max-width: 1440px;
+	padding: 0 110px;
+}
+
+@media (max-width: 1200px) {
+	.container {
+		padding: 0 50px;
+	}
+}
+
+@media (max-width: 820px) {
+	.container {
+		padding: 0 15px;
+	}
+}
+</style>
+
+<link rel="preload" href="/css/style-light.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/style-light.css"></noscript>
+<title>ТЕКСТОЛІТ: Купити Дешево. Ціни, Марки, Розміри</title>
+<meta name="description" content="Пропонуємо текстоліт за вигідними цінами. Дивіться товщини, розміри, вагу та вартість листа: наприклад, 2х1000х2000 мм (6,4 кг), 3х1000х2000 мм (9,6 кг), 4х1000х2000 мм (12,8 кг). Ціна за 1 кг - 210,00 грн.">
+	<meta name="keywords" content=" ">
+	<meta name="author" content="ПП &quot;ПРОМПОСТАЧ&quot;">
+	<meta name="robots" content="index, follow">
+
+<link rel="alternate" hreflang="uk" href="https://snab.kiev.ua/ua/tekstolit" />
+<link rel="alternate" hreflang="ru" href="https://snab.kiev.ua/ru/tekstolit" />
+<link rel="alternate" hreflang="x-default" href="https://snab.kiev.ua/ua/tekstolit" />
+
+<link rel="canonical" href="https://snab.kiev.ua/ua/tekstolit" />
+</head>
+
+<body>
+
+		<div class="app">
+<div class="container">
+  <header class="header">
+    <nav class="header-menu">
+      <div class="logo">
+        <div class="logo-img">
+          <a href="/ua/">
+            <img src="/img/logo1.png" alt="logo" width="40" height="40">
+          </a>
+        </div>
+      </div>
+
+      <ul class="header-list">
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">послуги</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./lazernaya-rezka-akrila" class="sub-link">Лазерна різка оргскла</a></li>
+            <li class="sub-item"><a href="./rizka-fanery" class="sub-link">Лазерна різка фанери та ДВП</a></li>
+            <li class="sub-item"><a href="./lazerne-hraviyuvannya" class="sub-link">Лазерне гравірування</a></li>
+            <li class="sub-item"><a href="./posluhy" class="sub-link">Виготовлення виробів</a></li>
+            <li class="sub-item"><a href="./rule" class="sub-link">Вимоги до макетів</a></li>
+          </ul>
+        </li>
+
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">каталог товарів</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./prays-orgsteklo" class="sub-link">Оргскло</a></li>
+            <li class="sub-item"><a href="./kaprolon-v-sterzhnyakh" class="sub-link">Капролон</a></li>
+            <li class="sub-item"><a href="./ftoroplast" class="sub-link">Фторопласт</a></li>
+            <li class="sub-item"><a href="./tekstolit" class="sub-link">Текстоліт</a></li>
+            <li class="sub-item"><a href="./deflektor" class="sub-link">Дефлектор для кондиціонера</a></li>
+            <li class="sub-item"><a href="./stellaj-nastenni" class="sub-link">Стелаж для авто</a></li>
+          </ul>
+        </li>
+
+        <li class="header-item">
+          <a href="./price" class="header-link">ціни</a>
+        </li>
+
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">блог</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./sfery-primeneniya-orgstekla" class="sub-link">Використання оргскла</a></li>
+            <li class="sub-item"><a href="./sposoby-primeneniya-orgstekla" class="sub-link">Способи застосування оргскла</a></li>
+            <li class="sub-item"><a href="./rezka-kaprolona" class="sub-link">Різка капролона</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="language-switcher">
+        <a href="#" onclick="switchLanguage('uk')">ua</a> | 
+        <a href="#" onclick="switchLanguage('ru')">ru</a>
+      </div>
+
+      <div class="header-contact">
+        <a href="tel:+380971275775">
+          <img src="/img/telephone.png" alt="Телефон" width="34" height="34">
+        </a>
+        <a href="viber://chat?number=%2B380504625083">
+          <img src="/img/viber.png" alt="Вайбер" width="34" height="34">
+        </a>
+        <a href="//t.me/PromPostach" target="_blank" rel="noopener noreferrer">
+          <img src="/img/telegram.png" alt="Телеграм" width="34" height="34">
+        </a>
+      </div>
+
+      <div class="header-burger">
+        <span></span>
+      </div>
+    </nav>
+  </header>
+</div>			<div class='container'>
+			<h1>Текстоліт</h1>
+			<div class="text-section">
+			<h3 class="text-head">Різновиди текстоліту</h3>
+			<p>
+			Шаруваті листові пресовані матеріали, що складаються з кількох шарів хлопчатобумажної конструкційної тканини, пропитаної резольним фенолформальдегідним смолою.
+			</p>
+			<img class="wp-image-2940 size-full aligncenter" src="/img/all/tekstolit-300x163.jpg" alt="характеристики текстолита" width="700" height="392" />
+			<p>
+			Текстоліт ПТ використовується для виготовлення шестерень, втулок, підшипників, ковзаючих деталей, панелей та прокладок для амортизаційних виробів технічного призначення.
+			</p>
+			<p>
+			Текстоліт ПТК добре обробляється всіма видами механічної обробки. Використовується як конструкційний матеріал для виготовлення шестерень, втулок, роликів, підшипників. Вироби з текстоліту ПТК забезпечують безшумність роботи, значно більший термін служби та менший ваговий показник порівняно з металевими.
+			</p>
+			<p>
+			Текстоліт ПТ-Н призначений для виготовлення технічних деталей загального призначення, монтажних панелей та прокладок.
+			</p>
+			<p>
+			Текстоліт ПТГ-2 виготовляється на основі термореактивного зв'язуючого з добавкою графіту. Використовується для виготовлення герметизуючих шайб водяних насосів та для інших цілей.
+			</p>
+			<p>
+			Текстоліт марки А: має підвищені електричні властивості, призначений для виготовлення деталей з підвищеними електроізоляційними характеристиками, які працюють на повітрі та у трансформаторній олиї в електричних полях з частотою 50 Гц.
+			</p>
+			<p>
+			Асботекстоліт марки Г є шаруватим матеріалом на основі азбестової тканини та термореактивного зв'язуючого. Матеріал важкозаймистий, не токсичний. Робоча температура від -40°C до +130°C. Використовується для виготовлення гальмівних пристроїв, а також як теплоізоляційний матеріал.
+			</p>
+			</div>
+			<div class="text-section">
+			<h3 class="text-head">Технічні характеристики текстоліту</h3>
+			<p>Текстоліт А,Б згідно з ГОСТ 2910-74, ТУ 05758999-014-96 (для товщини понад 50,0 мм). Аркуші розміром з товщиною від 0,5 до 50 мм. Хлопчатобумажна тканина, феноло-формальдегідне зв'язувальне вещество. Використовується для виготовлення електротехнічних деталей для роботи в трансформаторній олії та на повітрі при нормальній відносній вологості 45-75%, за температури (15-35)°C та частоти струму 50 Гц. Гарантійний термін зберігання - 18 місяців.</p>
+			<p>
+			Конструкційний тексоліт ПТК за ГОСТ 5-78. Аркуші товщиною від 0,5 до 80 мм. Хлопчатобумажна тканина, феноло-формальдегідне зв'язувальне вещество. Використовується для виготовлення шестерень черв'ячних коліс, втулок, підшипників скольження, кілець. Гарантійний термін зберігання - 36 місяців.
+			</p>
+			<p>
+			Майстерний тексоліт ПТ за ГОСТ 5-78. Аркуші розміром мм. Товщина - від 0,5 до 80 мм. Хлопчатобумажна тканина, феноло-формальдегідне зв'язувальне вещество. Використовується для виготовлення тих самих деталей, для яких призначений тексоліт ПТК, але для роботи при нижчих навантаженнях. Гарантійний термін зберігання - 36 місяців.
+			</p>
+			</div>
+			<div class="text-section">
+			<h3 class="text-head">ОСНОВНІ ТЕХНІЧНІ ХАРАКТЕРИСТИКИ ТЕКСТОЛІТІВ</h3>
+			<div class="text-table">
+			<table class='tt' border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<th rowspan="2">Найменування показників</th>
+<th rowspan="2">Од. вим.</th>
+<th colspan="2">Текстоліт</th>
+<th rowspan="2">ПТК</th>
+<th rowspan="2">ПТ</th>
+</tr>
+<tr>
+<th>А</th>
+<th>Б</th>
+</tr>
+<tr>
+<td>Руйнувальна напруга при згинанні перпендикулярно шарам, не менше</td>
+<td>МПа</td>
+<td>90</td>
+<td>100</td>
+<td>152</td>
+<td>142</td>
+</tr>
+<tr>
+<td>Руйнувальна напруга при розтягуванні, не менше</td>
+<td>МПа</td>
+<td>35</td>
+<td>45</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Руйнівна напруга при стисканні паралельно шарам, не менше</td>
+<td>МПа</td>
+<td>-</td>
+<td>-</td>
+<td>160</td>
+<td>155</td>
+</tr>
+<tr>
+<td>Ударна в'язкість по Шарпі на зразках без надрізу, не менше</td>
+<td>КДж/м<sup>2</sup></td>
+<td colspan="2">з надрізом 7,8</td>
+<td>36</td>
+<td>36</td>
+</tr>
+<tr>
+<td>Водопоглинання, не більше для листів товщиною 3,5 мм</td>
+<td>%
+мг</td>
+<td>-
+166</td>
+<td>-
+255</td>
+<td>0,7
+-</td>
+<td>0,7
+-</td>
+</tr>
+<tr>
+<td>Питомий об'ємний електричний опір після кондиціонування в умовах 24ч/23°С/93%, не менше, для листів завтовшки до 8,0 мм</td>
+<td>Ом*м</td>
+<td>1*10<sup>6</sup></td>
+<td>1*10<sup>6</sup></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Пробивна напруга паралельно шарам (однохвилинне перевірочне випробування) в умовах М (90°С), трансформаторна олія, не менше</td>
+<td>кВ</td>
+<td>15</td>
+<td>15</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Щільність</td>
+<td>кг/м<sup>3</sup></td>
+<td colspan="2">1300-1450</td>
+<td>1300-1400</td>
+<td>1300-1400</td>
+</tr>
+</tbody>
+</table>
+			</div>
+			</div>
+			<div class="text-section">
+			<h3 class="text-head">Механічна обробка текстоліту</h3>
+			<p>
+				Текстоліт і гетинакс набагато краще піддаються механічній обробці, згинанню, витягуванню та штампуванню, ніж склотекстоліт, оскільки вони містять хлопчатобумажну тканину або папір, відповідно, замість скловолокна. При обробці цих матеріалів до інструментів пред'являються ті ж вимоги, що і при обробці звичайного дерева. При цьому слід враховувати низьку теплопровідність матеріалів та приймати заходи для запобігання перегріву оброблювального інструменту (наприклад, часто виводити свердло з отвору).
+			</p>
+			</div>
+			<div class="text-section">
+			<h3 class="text-head">Штампування, гнуття та витяжка текстоліту</h3>
+			<p>
+				Штампування, гнуття і витягування текстоліту Використовувані штампи аналогічні штампам для металів. Для покращення якості виробу листи текстоліту та гетинаксу слід перед штампуванням попередньо нагріти. Рекомендована температура: 120-130 °C, час нагріву 5-30 хвилин при товщині листів 1,5-6,5 мм відповідно. При штампуванні слід враховувати необхідне ущільнення та скорочення матеріалу з подальшим розширенням. Максимально допустима товщина текстоліту для холодного штампування - 3 мм, для гарячого - 6,5 мм, асботекстоліту - 2,5 мм для холодного штампування та 5 мм для гарячого штампування, гетинаксу - 1,5 мм та 3 мм для холодного та гарячого штампування відповідно.
+			</p>
+			<p>
+				При гнутті і витягуванні матеріал слід нагрівати до 150-180 °C. Нагрів можна здійснювати у масляній ванні, між гарячими плитами, високочастотними струмами або у термостаті. Кривизна та кут вигину в формі повинні бути трохи більшими (приблизно на 2%), ніж потрібно для виробу, оскільки після завершення процесу обробки відбувається часткове випрямлення матеріалу. Тиск під час гнуття при товщині листів 1-3 мм повинен бути 0,4-3,3 кг/см2. При витягуванні тиск підтримують на рівні 3,5-5 кг/см2.
+			</p>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/w8CWVCRvmaE?si=eGSun6KpYW1nEe3y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			</div>
+		</div>
+
+<footer class="app-footer">
+	<div class="footer-footer">
+		<div class="footer-container">
+			<div class="footer"></div>
+			<div class="footer-bg"></div>
+			<div class="footer-content">
+				<div class="footer-info">
+					<div class="footer-head">Наші контакти</div>
+					<div class="footer-info-title">Ми працюємо з 8:30 - 17:00</div>
+				</div>	
+				<div class="footer-info-contact">
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Location.png" alt="Адреса" width="24" height="24">
+						</div>
+						<a href="https://maps.google.com/maps?ll=50.522475,30.480653&z=15&t=m&hl=ru&gl=US&mapclient=embed&cid=7827649011644501388" target="_blank" rel="nofollow"><div class="footer-href">м. Київ, вул. Гетьмана <br>Данила Апостола, буд. 6</div></a>
+					</div>
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Mail.png" alt="Пошта" width="24" height="24">
+						</div>
+						<a href="mailto:info@snab.kiev.ua"><div class="footer-href">info@snab.kiev.ua</div></a>
+					</div>
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Phone.png" alt="Телефон" width="24" height="24">
+						</div>
+						<a href="tel:+380504625083"><div class="footer-href">050 462 50 83</div></a>
+					</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</footer>			
+		</div>
+
+<script src="/js/script.js" defer></script>
+
+<script>
+  window.addEventListener('scroll', function gtagLazyLoad() {
+    const s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y5JKLT28XD';
+    s.defer = true;
+    document.head.appendChild(s);
+    window.removeEventListener('scroll', gtagLazyLoad);
+
+    s.onload = function () {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y5JKLT28XD');
+    };
+  });
+</script>	</body>
+</html>

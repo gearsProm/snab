@@ -1,0 +1,172 @@
+// Footer styles
+// -------------------------------------
+
+.app-footer {
+  bottom: 0;
+}
+
+.footer-container {
+  position: relative;
+}
+
+.footer {
+  width: 100%;
+  height: $footer-height;
+}
+
+// Фонове зображення футера
+.footer-bg {
+  width: 100%;
+  height: 269px;
+  background-image: url(../img/footer-bg.webp);
+  background-size: cover;
+  background-position: center;
+  
+  @include media-breakpoint-down(md) {
+    background-image: url(../img/footer-bg-800.webp);
+  }
+}
+
+// Вміст футера
+.footer-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  padding: 55px;
+  width: 802px;
+  max-width: 100%;
+  border: 1px solid #C2D1D9;
+  background-color: color("background");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  
+  @include media-breakpoint-down(md) {
+    padding: 30px;
+    width: 90%;
+  }
+  
+  @include media-breakpoint-down(xs) {
+    padding: 15px;
+  }
+}
+
+// Інформаційний блок футера
+.footer-info {
+  width: 100%;
+  border-bottom: 1px solid color("btn-active");
+  padding-bottom: spacing("md");
+}
+
+// Заголовок футера
+.footer-head {
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+  color: #505D68;
+  margin-bottom: spacing("sm");
+  
+  @include media-breakpoint-down(md) {
+    font-size: 1.875rem;
+    line-height: 1.875rem;
+  }
+}
+
+// Підзаголовок з інформацією
+.footer-info-title {
+  font-weight: 300;
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  text-align: center;
+  padding: spacing("lg") 0;
+  color: color("text-secondary");
+  
+  @include media-breakpoint-down(md) {
+    font-size: 1.125rem;
+    line-height: 1.125rem;
+    padding: spacing("md") + 5px 0;
+  }
+}
+
+// Контактна інформація
+.footer-info-contact {
+  display: flex;
+  justify-content: space-between;
+  gap: spacing("md") + 5px;
+  line-height: 24px;
+  color: color("text");
+  padding-top: 41px;
+  flex-wrap: wrap;
+  
+  a {
+    padding: 0;
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: color("highlight");
+    }
+  }
+  
+  @include media-breakpoint-down(md) {
+    flex-direction: column;
+    align-items: center;
+    padding-top: spacing("lg");
+  }
+}
+
+// Іконки футера
+.footer-icon {
+  display: inline-flex;
+  align-items: center;
+  
+  img {
+    height: 24px;
+    width: 24px;
+    transition: transform 0.2s ease;
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+// Елементи інформації
+.footer-info-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: color("highlight");
+  }
+  
+  @include media-breakpoint-down(md) {
+    gap: 12px;
+    text-align: center;
+    margin-bottom: spacing("sm");
+    
+    a {
+      padding: 0;
+    }
+  }
+}
+
+// Додатковий контент
+.content {
+  margin-top: 100px;
+  
+  @include media-breakpoint-down(md) {
+    margin-top: spacing("xl") + 30px;
+  }
+  
+  @include media-breakpoint-down(xs) {
+    margin-top: spacing("xl");
+  }
+}

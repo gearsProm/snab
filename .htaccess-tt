@@ -1,0 +1,27 @@
+RewriteEngine On
+
+# Примусовий редірект на HTTPS (опціонально)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Тимчасовий редірект з кореня на українську
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^$ /ua/ [R=302,L]
+
+# Редірект сторінок з /stati/ у /ru/
+RewriteRule ^stati/(.*)$ /ru/$1 [R=301,L]
+
+# Якщо URL не містить "ua" або "ru" — перекидаємо в /ru/
+RewriteCond %{REQUEST_URI} !^/(ua|ru)/ [NC]
+RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|ico)$ [NC]
+RewriteRule ^(.*)$ /ru/$1 [R=301,L]
+
+# 301 редіректи зі старих сторінок у корені на нові в /ru/
+Redirect 301 /org_price.php /ru/prays-orgsteklo
+Redirect 301 /org_1.php /ru/orgsteklo
+Redirect 301 /kaprolon.php /ru/kaprolon-v-sterzhnyakh
+Redirect 301 /tekstolit_1.php /ru/tekstolit
+Redirect 301 /index.html /ru/
+Redirect 301 /index.php /ru/
+
+ErrorDocument 404 /404.html

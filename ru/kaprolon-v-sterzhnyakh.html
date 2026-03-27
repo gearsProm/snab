@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preload" href="/fonts/montserrat/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-Light.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+	* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul,
+li {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+h1,
+h2 {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	display: inline-block;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Light.woff2") format("woff2");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Medium.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-SemiBold.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+body {
+	font-weight: 400;
+    font-family: "Montserrat", "Segoe UI", "Roboto", sans-serif;
+	font-size: 14px;
+	line-height: 1.57;
+	color: #1D1D1D;
+	background-color: #FFF;
+}
+
+.app {
+	padding: 0;
+	max-width: 1440px;
+	margin: 0 auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+	color: #1D1D1D;
+}
+
+h1 {
+	font-weight: 600;
+	font-size: 2rem;
+	line-height: 2rem;
+	padding: 50px 0 25px 0;
+}
+
+@media screen and (max-width: 768px) {
+	h1 {
+		font-size: 1.5rem;
+		line-height: 1.5rem;
+		padding: 25px 0 12px 0;
+	}
+}
+
+h2 {
+	font-weight: 500;
+	font-size: 1.875rem;
+	line-height: 1.875rem;
+	padding: 30px 0 15px 0;
+}
+
+@media screen and (max-width: 768px) {
+	h2 {
+		font-size: 1.25rem;
+		line-height: 1.25rem;
+		padding: 15px 0 7px 0;
+	}
+}
+h3 {
+	font-weight: 500;
+	font-size: 1.7rem;
+	line-height: 1.7rem;
+	padding: 25px 0 12px 0;
+}
+@media screen and (max-width: 768px) {
+	h3 {
+		font-size: 1.2rem;
+		line-height: 1.2rem;
+		padding: 15px 0 7px 0;
+	}
+}
+
+p {
+	font-weight: 300;
+	font-size: 1rem;
+	line-height: 1.6rem;
+	color: #706F6D;
+	padding: 10px 0;
+}
+
+.header {
+	width: 100%;
+	height: 80px;
+	position: sticky;
+	top: 0;
+	z-index: 11;
+	border-bottom: 1px solid #989898;
+}
+
+.header-menu {
+	display: flex;
+	height: 80px;
+	justify-content: space-between;
+	align-items: center;
+	flex-grow: 1;
+}
+
+.header-list {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+	color: #706F6D;
+}
+
+.header-list a {
+	position: relative;
+}
+
+.header-list a::before {
+	content: "";
+	position: absolute;
+	width: 0%;
+	height: 1px;
+	bottom: -3px;
+	left: 50%;
+	background-color: #1D1D1D;
+}
+
+.header-item {
+	padding: 10px 0;
+}
+
+.sub-list {
+	display: none;
+	width: 400px;
+	margin-top: 0;
+	position: absolute;
+	top: 30px;
+	background-color: #f7f7f7;
+	padding: 30px;
+}
+
+.header-link {
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+.sub-item {
+	padding: 5px 0;
+}
+
+.sub-link {
+	text-transform: none;
+}
+
+.header-contact {
+	display: flex;
+	gap: 20px;
+}
+
+.header-contact img {
+	width: 34px;
+	height: 34px;
+}
+
+.header-burger {
+	display: none;
+	width: 24px;
+	height: 13px;
+	margin: 25px 5px 25px 10px;
+	position: relative;
+}
+
+.header-burger span {
+	width: 100%;
+	height: 2px;
+	background-color: #000;
+}
+
+.header-burger::before,
+.header-burger::after {
+	background-color: #000;
+	content: "";
+	height: 2px;
+	position: absolute;
+	width: 100%;
+}
+
+.header-burger::before {
+	top: 0;
+}
+
+.header-burger::after {
+	bottom: 0;
+}
+
+@media (max-width: 768px) {
+	.header-burger {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.header-list {
+		flex-direction: column;
+		gap: 18px;
+		background-color: #1D1D1D;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 78px;
+		left: -100%;
+		color: #FFF;
+		padding-left: 20px;
+		justify-content: flex-start;
+		padding-top: 30px;
+	}
+
+	.sub-list {
+		color: #1D1D1D;
+		position: static;
+	}
+}
+
+.language-switcher {
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+@media (min-width: 769px) {
+	.header-item {
+		position: relative;
+	}
+
+	.sub-list {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background-color: white;
+		display: none;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(10px);
+		z-index: 10;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+		padding: 10px 0;
+	}
+
+	.sub-list .sub-item {
+		padding: 0 20px;
+		white-space: nowrap;
+	}
+
+	.sub-list .sub-link {
+		display: block;
+		padding: 8px 0;
+		text-decoration: none;
+	}
+}
+
+.rule li {
+	font-style: normal;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 24px;
+	color: #706F6D;
+	list-style-position: outside;
+	padding: 0 0 10px 0;
+	margin: 0 0 0 10px;
+}
+
+.container {
+	max-width: 1440px;
+	padding: 0 110px;
+}
+
+@media (max-width: 1200px) {
+	.container {
+		padding: 0 50px;
+	}
+}
+
+@media (max-width: 820px) {
+	.container {
+		padding: 0 15px;
+	}
+}
+</style>
+
+<link rel="preload" href="/css/style-light.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/style-light.css"></noscript>
+	<title>Капролон в стержнях •</title>
+	<meta name="description" content="Капролон (полиамид-6) в стержнях Актуальная цена 249,60 грн/кг с НДС. Капролон конструкционный материал широко применяемый для изготовления деталей:">
+	<meta name="keywords" content="">
+	<meta name="author" content="ЧП &quot;ПРОМПОСТАЧ&quot;">
+	<meta name="robots" content="index, follow">
+	
+	<!-- hreflang — обидві версії -->
+	<link rel="alternate" hreflang="ru" href="https://snab.kiev.ua/ru/kaprolon-v-sterzhnyakh" />
+	<link rel="alternate" hreflang="uk" href="https://snab.kiev.ua/ua/kaprolon-v-sterzhnyakh" />
+	
+	<!-- canonical -->
+	<link rel="canonical" href="https://snab.kiev.ua/ru/kaprolon-v-sterzhnyakh" />
+
+</head>
+
+<body>
+
+<div class="app">
+
+<div class="container">
+  <header class="header">
+    <nav class="header-menu">
+      <div class="logo">
+        <div class="logo-img">
+          <a href="/ru/">
+            <img src="/img/logo1.png" alt="logo" width="40" height="40">
+          </a>
+        </div>
+      </div>
+
+      <ul class="header-list">
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">Услуги</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./lazernaya-rezka-akrila" class="sub-link">Лазерная резка оргстекла</a></li>
+            <li class="sub-item"><a href="./rezka-faneri" class="sub-link">Лазерная резка фанеры и ДВП</a></li>
+            <li class="sub-item"><a href="./laser-gravirovka" class="sub-link">Лазерная гравировка</a></li>
+            <li class="sub-item"><a href="./yslygi" class="sub-link">Изготовление изделий</a></li>
+            <li class="sub-item"><a href="./rule" class="sub-link">Требования к макетам</a></li>
+          </ul>
+        </li>
+
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">Каталог товаров</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./prays-orgsteklo" class="sub-link">Оргстекло</a></li>
+            <li class="sub-item"><a href="./kaprolon-v-sterzhnyakh" class="sub-link">Капролон</a></li>
+            <li class="sub-item"><a href="./ftoroplast" class="sub-link">Фторопласт</a></li>
+            <li class="sub-item"><a href="./tekstolit" class="sub-link">Текстолит</a></li>
+            <li class="sub-item"><a href="./deflektor" class="sub-link">Дефлектор для кондиционера</a></li>
+            <li class="sub-item"><a href="./stellaj-nastenni" class="sub-link">Стеллаж для машинок</a></li>
+          </ul>
+        </li>
+
+        <li class="header-item">
+          <a href="./price" class="header-link">Цены</a>
+        </li>
+
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">Блог</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./sfery-primeneniya-orgstekla" class="sub-link">Сферы применения оргстекла</a></li>
+            <li class="sub-item"><a href="./sposoby-primeneniya-orgstekla" class="sub-link">Способы использования оргстекла</a></li>
+            <li class="sub-item"><a href="./rezka-kaprolona" class="sub-link">Резка капролона</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="language-switcher">
+        <a href="#" onclick="switchLanguage('uk')">ua</a> | 
+        <a href="#" onclick="switchLanguage('ru')">ru</a>
+      </div>
+
+      <div class="header-contact">
+        <a href="tel:+380971275775">
+          <img src="/img/telephone.png" alt="Телефон" width="34" height="34">
+        </a>
+        <a href="viber://chat?number=%2B380504625083">
+          <img src="/img/viber.png" alt="Вайбер" width="34" height="34">
+        </a>
+        <a href="//t.me/PromPostach" target="_blank" rel="noopener noreferrer">
+          <img src="/img/telegram.png" alt="Телеграм" width="34" height="34">
+        </a>
+      </div>
+
+      <div class="header-burger">
+        <span></span>
+      </div>
+    </nav>
+  </header>
+</div><div class='container'>
+<div class="text-section">
+<h1>Капролон в стержнях</h1>
+
+<h3>Капролон (полиамид-6) в стержнях</h3>
+<p><strong>Актуальная цена 249,60 грн/кг с НДС.</strong></p>
+<p>Капролон конструкционный материал широко применяемый для изготовления деталей: втулок, подшипников, вкладышей, антифрикционного назначения. У деталей из капролона очень низкий коэффициент трения, они могут работать без смазывания.</p>
+
+<p>Полиамид-6 диэлектрический материал который легко сверлится, фрезеруется и шлифуется. Капролон не разрушается под воздействием масла и спиртов. Изделия из капролона применяются в автомобильной и химической промышленности, судостроении, в металлургии, в нефтедобывающей промышленности, в сельскохозяйственной технике, в пищевой промышленности.</p>
+
+<p><strong>У нас вы можете купить капролон, примерный вес стержня 1 метр:</strong></p>
+
+<table class="w100" border="0">
+<thead>
+<tr>
+<th>Диаметр стержней из капролона</th>
+<th>Длина стержня</th>
+<th>Вес стержня</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Стержень 20 мм</td>
+<td>1000 мм</td>
+<td>0,5</td>
+</tr>
+<tr class="odd">
+<td>Стержень 25 мм</td>
+<td>1000 мм</td>
+<td>0,7</td>
+</tr>
+<tr class="odd">
+<td>Стержень 30 мм</td>
+<td>1000 мм</td>
+<td>1,0</td>
+</tr>
+<tr class="odd">
+<td>Стержень 35 мм</td>
+<td>1000 мм</td>
+<td>1,4</td>
+</tr>
+<tr class="odd">
+<td>Стержень 40 мм</td>
+<td>1000 мм</td>
+<td>1,8</td>
+</tr>
+<tr class="odd">
+<td>Стержень 50 мм</td>
+<td>1000 мм</td>
+<td>2,6</td>
+</tr>
+<tr class="odd">
+<td>Стержень 60 мм</td>
+<td>1000 мм</td>
+<td>3,5</td>
+</tr>
+<tr class="odd">
+<td>Стержень 70 мм</td>
+<td>1000 мм</td>
+<td>5,2</td>
+</tr>
+<tr class="odd">
+<td>Стержень 80 мм</td>
+<td>1000 мм</td>
+<td>6,4</td>
+</tr>
+<tr class="odd">
+<td>Стержень 90 мм</td>
+<td>1000 мм</td>
+<td>9,6</td>
+</tr>
+<tr class="odd">
+<td>Стержень 100 мм</td>
+<td>1000 мм</td>
+<td>10,2</td>
+</tr>
+<tr class="odd">
+<td>Стержень 110 мм</td>
+<td>1000 мм</td>
+<td>11,1</td>
+</tr>
+<tr class="odd">
+<td>Стержень 120 мм</td>
+<td>1000 мм</td>
+<td>15,2</td>
+</tr>
+<tr class="odd">
+<td>Стержень 130 мм</td>
+<td>1000 мм</td>
+<td>17,2</td>
+</tr>
+<tr class="odd">
+<td>Стержень 140 мм</td>
+<td>1000 мм</td>
+<td>19,2</td>
+</tr>
+<tr class="odd">
+<td>Стержень 150 мм</td>
+<td>1000 мм</td>
+<td>21,0</td>
+</tr>
+<tr class="odd">
+<td>Стержень 160 мм</td>
+<td>1000 мм</td>
+<td>25,0</td>
+</tr>
+<tr class="odd">
+<td>Стержень 170 мм</td>
+<td>1000 мм</td>
+<td>28,0</td>
+</tr>
+<tr class="odd">
+<td>Стержень 180 мм</td>
+<td>1000 мм</td>
+<td>32,0</td>
+</tr>
+<tr class="odd">
+<td>Стержень 200 мм</td>
+<td>1000 мм</td>
+<td>41,0</td>
+</tr>
+</tbody>
+</table>
+<p>Капролон – это полимерный синтетический материал, который применяется как заменитель различных металлических сплавов в различных изделиях. С данного материала изготавливаются шкивы, элементы цепных передач, множество уплотнители. Капролон пользуется большой популярностью благодаря своим свойствам в изделиях, которые работают под высоким давлением.</p>
+
+<h3>Капролон его преимущества перед другими материалами:</h3>
+<div class='rule'>
+<ul>
+ 	<li>Высокая прочность материала</li>
+ 	<li>Хорошие показатели износостойкости</li>
+ 	<li>Ударостойкость</li>
+ 	<li>Не разрушается от агрессивных веществ</li>
+ 	<li>Диэлектрические свойства капролона</li>
+ 	<li>Не подверженность коррозии</li>
+ 	<li>Гигиеничность</li>
+</ul>
+</div>
+<p>Изделия с этого материала существенно легче аналогов изготовленных из стали. Облегчений вес детали благоприятно сказывается на работе всего механизма: понижается шумовой порог, увеличивается ресурс службы подшипников, а также уменьшение маховой массы. На этот материал многие обращают внимание благодаря его низкому коэффициенту трения при низкой степени износостойкости. Коэффициент трения сухого капролона находится в диапазоне 0,2 – 0,3, что достаточно много как для антифрикционного материала. Но если добавить самую простую смазку коэффициент трения снизится до 0,005. В агрегатах в узлах которого используются детали с капролона в труднодоступных местах для планового технического обслуживания, необходимо применять изделия из графит наполненного капролона.</p>
+
+<p>Изделия изготовленные из капролона повсеместно используются в фармацевтической, пищевой промышлености.</p>
+
+<h3>Капролон в стержнях</h3>
+<p>
+<img src="/img/all/kaprolon-v-sterzhnyax-300x163.jpg" alt="Капролон в стержнях" style="float: left; margin-right: 15px; width: 300px; height: auto;">
+Капролоновые стержни производятся методом экструзии с дальнейшим обжиганием заготовок в автоклавной печи. Экструдеры бывают вертикальными и горизонтальными. Капролон в стержнях изготовленный на вертикальном экструдере имеет свои преимущества. У стержней изготовленных вертикальным давлением отсутствуют литники, а также они получаются равномерной плотности.</p>
+
+<p>Для изменения характеристик стержня из капролона вовремя экструзии в состав могут добавляться необходимые компоненты. Например, для увеличения антифрикционных показателей вводят определенной пропорции графит.</p>
+
+<h3>Технические характеристики капролона (полиамида-6) по ТУ 6-05-988-87</h3>
+<div class='rule'>
+	<ul>
+	 	<li>Разрушающее напряжение при изгибе не менее 800 кгс/см2</li>
+	 	<li>Разрушающее напряжение при растяжении не менее 800 кгс/см2</li>
+	 	<li>Разрушающее напряжение при сжатии не менее 1000 кгс/см2</li>
+	 	<li>Ударная вязкость не менее 140 кгс/см2</li>
+	 	<li>Твердость по методу вдавливания шарика не менее 17 кгс/мм2</li>
+	 	<li>Допустимая удельная нагрузка не более 50 кгс/см2</li>
+	 	<li>Коэффициент трения по бронзе при смазке водой 0,05 - 0,08</li>
+	 	<li>Оптимальная рабочая температура, °С -40° С + 80°С</li>
+	 	<li>Допустимая рабочая температура: при длительной работе +110°С</li>
+	 	<li>При кратковременной работе +150°С</li>
+	 	<li>Температура плавления 220-225°С</li>
+	 	<li>Плотность 1,15-1,16 г/см3</li>
+	 	<li>Модуль упругости при растяжении 2000-2300 МПа</li>
+	 	<li>Модуль упругости при сжатии 3500-4000 МПа</li>
+	 	<li>Предел прочности при сжатии не менее 90 МПа</li>
+	 	<li>Предел прочности при изгибе не менее 80 МПа</li>
+	 	<li>Твердость по Бринеллю 130-140 кгс/см2</li>
+	 	<li>Напряженность работы РхV 15 МПа·м/с</li>
+	 	<li>Морозостойкость -50°С</li>
+	</ul>
+</div>
+</div>
+</div>
+<!-- <link rel="stylesheet" href=""/>  -->
+<footer class="app-footer">
+	<div class="footer-footer">
+		<div class="footer-container">
+			<div class="footer"></div>
+			<div class="footer-bg"></div>
+			<div class="footer-content">
+				<div class="footer-info">
+					<div class="footer-head">Наши контакты</div>
+					<div class="footer-info-title">Мы работаем 9:00 - 17:00</div>
+				</div>	
+				<div class="footer-info-contact">
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Location.png" alt="Адрес" width="24" height="24">
+						</div>
+						<a href="https://maps.google.com/maps?ll=50.522475,30.480653&z=15&t=m&hl=ru&gl=US&mapclient=embed&cid=7827649011644501388" target="_blank" rel="nofollow"><div class="footer-href">Киев, ул. Гетьмана <br>Данила Апостола, д. 6</div></a>
+					</div>
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Mail.png" alt="Почта" width="24" height="24">
+						</div>
+						<a href="mailto:info@snab.kiev.ua"><div class="footer-href">info@snab.kiev.ua</div></a>
+					</div>
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Phone.png" alt="Телефон" width="24" height="24">
+						</div>
+						<a href="tel:+380504625083"><div class="footer-href">050 462 50 83</div></a>
+					</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</footer>			
+</div>
+<script src="/js/script.js" defer></script>
+
+<script>
+  window.addEventListener('scroll', function gtagLazyLoad() {
+    const s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y5JKLT28XD';
+    s.defer = true;
+    document.head.appendChild(s);
+    window.removeEventListener('scroll', gtagLazyLoad);
+
+    s.onload = function () {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y5JKLT28XD');
+    };
+  });
+</script>	</body>
+</html>

@@ -1,0 +1,12 @@
+
+
+User-agent: *
+Disallow: /admin/
+Disallow: /tmp/
+Disallow: /private/
+
+Allow: /ua/
+Allow: /ru/
+
+Sitemap: https://snab.kiev.ua/ua/sitemap.xml
+Sitemap: https://snab.kiev.ua/ru/sitemap.xml

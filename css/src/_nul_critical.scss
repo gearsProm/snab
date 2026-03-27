@@ -1,0 +1,9 @@
+/* nul.scss */
+
+a:hover {
+	text-decoration: none;
+}
+
+input[type="number"] {
+	appearance: textfield; // кросбраузерна альтернатива
+}

@@ -1,0 +1,143 @@
+// Variables SCSS
+// -------------------------------------
+
+// Кольорова палітра
+// -------------------------------------
+$colors: (
+  "text": #1D1D1D,
+  "text-secondary": #706F6D,
+  "background": #FFFFFF,
+  "btn-active": #989898,
+  "btn-hover": #c4c3bf,
+  "highlight": #5C5C5C,
+  "line-price": #f7f7f7,
+  "black": #000000,
+  "input": #f1f0eb,
+  "line": #d7d7d7,
+  "scroll": #323c46,
+  "white": #FFFFFF,
+  "red": #FF0000
+);
+
+// Отримання кольору з карти
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+// Аліаси для назв кольорів (для зворотної сумісності)
+$text: color("text");
+$text-2: color("text-secondary");
+$mean: color("background");
+$btn-activ: color("btn-active");
+$btn-hover: color("btn-hover");
+$highligh: color("highlight");
+$line-for-price: color("line-price");
+$black: color("black");
+$input: color("input");
+$line: color("line");
+$scroll: color("scroll");
+
+// Аліаси для семантичних назв (для зворотної сумісності)
+$primary-color: color("text");
+$secondary-color: color("text-secondary");
+$background-color: color("background");
+$border-color: color("btn-active");
+$highlight-color: color("highlight");
+$red-color: color("red");
+
+// Типографіка
+// -------------------------------------
+$font-primary: "Montserrat", sans-serif;
+$font-sizes: (
+  "base": 14px,
+  "h1": 3rem,        // 42px при base 14px
+  "h2": 1.875rem,    // 26.25px
+  "h3": 1.875rem,    // 26.25px
+  "t": 1.143rem,     // 16px
+  "p": 1rem          // 14px
+);
+
+// Отримання розміру шрифту
+@function font-size($size-name) {
+  @return map-get($font-sizes, $size-name);
+}
+
+$font-size-base: font-size("base");
+$fz-h1: font-size("h1");
+$fz-h2: font-size("h2");
+$fz-h3: font-size("h3");
+$fz-t: font-size("t");
+$fz-p: font-size("p");
+
+// Відступи і розміри
+// -------------------------------------
+$spacing: (
+  "xs": 5px,
+  "sm": 10px,
+  "md": 15px,
+  "lg": 30px,
+  "xl": 50px,
+  "xxl": 110px
+);
+
+// Отримання відступу
+@function spacing($space-name) {
+  @return map-get($spacing, $space-name);
+}
+
+$padding-base: spacing("sm");
+$padding-container: spacing("xxl");
+$padding-container-md: spacing("xl");
+$padding-container-sm: spacing("md");
+
+// Контрольні точки (Breakpoints)
+// -------------------------------------
+$breakpoints: (
+  "xs": 480px,
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+  "xxl": 1440px
+);
+
+// Miхин для медіа-запитів
+@mixin media-breakpoint-down($breakpoint) {
+  $breakpoint-value: map-get($breakpoints, $breakpoint);
+  @if $breakpoint-value {
+    @media (max-width: $breakpoint-value) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+// Розміри контейнера і елементів
+// -------------------------------------
+$max-width-container: map-get($breakpoints, "xxl");
+$header-height: 80px;
+$footer-height: 169px;
+
+// Базові стилі
+// -------------------------------------
+body {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  color: $text;
+  background-color: $mean;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  padding: 0;
+  max-width: $max-width-container;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

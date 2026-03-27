@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Прайс</title>
+</head>
+<body>
+  <h2>Прайс</h2>
+
+  <ul>
+    <li>Стіл – 1 дол. = <span class="price" data-usd="1"></span> грн</li>
+    <li>Стілець – 2 дол. = <span class="price" data-usd="2"></span> грн</li>
+    <li>Чашка – 3 дол. = <span class="price" data-usd="3"></span> грн</li>
+  </ul>
+
+  <script>
+    const exchangeRate = 39.5; // курс долара до гривні
+
+    document.querySelectorAll('.price').forEach(el => {
+      const usd = parseFloat(el.getAttribute('data-usd'));
+      const uah = (usd * exchangeRate).toFixed(2);
+      el.textContent = uah;
+    });
+  </script>
+</body>
+</html>
