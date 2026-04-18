@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Міні-форма — приклад вставки</title>
+  <style>
+
+    /* Демо-обгортка — видаліть на своєму сайті */
+    body {
+      font-family: "Montserrat", Arial, sans-serif;
+      background: #f8f8f6;
+      padding: 60px 16px;
+      color: #1D1D1D;
+      margin: 0;
+    }
+
+    /* ════════════════════════════════════════════════
+       БЛОК ФОРМИ — вставте на будь-яку сторінку
+       Стиль: світлий, легкий, у мові основного сайту
+    ════════════════════════════════════════════════ */
+    .mini-cta {
+      background: linear-gradient(180deg, #ffffff 0%, #fbfaf8 100%);
+      border: 1px solid #e5e1db;
+      border-radius: 18px;
+      box-shadow: 0 18px 45px rgba(29, 29, 29, 0.06);
+      padding: 36px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .mini-cta h2 {
+      font-size: 30px;
+      line-height: 1.1;
+      font-weight: 600;
+      color: #1D1D1D;
+      margin: 0 0 8px;
+      padding: 0;
+      letter-spacing: -.02em;
+    }
+
+    .mini-cta .sub {
+      font-size: 16px;
+      line-height: 1.6;
+      font-weight: 300;
+      color: #706F6D;
+      margin: 0 0 24px;
+      padding: 0;
+      max-width: 620px;
+    }
+
+    /* Три поля + кнопка в рядок */
+    .mini-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.5fr auto;
+      gap: 14px;
+      align-items: end;
+    }
+
+    .mini-field label {
+      display: block;
+      font-size: 12px;
+      line-height: 1.2;
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: #706F6D;
+      margin-bottom: 8px;
+    }
+
+    .mini-field input,
+    .mini-field textarea {
+      width: 100%;
+      padding: 14px 16px;
+      background: #fff;
+      border: 1px solid #d9d4cd;
+      border-radius: 12px;
+      font-size: 14px;
+      font-family: inherit;
+      font-weight: 400;
+      color: #1D1D1D;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s, background-color .2s;
+      resize: none;
+      height: 52px;
+      line-height: 1.4;
+    }
+
+    .mini-field input::placeholder,
+    .mini-field textarea::placeholder {
+      color: #9b958e;
+    }
+
+    .mini-field input:focus,
+    .mini-field textarea:focus {
+      border-color: #b8afa4;
+      box-shadow: 0 0 0 4px rgba(184, 175, 164, 0.18);
+      background: #fffdfb;
+    }
+
+    /* Кнопка */
+    .mini-btn {
+      height: 52px;
+      padding: 0 28px;
+      background: #1D1D1D;
+      color: #FFF;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      letter-spacing: .02em;
+      box-shadow: 0 12px 24px rgba(29, 29, 29, 0.14);
+      transition: background .15s, transform .1s, box-shadow .2s;
+    }
+
+    .mini-btn:hover  {
+      background: #343434;
+      box-shadow: 0 16px 28px rgba(29, 29, 29, 0.18);
+    }
+    .mini-btn:active { transform: scale(.97); }
+
+    /* Підпис під формою */
+    .mini-note {
+      font-size: 13px;
+      line-height: 1.5;
+      font-weight: 300;
+      color: #8a847d;
+      margin-top: 16px;
+      padding: 0;
+    }
+
+    .mini-note a {
+      color: #1D1D1D;
+      text-decoration: underline;
+      transition: color .15s;
+    }
+
+    .mini-note a:hover { color: #706F6D; }
+
+    /* ── Мобільний — стовпчик ── */
+    @media (max-width: 860px) {
+      .mini-form {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .mini-field:last-of-type,
+      .mini-btn {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .mini-cta  {
+        padding: 24px 18px;
+        border-radius: 14px;
+      }
+      .mini-cta h2 {
+        font-size: 24px;
+      }
+      .mini-cta .sub {
+        font-size: 15px;
+        margin-bottom: 20px;
+      }
+      .mini-form { grid-template-columns: 1fr; }
+      .mini-btn  { width: 100%; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!--
+  ══════════════════════════════════════════════════════════
+  ВСТАВТЕ ЦЕЙ БЛОК внизу кожної сторінки послуги/товару
+  перед закриваючим тегом </body>
+
+  ⚠️  Замініть YOUR@EMAIL.COM на свій реальний email
+  ⚠️  Замініть _next на URL сторінки подяки
+  ══════════════════════════════════════════════════════════
+-->
+<section class="mini-cta">
+
+  <h2>Залишити заявку</h2>
+  <p class="sub">Відповімо протягом 1 робочого дня — розрахуємо вартість і терміни</p>
+
+  <form
+    class="mini-form"
+    action="https://formsubmit.co/info@snab.kiev.ua"
+    method="POST"
+  >
+    <!-- Службові поля FormSubmit -->
+    <input type="hidden" name="_captcha"  value="false">
+    <input type="hidden" name="_subject"  value="Нова заявка з сайту">
+    <input type="hidden" name="_next"     value="https://snab.kiev.ua/ua/dyakuemo">
+    <input type="hidden" name="_template" value="table">
+
+    <!-- Ім'я -->
+    <div class="mini-field">
+      <label for="m-name">Ім'я *</label>
+      <input
+        type="text"
+        id="m-name"
+        name="name"
+        placeholder="Іван"
+        required
+        autocomplete="given-name"
+      >
+    </div>
+
+    <!-- Телефон -->
+    <div class="mini-field">
+      <label for="m-phone">Телефон *</label>
+      <input
+        type="tel"
+        id="m-phone"
+        name="phone"
+        placeholder="+38 050 000 00 00"
+        required
+        autocomplete="tel"
+      >
+    </div>
+
+    <!-- Що потрібно -->
+    <div class="mini-field">
+      <label for="m-order">Що потрібно</label>
+      <textarea
+        id="m-order"
+        name="order"
+        placeholder="Оргскло 3 мм, 1×1 м, 10 шт."
+      ></textarea>
+    </div>
+
+    <!-- Кнопка -->
+    <button type="submit" class="mini-btn">Надіслати →</button>
+
+  </form>
+
+  <p class="mini-note">
+    * — обов'язкові поля &nbsp;·&nbsp;
+    Є макет або деталі?
+    <a href="/ua/zamovyty">Повна форма →</a>
+  </p>
+
+</section>
+
+</body>
+</html>

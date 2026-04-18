@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Форма замовлення</title>
+  <style>
+    /* ── Загальні змінні ── */
+    :root {
+      --red:     #d62828;
+      --red-h:   #b71c1c;
+      --bg:      #f9f7f4;
+      --white:   #ffffff;
+      --border:  #ddd;
+      --text:    #222;
+      --muted:   #888;
+      --radius:  6px;
+      --shadow:  0 2px 16px rgba(0,0,0,.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 40px 16px;
+    }
+
+    /* ── Картка форми ── */
+    .form-card {
+      background: var(--white);
+      max-width: 560px;
+      margin: 0 auto;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      padding: 36px 40px 32px;
+    }
+
+    .form-card h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .form-card .subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    /* ── Поля ── */
+    .field {
+      margin-bottom: 18px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #444;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--text);
+      background: #fff;
+      transition: border-color .2s;
+      outline: none;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: var(--red);
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    /* Поле файлу */
+    .field input[type="file"] {
+      padding: 8px 10px;
+      font-size: 13px;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .field .hint {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ── Два поля в рядок ── */
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* ── Кнопка ── */
+    .btn-submit {
+      display: block;
+      width: 100%;
+      padding: 13px;
+      background: var(--red);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background .2s, transform .1s;
+      margin-top: 8px;
+    }
+
+    .btn-submit:hover  { background: var(--red-h); }
+    .btn-submit:active { transform: scale(.98); }
+
+    /* ── Підпис під кнопкою ── */
+    .form-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    /* ── Адаптив ── */
+    @media (max-width: 480px) {
+      .form-card { padding: 24px 18px 20px; }
+      .row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-card">
+
+  <h2>Замовити лазерну різку фанери</h2>
+  <p class="subtitle">Заповніть форму — відповімо протягом 1 робочого дня</p>
+
+  <!--
+    ═══════════════════════════════════════════════════════════
+    FORMSUBMIT.CO — як це працює:
+    1. Замініть YOUR@EMAIL.COM на свій реальний email
+    2. Після першого надсилання форми — прийде лист з підтвердженням
+    3. Підтвердіть email — і заявки починають приходити
+    Більше нічого налаштовувати не потрібно!
+    ═══════════════════════════════════════════════════════════
+  -->
+  <form
+    action="https://formsubmit.co/YOUR@EMAIL.COM"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+
+    <!-- Службові поля FormSubmit (приховані) -->
+
+    <!-- Вимикає капчу -->
+    <input type="hidden" name="_captcha" value="false">
+
+    <!-- Тема листа який прийде вам -->
+    <input type="hidden" name="_subject" value="Нова заявка — лазерна різка фанери">
+
+    <!-- Сторінка подяки після відправки (замініть на свою) -->
+    <input type="hidden" name="_next" value="https://snab.kiev.ua/ua/dyakuemo">
+
+    <!-- Мова листа -->
+    <input type="hidden" name="_template" value="table">
+
+
+    <!-- ── Ім'я + Телефон ── -->
+    <div class="row">
+      <div class="field">
+        <label for="name">Ваше ім'я *</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Іван"
+          required
+          autocomplete="given-name"
+        >
+      </div>
+
+      <div class="field">
+        <label for="phone">Телефон *</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="+38 050 000 00 00"
+          required
+          autocomplete="tel"
+        >
+      </div>
+    </div>
+
+    <!-- ── Матеріал ── -->
+    <div class="field">
+      <label for="material">Матеріал</label>
+      <select id="material" name="material">
+        <option value="">— оберіть матеріал —</option>
+        <option>Фанера ФК 3 мм</option>
+        <option>Фанера ФК 4 мм</option>
+        <option>Фанера ФК 5 мм</option>
+        <option>Фанера ФК 6 мм</option>
+        <option>Фанера ФК 8 мм</option>
+        <option>Фанера ФК 10 мм</option>
+        <option>МДФ</option>
+        <option>ДВП</option>
+        <option>Інше / уточнити</option>
+      </select>
+    </div>
+
+    <!-- ── Коментар ── -->
+    <div class="field">
+      <label for="comment">Опис замовлення</label>
+      <textarea
+        id="comment"
+        name="comment"
+        placeholder="Кількість деталей, розміри, побажання..."
+      ></textarea>
+    </div>
+
+    <!-- ── Файл макету ── -->
+    <div class="field">
+      <label for="file">Прикріпити макет</label>
+      <input
+        type="file"
+        id="file"
+        name="attachment"
+        accept=".cdr,.ai,.dxf,.svg,.pdf,.png,.jpg"
+      >
+      <p class="hint">Формати: CDR, AI, DXF, SVG, PDF, PNG, JPG · до 5 МБ</p>
+    </div>
+
+    <!-- ── Кнопка ── -->
+    <button type="submit" class="btn-submit">
+      Надіслати заявку →
+    </button>
+
+    <p class="form-note">
+      * — обов'язкові поля &nbsp;·&nbsp; Дані не передаються третім особам
+    </p>
+
+  </form>
+</div>
+
+</body>
+</html>
