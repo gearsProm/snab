@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preload" href="/fonts/montserrat/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-Light.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+	* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul,
+li {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+h1,
+h2 {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	display: inline-block;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Light.woff2") format("woff2");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Medium.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-SemiBold.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+body {
+	font-weight: 400;
+    font-family: "Montserrat", "Segoe UI", "Roboto", sans-serif;
+	font-size: 14px;
+	line-height: 1.57;
+	color: #1D1D1D;
+	background-color: #FFF;
+}
+
+.app {
+	padding: 0;
+	max-width: 1440px;
+	margin: 0 auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+	color: #1D1D1D;
+}
+
+h1 {
+	font-weight: 600;
+	font-size: 2rem;
+	line-height: 2rem;
+	padding: 50px 0 25px 0;
+}
+
+@media screen and (max-width: 768px) {
+	h1 {
+		font-size: 1.5rem;
+		line-height: 1.5rem;
+		padding: 25px 0 12px 0;
+	}
+}
+
+h2 {
+	font-weight: 500;
+	font-size: 1.875rem;
+	line-height: 1.875rem;
+	padding: 30px 0 15px 0;
+}
+
+@media screen and (max-width: 768px) {
+	h2 {
+		font-size: 1.25rem;
+		line-height: 1.25rem;
+		padding: 15px 0 7px 0;
+	}
+}
+h3 {
+	font-weight: 500;
+	font-size: 1.7rem;
+	line-height: 1.7rem;
+	padding: 25px 0 12px 0;
+}
+@media screen and (max-width: 768px) {
+	h3 {
+		font-size: 1.2rem;
+		line-height: 1.2rem;
+		padding: 15px 0 7px 0;
+	}
+}
+
+p {
+	font-weight: 300;
+	font-size: 1rem;
+	line-height: 1.6rem;
+	color: #706F6D;
+	padding: 10px 0;
+}
+
+.header {
+	width: 100%;
+	height: 80px;
+	position: sticky;
+	top: 0;
+	z-index: 11;
+	border-bottom: 1px solid #989898;
+}
+
+.header-menu {
+	display: flex;
+	height: 80px;
+	justify-content: space-between;
+	align-items: center;
+	flex-grow: 1;
+}
+
+.header-list {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+	color: #706F6D;
+}
+
+.header-list a {
+	position: relative;
+}
+
+.header-list a::before {
+	content: "";
+	position: absolute;
+	width: 0%;
+	height: 1px;
+	bottom: -3px;
+	left: 50%;
+	background-color: #1D1D1D;
+}
+
+.header-item {
+	padding: 10px 0;
+}
+
+.sub-list {
+	display: none;
+	width: 400px;
+	margin-top: 0;
+	position: absolute;
+	top: 30px;
+	background-color: #f7f7f7;
+	padding: 30px;
+}
+
+.header-link {
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+.sub-item {
+	padding: 5px 0;
+}
+
+.sub-link {
+	text-transform: none;
+}
+
+.header-contact {
+	display: flex;
+	gap: 20px;
+}
+
+.header-contact img {
+	width: 34px;
+	height: 34px;
+}
+
+.header-burger {
+	display: none;
+	width: 24px;
+	height: 13px;
+	margin: 25px 5px 25px 10px;
+	position: relative;
+}
+
+.header-burger span {
+	width: 100%;
+	height: 2px;
+	background-color: #000;
+}
+
+.header-burger::before,
+.header-burger::after {
+	background-color: #000;
+	content: "";
+	height: 2px;
+	position: absolute;
+	width: 100%;
+}
+
+.header-burger::before {
+	top: 0;
+}
+
+.header-burger::after {
+	bottom: 0;
+}
+
+@media (max-width: 768px) {
+	.header-burger {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.header-list {
+		flex-direction: column;
+		gap: 18px;
+		background-color: #1D1D1D;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 78px;
+		left: -100%;
+		color: #FFF;
+		padding-left: 20px;
+		justify-content: flex-start;
+		padding-top: 30px;
+	}
+
+	.sub-list {
+		color: #1D1D1D;
+		position: static;
+	}
+}
+
+.language-switcher {
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+@media (min-width: 769px) {
+	.header-item {
+		position: relative;
+	}
+
+	.sub-list {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background-color: white;
+		display: none;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(10px);
+		z-index: 10;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+		padding: 10px 0;
+	}
+
+	.sub-list .sub-item {
+		padding: 0 20px;
+		white-space: nowrap;
+	}
+
+	.sub-list .sub-link {
+		display: block;
+		padding: 8px 0;
+		text-decoration: none;
+	}
+}
+
+.rule li {
+	font-style: normal;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 24px;
+	color: #706F6D;
+	list-style-position: outside;
+	padding: 0 0 10px 0;
+	margin: 0 0 0 10px;
+}
+
+.container {
+	max-width: 1440px;
+	padding: 0 110px;
+}
+
+@media (max-width: 1200px) {
+	.container {
+		padding: 0 50px;
+	}
+}
+
+@media (max-width: 820px) {
+	.container {
+		padding: 0 15px;
+	}
+}
+</style>
+
+<link rel="preload" href="/css/style-light.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/style-light.css"></noscript>
+	<title>Відбійники з оргскла для ескалаторів на замовлення в Києві | Prompostach</title>
+	<meta name="description" content="Виготовляємо відбійники та захисні екрани з оргскла для ескалаторів на замовлення в Києві. Оргскло 6–8 мм, будь-яка конструкція під потреби замовника. Захист від травм на ескалаторі у ТРЦ, метро, аеропортах.">
+	<meta name="keywords" content="відбійники з оргскла, захисні екрани для ескалатора, відбійники для ескалатора Київ, оргскло для ескалатора, виготовлення відбійників акрил">
+	<meta name="author" content="ПП &quot;ПРОМПОСТАЧ&quot;">
+	<meta name="robots" content="index, follow">
+
+<link rel="alternate" hreflang="uk" href="https://snab.kiev.ua/ua/portfolio/vidbijnyky-orgsklo-eskalator" />
+<link rel="alternate" hreflang="ru" href="https://snab.kiev.ua/ru/portfolio/otbojniki-orgsteklo-eskalator" />
+<link rel="alternate" hreflang="x-default" href="https://snab.kiev.ua/ua/portfolio/vidbijnyky-orgsklo-eskalator" />
+<link rel="canonical" href="https://snab.kiev.ua/ua/portfolio/vidbijnyky-orgsklo-eskalator" />
+
+</head>
+<body>
+
+	<div class="app">
+<div class="container">
+  <header class="header">
+    <nav class="header-menu">
+      <div class="logo">
+        <div class="logo-img">
+          <a href="/ua/">
+            <img src="/img/logo1.png" alt="logo" width="40" height="40">
+          </a>
+        </div>
+      </div>
+
+      <ul class="header-list">
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">послуги</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="/ua/lazernaya-rezka-akrila" class="sub-link">Лазерна різка оргскла</a></li>
+            <li class="sub-item"><a href="/ua/rizka-fanery" class="sub-link">Лазерна різка фанери та ДВП</a></li>
+            <li class="sub-item"><a href="/ua/lazerne-hraviyuvannya" class="sub-link">Лазерне гравірування</a></li>
+            <li class="sub-item"><a href="/ua/posluhy" class="sub-link">Виготовлення виробів</a></li>
+            <li class="sub-item"><a href="/ua/rule" class="sub-link">Вимоги до макетів</a></li>
+          </ul>
+        </li>
+
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">каталог товарів</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="/ua/prays-orgsteklo" class="sub-link">Оргскло</a></li>
+            <li class="sub-item"><a href="/ua/kaprolon-v-sterzhnyakh" class="sub-link">Капролон</a></li>
+            <li class="sub-item"><a href="/ua/ftoroplast" class="sub-link">Фторопласт</a></li>
+            <li class="sub-item"><a href="/ua/tekstolit" class="sub-link">Текстоліт</a></li>
+            <li class="sub-item"><a href="/ua/deflektor" class="sub-link">Дефлектор для кондиціонера</a></li>
+            <li class="sub-item"><a href="./stellaj-nastenni" class="sub-link">Стелаж для авто</a></li>
+          </ul>
+        </li>
+
+        <li class="header-item">
+          <a href="/ua/price" class="header-link">ціни</a>
+        </li>
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">портфоліо</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="/ua/portfolio/pidstavky-z-akrilu" class="sub-link">Підставки з акрилу</a></li>
+            <li class="sub-item"><a href="/ua/portfolio/vidbijnyky-orgsklo-eskalator" class="sub-link">Відбійники для ескалаторів</a></li>
+            <li class="sub-item"><a href="/ua/portfolio/korob-z-akrilu" class="sub-link">Коробки з акрилу</a></li>
+            <li class="sub-item"><a href="/ua/portfolio/menyuholdery" class="sub-link">Меню холдери</a></li>
+            <li class="sub-item"><a href="/ua/portfolio/nomerki" class="sub-link">Номерки</a></li>
+          </ul>
+        </li>
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">блог</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="/ua/sfery-primeneniya-orgstekla" class="sub-link">Використання оргскла</a></li>
+            <li class="sub-item"><a href="/ua/rezka-kaprolona" class="sub-link">Різка капролона</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="language-switcher">
+        <a href="#" onclick="switchLanguage('uk')">ua</a> | 
+        <a href="#" onclick="switchLanguage('ru')">ru</a>
+      </div>
+
+      <div class="header-contact">
+        <a href="tel:+380971275775">
+          <img src="/img/telephone.png" alt="Телефон" width="34" height="34">
+        </a>
+        <a href="viber://chat?number=%2B380504625083">
+          <img src="/img/viber.png" alt="Вайбер" width="34" height="34">
+        </a>
+        <a href="//t.me/PromPostach" target="_blank" rel="noopener noreferrer">
+          <img src="/img/telegram.png" alt="Телеграм" width="34" height="34">
+        </a>
+      </div>
+
+      <div class="header-burger">
+        <span></span>
+      </div>
+    </nav>
+  </header>
+</div>	<div class='container'>
+
+  <h1>Відбійники з оргскла для ескалаторів на замовлення в Києві</h1>
+
+  <p>Потрібні <strong>відбійники з оргскла для ескалатора</strong>? Компанія <strong>Промпостач</strong> виготовляє захисні відбійники та екрани з оргскла для ескалаторів будь-якої конструкції на замовлення в Києві. Матеріал — оргскло <strong>6–8 мм</strong>, що забезпечує достатню міцність і хороший зовнішній вигляд. Доставка по Україні.</p>
+
+  <p>До нас регулярно звертаються <strong>будівельні організації, керуючі компанії ТРЦ, метрополітен, аеропорти</strong> та інші об'єкти з ескалаторами — для виготовлення відбійників, що відповідають конкретним конструктивним вимогам і вписуються в інтер'єр.</p>
+
+  <!-- ФОТО #1: відбійники на ескалаторі загальний вид 
+  <img
+    class="img-foto"
+    src="/img/vidbijnyky-eskalator-1.webp"
+    srcset="
+      /img/vidbijnyky-eskalator-1-400.webp   400w,
+      /img/vidbijnyky-eskalator-1-900.webp   900w,
+      /img/vidbijnyky-eskalator-1-1200.webp 1200w,
+      /img/vidbijnyky-eskalator-1.webp 1920w
+    "
+    sizes="
+      (max-width: 480px) 400px,
+      (max-width: 920px) 900px,
+      (max-width: 1440px) 1200px,
+      1920px
+    "
+    alt="Відбійники з оргскла для ескалатора — захист від травм у зоні поручнів"
+  /> -->
+
+  <h2>Навіщо потрібні відбійники на ескалаторі</h2>
+
+  <p>При введенні в експлуатацію ескалаторів механічні поручні нерідко межують з перекриттями верхнього поверху. Це створює <strong>небезпечну зону</strong>, в якій неуважний пасажир — і особливо дитина — може отримати травму. Діти за своєю природою допитливі: вони заглядають у щілини, торкаються всього поспіль, не думаючи про наслідки.</p>
+
+  <p>Відбійник з оргскла перекриває небезпечний зазор між поручнем і перекриттям, <strong>фізично унеможливлюючи потрапляння руки або предметів</strong> у небезпечну зону. При цьому прозорий матеріал не псує вигляд ескалатора і не створює відчуття замкнутого простору.</p>
+
+  <h2>Особливості виготовлення</h2>
+
+  <ul class='rule'>
+    <li><strong>Матеріал — оргскло 6–8 мм</strong> — достатня товщина для міцності конструкції при механічному навантаженні.</li>
+    <li><strong>Прозорість</strong> — відбійник не перекриває огляд і органічно вписується в будь-який інтер'єр.</li>
+    <li><strong>Індивідуальна конструкція</strong> — виготовляємо під конкретні габарити та монтажні умови кожного ескалатора.</li>
+    <li><strong>Різні варіанти кріплення</strong> — підбираємо спосіб монтажу під наявну конструкцію поручня або перекриття.</li>
+    <li><strong>Можливе тонування</strong> — матове або кольорове оргскло, якщо це передбачено дизайном об'єкта.</li>
+  </ul>
+
+  <!-- ФОТО #2: відбійник крупно або монтаж 
+  <img
+    class="img-foto"
+    src="/img/vidbijnyky-eskalator-2.webp"
+    srcset="
+      /img/vidbijnyky-eskalator-2-400.webp   400w,
+      /img/vidbijnyky-eskalator-2-900.webp   900w,
+      /img/vidbijnyky-eskalator-2-1200.webp 1200w,
+      /img/vidbijnyky-eskalator-2.webp 1920w
+    "
+    sizes="
+      (max-width: 480px) 400px,
+      (max-width: 920px) 900px,
+      (max-width: 1440px) 1200px,
+      1920px
+    "
+    alt="Відбійник з оргскла 6–8 мм — захисний екран для ескалатора на замовлення"
+  /> -->
+
+  <h2>Де встановлюються відбійники з оргскла</h2>
+
+  <ul class='rule'>
+    <li><strong>Торгово-розважальні центри</strong> — ескалатори між поверхами в зонах з активним потоком відвідувачів.</li>
+    <li><strong>Супермаркети та гіпермаркети</strong> — ескалатори для покупців і траволатори для візків.</li>
+    <li><strong>Аеропорти та вокзали</strong> — зони підвищеної прохідності з багажем і дітьми.</li>
+    <li><strong>Бізнес-центри та готелі</strong> — представницькі інтер'єри, де важлива естетика відбійника.</li>
+    <li><strong>Метрополітен і підземні переходи</strong> — ескалатори з підвищеними вимогами до безпеки.</li>
+  </ul>
+
+  <h2>Як замовити відбійники з оргскла</h2>
+
+  <ol class='rule'>
+    <li><strong>Опишіть завдання</strong> — тип і розміри ескалатора, проблемна зона, наявні монтажні умови.</li>
+    <li><strong>Надішліть замір або фото</strong> — фотографії проблемної зони та замірні розміри допоможуть точно розрахувати конструкцію.</li>
+    <li><strong>Отримайте розрахунок</strong> — вартість залежить від розмірів, кількості секцій і товщини матеріалу.</li>
+    <li><strong>Погодьте деталі</strong> — конструкція, спосіб кріплення, терміни виготовлення.</li>
+    <li><strong>Отримайте замовлення</strong> — самовивіз у Києві або доставка Новою Поштою.</li>
+  </ol>
+
+  <h2>Поширені запитання</h2>
+
+  <h3>Яка товщина оргскла для відбійників?</h3>
+  <p>Стандартно використовуємо оргскло 6–8 мм — це забезпечує достатню міцність при механічному навантаженні і хороший зовнішній вигляд.</p>
+
+  <h3>Чи виготовляєте нестандартні конструкції?</h3>
+  <p>Так, виготовляємо відбійники будь-якої конфігурації під конкретні габарити та монтажні умови вашого ескалатора.</p>
+
+  <h3>Чи можна замовити матове або кольорове оргскло?</h3>
+  <p>Так, використовуємо прозоре, матове або кольорове оргскло — залежно від дизайну об'єкта.</p>
+
+  <h3>Скільки часу займає виготовлення?</h3>
+  <p>Терміни залежать від складності та кількості секцій. Стандартне замовлення — 3–5 робочих днів. Уточнюйте при замовленні.</p>
+
+  <h3>Чи є доставка по Україні?</h3>
+  <p>Так, відправляємо Новою Поштою по всій Україні. Самовивіз — м. Київ, вул. Гетьмана Данила Апостола, 6.</p>
+
+  <hr>
+
+  <h2>Замовити відбійники з оргскла для ескалатора просто</h2>
+  <p>Залиште заявку через сайт, напишіть у месенджери або зателефонуйте — відповімо на всі питання та підберемо оптимальну конструкцію для вашого об'єкта.</p>
+  <p><strong>Промпостач — захисні вироби з оргскла під ваші вимоги. Власне виробництво з 1996 року.</strong></p>
+
+</div>
+
+<footer class="app-footer">
+	<div class="footer-footer">
+		<div class="footer-container">
+			<div class="footer"></div>
+			<div class="footer-bg"></div>
+			<div class="footer-content">
+				<div class="footer-info">
+					<div class="footer-head">Наші контакти</div>
+					<div class="footer-info-title">Ми працюємо з 8:30 - 17:00</div>
+				</div>	
+				<div class="footer-info-contact">
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Location.png" alt="Адреса" width="24" height="24">
+						</div>
+						<a href="https://maps.google.com/maps?ll=50.522475,30.480653&z=15&t=m&hl=ru&gl=US&mapclient=embed&cid=7827649011644501388" target="_blank" rel="nofollow"><div class="footer-href">м. Київ, вул. Гетьмана <br>Данила Апостола, буд. 6</div></a>
+					</div>
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Mail.png" alt="Пошта" width="24" height="24">
+						</div>
+						<a href="mailto:info@snab.kiev.ua"><div class="footer-href">info@snab.kiev.ua</div></a>
+					</div>
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Phone.png" alt="Телефон" width="24" height="24">
+						</div>
+						<a href="tel:+380504625083"><div class="footer-href">050 462 50 83</div></a>
+					</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</footer>	
+	</div>
+<script src="/js/script.js" defer></script>
+
+<script>
+  window.addEventListener('scroll', function gtagLazyLoad() {
+    const s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y5JKLT28XD';
+    s.defer = true;
+    document.head.appendChild(s);
+    window.removeEventListener('scroll', gtagLazyLoad);
+
+    s.onload = function () {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y5JKLT28XD');
+    };
+  });
+</script>	</body>
+</html>

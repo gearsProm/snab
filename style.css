@@ -287,7 +287,7 @@ p {
   bottom: 5.5px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 950px) {
   .header-burger {
     display: -webkit-box;
     display: -ms-flexbox;

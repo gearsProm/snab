@@ -1,0 +1,63 @@
+<!-- ════════════════════════════════════════════════════
+     ФОРМА РУС — forma-ru.kit
+     Вставте внизу кожної сторінки /ru/ перед </body>
+════════════════════════════════════════════════════ -->
+<section class="mini-cta">
+
+  <h2>Оставить заявку</h2>
+  <p class="sub">Ответим в течение 1 рабочего дня — рассчитаем стоимость и сроки</p>
+
+  <form
+    class="mini-form"
+    action="https://formsubmit.co/info@snab.kiev.ua"
+    method="POST"
+  >
+    <input type="hidden" name="_captcha"  value="false">
+    <input type="hidden" name="_subject"  value="Новая заявка с сайта — русская версия">
+    <input type="hidden" name="_next"     value="https://snab.kiev.ua/ru/spasibo">
+    <input type="hidden" name="_template" value="table">
+
+    <div class="mini-field">
+      <label for="m-name">Имя *</label>
+      <input
+        type="text"
+        id="m-name"
+        name="name"
+        placeholder="Иван"
+        required
+        autocomplete="given-name"
+      >
+    </div>
+
+    <div class="mini-field">
+      <label for="m-phone">Телефон *</label>
+      <input
+        type="tel"
+        id="m-phone"
+        name="phone"
+        placeholder="+38 050 000 00 00"
+        required
+        autocomplete="tel"
+      >
+    </div>
+
+    <div class="mini-field">
+      <label for="m-order">Что нужно</label>
+      <textarea
+        id="m-order"
+        name="order"
+        placeholder="4 мм"
+      ></textarea>
+    </div>
+
+    <button type="submit" class="mini-btn">Отправить →</button>
+
+  </form>
+
+  <p class="mini-note">
+    * — обязательные поля &nbsp;·&nbsp;
+    Есть макет или детали?
+    <a href="/ru/zakazat">Полная форма →</a>
+  </p>
+
+</section>

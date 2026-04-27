@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<!-- @import '../../../css/style-css.html' -->
+
+    <!-- Вставляємо стилі сюди -->
+    <style>
+        /* Ваш CSS-блок тут */
+        .breadcrumb {
+          list-style: none;
+          padding: 0;
+          margin: 0 0 16px 0;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 0;
+          font-size: 14px;
+          color: #888;
+        }
+
+        .breadcrumb li {
+          display: flex;
+          align-items: center;
+        }
+
+        /* Стрілка між пунктами */
+        .breadcrumb li:not(:last-child)::after {
+          content: "›";
+          margin: 0 8px;
+          color: #bbb;
+        }
+
+        /* Посилання */
+        .breadcrumb a {
+          color: #888;
+          text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+          color: #333;
+          text-decoration: underline;
+        }
+
+        /* Остання крихта — поточна сторінка, не посилання */
+        .breadcrumb li:last-child {
+          color: #333;
+          font-weight: 500;
+        }
+    </style>
+
+
+	<title>Номерки гардеробні на замовлення в Києві — акрил, дерево, оргскло | Промпостач</title>
+	<meta name="description" content="Виготовляємо гардеробні номерки з акрилу, дерева та оргскла на замовлення в Києві. Лазерне гравіювання, УФ-друк, будь-яка форма. Власне виробництво з 1996 року.">
+	<meta name="keywords" content="номерки гардеробні, номерки з акрилу, номерки з дерева, виготовлення номерків Київ, пластикові номерки на замовлення, гравіювання номерків">
+	<meta name="author" content="ПП &quot;ПРОМПОСТАЧ&quot;">
+	<meta name="robots" content="index, follow">
+
+<link rel="alternate" hreflang="uk" href="https://snab.kiev.ua/ua/portfolio/nomerki" />
+<link rel="alternate" hreflang="ru" href="https://snab.kiev.ua/ru/portfolio/nomerki" />
+<link rel="alternate" hreflang="x-default" href="https://snab.kiev.ua/ua/portfolio/nomerki" />
+<link rel="canonical" href="https://snab.kiev.ua/ua/portfolio/nomerki" />
+
+</head>
+<body>
+
+	<div class="app">
+<!-- @import '../../src/head.html' -->
+	<div class='container'>
+<!-- @import 'nomerki.html' -->
+</div>
+<!-- @import '../../src/footer.html' -->
+	
+	</div>
+	<!--@import "../../../js/scrip.html" -->
+</body>
+</html>

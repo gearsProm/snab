@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Спасибо за заказ — Промпостач</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Мовні теги -->
+  <link rel="alternate" hreflang="uk" href="https://snab.kiev.ua/ua/dyakuemo" />
+  <link rel="alternate" hreflang="ru" href="https://snab.kiev.ua/ru/spasibo" />
+  <link rel="alternate" hreflang="x-default" href="https://snab.kiev.ua/ua/dyakuemo" />
+  <link rel="canonical" href="https://snab.kiev.ua/ru/spasibo" />
+
+  <!-- @import '../../css/style-css.html' -->
+
+  <style>
+    .thanks-wrap {
+      min-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+    }
+
+    .thanks-card {
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      animation: fadeUp .5s ease both;
+    }
+
+    .thanks-icon {
+      width: 72px;
+      height: 72px;
+      border: 1.5px solid #1D1D1D;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 36px;
+      animation: popIn .4s cubic-bezier(.34,1.56,.64,1) both;
+    }
+
+    .thanks-icon svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    .thanks-title {
+      font-weight: 600;
+      font-size: 2rem;
+      line-height: 2rem;
+      color: #1D1D1D;
+      padding: 0 0 20px 0;
+      margin: 0;
+    }
+
+    .thanks-text {
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.6rem;
+      color: #706F6D;
+      padding: 0;
+      margin: 0;
+    }
+
+    .thanks-divider {
+      width: 1px;
+      height: 40px;
+      background: #d7d7d7;
+      margin: 32px auto;
+    }
+
+    .thanks-stats {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .thanks-stat {
+      padding: 0 32px;
+      text-align: center;
+    }
+
+    .thanks-stat .val {
+      display: block;
+      font-weight: 600;
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+      color: #1D1D1D;
+      margin-bottom: 6px;
+    }
+
+    .thanks-stat .lbl {
+      font-weight: 300;
+      font-size: 0.75rem;
+      color: #706F6D;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .stat-sep {
+      width: 1px;
+      height: 36px;
+      background: #d7d7d7;
+      flex-shrink: 0;
+    }
+
+    .thanks-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .thanks-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 28px;
+      border-radius: 5px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: background .15s, color .15s, transform .1s;
+    }
+
+    .thanks-btn:active { transform: scale(.97); }
+
+    .thanks-btn-primary {
+      background: #1D1D1D;
+      color: #fff;
+    }
+    .thanks-btn-primary:hover { background: #343434; }
+
+    .thanks-btn-outline {
+      background: transparent;
+      color: #1D1D1D;
+      border: 1px solid #5C5C5C;
+    }
+    .thanks-btn-outline:hover {
+      background: #1D1D1D;
+      color: #fff;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(.5); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      .thanks-title { font-size: 1.5rem; line-height: 1.5rem; }
+      .thanks-stat  { padding: 0 16px; }
+    }
+    @media (max-width: 480px) {
+      .thanks-actions { flex-direction: column; }
+      .thanks-btn     { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app">
+  <!-- @import 'head.html' -->
+    <main class="app-main">
+      <div class="container">
+
+        <div class="thanks-wrap">
+          <div class="thanks-card">
+
+            <div class="thanks-icon">
+              <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polyline
+                  points="5,16 12,23 25,9"
+                  stroke="#1D1D1D"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+
+            <h1 class="thanks-title">Спасибо за заявку!</h1>
+
+            <p class="thanks-text">
+              Ваш заказ получен. Мы свяжемся с вами<br>
+              <strong style="color:#1D1D1D; font-weight:500;">в течение 1 рабочего дня</strong>
+              и предоставим расчёт стоимости.
+            </p>
+
+            <div class="thanks-divider"></div>
+
+            <div class="thanks-stats">
+              <div class="thanks-stat">
+                <span class="val">1 день</span>
+                <span class="lbl">время ответа</span>
+              </div>
+              <div class="stat-sep"></div>
+              <div class="thanks-stat">
+                <span class="val">1–3 дня</span>
+                <span class="lbl">изготовление</span>
+              </div>
+              <div class="stat-sep"></div>
+              <div class="thanks-stat">
+                <span class="val">с 1996</span>
+                <span class="lbl">на рынке</span>
+              </div>
+            </div>
+
+            <div class="thanks-actions">
+              <a href="/ru/" class="thanks-btn thanks-btn-primary">На главную</a>
+              <a href="javascript:history.back()" class="thanks-btn thanks-btn-outline">← Вернуться</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+    <!-- @import 'footer.html' -->
+
+  </div>
+  <!--@import "../../js/scrip.html" -->
+</body>
+</html>

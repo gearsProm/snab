@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preload" href="/fonts/montserrat/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-Light.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+	* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul,
+li {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+h1,
+h2 {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	display: inline-block;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Light.woff2") format("woff2");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-Medium.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("/fonts/montserrat/Montserrat-SemiBold.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+body {
+	font-weight: 400;
+    font-family: "Montserrat", "Segoe UI", "Roboto", sans-serif;
+	font-size: 14px;
+	line-height: 1.57;
+	color: #1D1D1D;
+	background-color: #FFF;
+}
+
+.app {
+	padding: 0;
+	max-width: 1440px;
+	margin: 0 auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+	color: #1D1D1D;
+}
+
+h1 {
+	font-weight: 600;
+	font-size: 2rem;
+	line-height: 2rem;
+	padding: 50px 0 25px 0;
+}
+
+@media screen and (max-width: 768px) {
+	h1 {
+		font-size: 1.5rem;
+		line-height: 1.5rem;
+		padding: 25px 0 12px 0;
+	}
+}
+
+h2 {
+	font-weight: 500;
+	font-size: 1.875rem;
+	line-height: 1.875rem;
+	padding: 30px 0 15px 0;
+}
+
+@media screen and (max-width: 768px) {
+	h2 {
+		font-size: 1.25rem;
+		line-height: 1.25rem;
+		padding: 15px 0 7px 0;
+	}
+}
+h3 {
+	font-weight: 500;
+	font-size: 1.7rem;
+	line-height: 1.7rem;
+	padding: 25px 0 12px 0;
+}
+@media screen and (max-width: 768px) {
+	h3 {
+		font-size: 1.2rem;
+		line-height: 1.2rem;
+		padding: 15px 0 7px 0;
+	}
+}
+
+p {
+	font-weight: 300;
+	font-size: 1rem;
+	line-height: 1.6rem;
+	color: #706F6D;
+	padding: 10px 0;
+}
+
+.header {
+	width: 100%;
+	height: 80px;
+	position: sticky;
+	top: 0;
+	z-index: 11;
+	border-bottom: 1px solid #989898;
+}
+
+.header-menu {
+	display: flex;
+	height: 80px;
+	justify-content: space-between;
+	align-items: center;
+	flex-grow: 1;
+}
+
+.header-list {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+	color: #706F6D;
+}
+
+.header-list a {
+	position: relative;
+}
+
+.header-list a::before {
+	content: "";
+	position: absolute;
+	width: 0%;
+	height: 1px;
+	bottom: -3px;
+	left: 50%;
+	background-color: #1D1D1D;
+}
+
+.header-item {
+	padding: 10px 0;
+}
+
+.sub-list {
+	display: none;
+	width: 400px;
+	margin-top: 0;
+	position: absolute;
+	top: 30px;
+	background-color: #f7f7f7;
+	padding: 30px;
+}
+
+.header-link {
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+.sub-item {
+	padding: 5px 0;
+}
+
+.sub-link {
+	text-transform: none;
+}
+
+.header-contact {
+	display: flex;
+	gap: 20px;
+}
+
+.header-contact img {
+	width: 34px;
+	height: 34px;
+}
+
+.header-burger {
+	display: none;
+	width: 24px;
+	height: 13px;
+	margin: 25px 5px 25px 10px;
+	position: relative;
+}
+
+.header-burger span {
+	width: 100%;
+	height: 2px;
+	background-color: #000;
+}
+
+.header-burger::before,
+.header-burger::after {
+	background-color: #000;
+	content: "";
+	height: 2px;
+	position: absolute;
+	width: 100%;
+}
+
+.header-burger::before {
+	top: 0;
+}
+
+.header-burger::after {
+	bottom: 0;
+}
+
+@media (max-width: 768px) {
+	.header-burger {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.header-list {
+		flex-direction: column;
+		gap: 18px;
+		background-color: #1D1D1D;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 78px;
+		left: -100%;
+		color: #FFF;
+		padding-left: 20px;
+		justify-content: flex-start;
+		padding-top: 30px;
+	}
+
+	.sub-list {
+		color: #1D1D1D;
+		position: static;
+	}
+}
+
+.language-switcher {
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+@media (min-width: 769px) {
+	.header-item {
+		position: relative;
+	}
+
+	.sub-list {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background-color: white;
+		display: none;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(10px);
+		z-index: 10;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+		padding: 10px 0;
+	}
+
+	.sub-list .sub-item {
+		padding: 0 20px;
+		white-space: nowrap;
+	}
+
+	.sub-list .sub-link {
+		display: block;
+		padding: 8px 0;
+		text-decoration: none;
+	}
+}
+
+.rule li {
+	font-style: normal;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 24px;
+	color: #706F6D;
+	list-style-position: outside;
+	padding: 0 0 10px 0;
+	margin: 0 0 0 10px;
+}
+
+.container {
+	max-width: 1440px;
+	padding: 0 110px;
+}
+
+@media (max-width: 1200px) {
+	.container {
+		padding: 0 50px;
+	}
+}
+
+@media (max-width: 820px) {
+	.container {
+		padding: 0 15px;
+	}
+}
+</style>
+
+<link rel="preload" href="/css/style-light.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/style-light.css"></noscript>
+	<title>Менюхолдеры из акрила на заказ в Киеве — подставки под меню А3, А4, А5 | Промпостач</title>
+	<meta name="description" content="Изготавливаем менюхолдеры и подставки под меню из акрила и оргстекла на заказ в Киеве. Форматы А3, А4, А5 и нестандартные размеры. Нанесение логотипа, доставка по Украине.">
+	<meta name="keywords" content="менюхолдеры, подставки под меню, менюхолдер А4, менюхолдер А5, менюхолдер А3, холдеры из акрила, подставка для меню Киев, изготовление менюхолдеров">
+	<meta name="author" content="ПП &quot;ПРОМПОСТАЧ&quot;">
+	<meta name="robots" content="index, follow">
+
+<link rel="alternate" hreflang="uk" href="https://snab.kiev.ua/ua/portfolio/menyuholdery" />
+<link rel="alternate" hreflang="ru" href="https://snab.kiev.ua/ru/portfolio/menyuholdery" />
+<link rel="alternate" hreflang="x-default" href="https://snab.kiev.ua/ua/portfolio/menyuholdery" />
+<link rel="canonical" href="https://snab.kiev.ua/ru/portfolio/menyuholdery" />
+
+</head>
+<body>
+
+	<div class="app">
+
+<div class="container">
+  <header class="header">
+    <nav class="header-menu">
+      <div class="logo">
+        <div class="logo-img">
+          <a href="/ru/">
+            <img src="/img/logo1.png" alt="logo" width="40" height="40">
+          </a>
+        </div>
+      </div>
+
+      <ul class="header-list">
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">Услуги</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./lazernaya-rezka-akrila" class="sub-link">Лазерная резка оргстекла</a></li>
+            <li class="sub-item"><a href="./rezka-faneri" class="sub-link">Лазерная резка фанеры и ДВП</a></li>
+            <li class="sub-item"><a href="./laser-gravirovka" class="sub-link">Лазерная гравировка</a></li>
+            <li class="sub-item"><a href="./yslygi" class="sub-link">Изготовление изделий</a></li>
+            <li class="sub-item"><a href="./rule" class="sub-link">Требования к макетам</a></li>
+          </ul>
+        </li>
+
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">Каталог товаров</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./prays-orgsteklo" class="sub-link">Оргстекло</a></li>
+            <li class="sub-item"><a href="./kaprolon-v-sterzhnyakh" class="sub-link">Капролон</a></li>
+            <li class="sub-item"><a href="./ftoroplast" class="sub-link">Фторопласт</a></li>
+            <li class="sub-item"><a href="./tekstolit" class="sub-link">Текстолит</a></li>
+            <li class="sub-item"><a href="./deflektor" class="sub-link">Дефлектор для кондиционера</a></li>
+            <li class="sub-item"><a href="./stellaj-nastenni" class="sub-link">Стеллаж для машинок</a></li>
+          </ul>
+        </li>
+
+        <li class="header-item">
+          <a href="./price" class="header-link">Цены</a>
+        </li>
+
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">Портфолио</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="/ru/portfolio/pidstavky-iz-akrila" class="sub-link">Подставки из акрила</a></li>
+            <li class="sub-item"><a href="/ru/portfolio/otbojniki-orgsteklo-eskalator" class="sub-link">Отбойники для эскалаторов</a></li>
+            <li class="sub-item"><a href="/ru/portfolio/korobki-iz-akrila" class="sub-link">Коробки из акрила</a></li>
+            <li class="sub-item"><a href="/ru/portfolio/menyuholdery" class="sub-link">Меню холдеры</a></li>
+            <li class="sub-item"><a href="/ru/portfolio/nomerki" class="sub-link">Номерки</a></li>
+          </ul>
+        </li>
+
+        <li class="header-item">
+          <a href="javascript:void(0)" class="header-link">Блог</a>
+          <ul class="sub-list">
+            <li class="sub-item"><a href="./sfery-primeneniya-orgstekla" class="sub-link">Сферы применения оргстекла</a></li>
+            <li class="sub-item"><a href="./rezka-kaprolona" class="sub-link">Резка капролона</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="language-switcher">
+        <a href="#" onclick="switchLanguage('uk')">ua</a> | 
+        <a href="#" onclick="switchLanguage('ru')">ru</a>
+      </div>
+
+      <div class="header-contact">
+        <a href="tel:+380971275775">
+          <img src="/img/telephone.png" alt="Телефон" width="34" height="34">
+        </a>
+        <a href="viber://chat?number=%2B380504625083">
+          <img src="/img/viber.png" alt="Вайбер" width="34" height="34">
+        </a>
+        <a href="//t.me/PromPostach" target="_blank" rel="noopener noreferrer">
+          <img src="/img/telegram.png" alt="Телеграм" width="34" height="34">
+        </a>
+      </div>
+
+      <div class="header-burger">
+        <span></span>
+      </div>
+    </nav>
+  </header>
+</div>	<div class='container'>
+  <h1>Менюхолдеры из акрила на заказ в Киеве — подставки под меню А3, А4, А5</h1>
+ 
+  <p>Нужны качественные <strong>подставки под меню</strong> для ресторана, кафе, гостиницы или офиса? Компания <strong>Промпостач</strong> изготавливает <strong>менюхолдеры из акрила и оргстекла</strong> на заказ в Киеве. Стандартные форматы А3, А4, А5, а также любые нестандартные размеры — от 1 штуки, с доставкой по Украине.</p>
+ 
+  <p>Менюхолдер — это подставка для печатных материалов: меню, рекламных листовок, прайс-листов, акционных предложений или информационных вкладок. Оргстекло — наиболее популярный материал для таких конструкций благодаря <strong>прозрачному эстетичному виду</strong>, малому весу и возможности тонирования.</p>
+ 
+  <!-- ФОТО #1: менюхолдеры общий вид -->
+  <img
+    class="img-foto"
+    src="/img/menyuholdery-1.webp"
+    srcset="
+      /img/menyuholdery-1-400.webp   400w,
+      /img/menyuholdery-1-900.webp   900w,
+      /img/menyuholdery-1-1200.webp 1200w,
+      /img/menyuholdery-1.webp 1920w
+    "
+    sizes="
+      (max-width: 480px) 400px,
+      (max-width: 920px) 900px,
+      (max-width: 1440px) 1200px,
+      1920px
+    "
+    alt="Менюхолдеры из акрила на заказ — подставки под меню А4 и А5"
+  />
+ 
+  <h2>Виды менюхолдеров и подставок под меню</h2>
+ 
+  <h3>Менюхолдер А5 (210×148 мм)</h3>
+  <p>Вертикальный формат А5 — компактный вариант для небольших столиков в кафе и ресторанах. Идеально подходит для чайных карт, коктейльных меню, акционных предложений или QR-кодов. Занимает минимум места на столе.</p>
+ 
+  <h3>Менюхолдер А4 (297×210 мм)</h3>
+  <p>Наиболее популярный формат — вертикальный А4. Используется в ресторанах, кафе, гостиницах и офисах для размещения полноценного меню, прайс-листов или информационных материалов. Есть варианты одно- и двусторонние.</p>
+ 
+  <h3>Менюхолдер А3 (420×297 мм)</h3>
+  <p>Большой вертикальный формат А3 — для выставок, стендов, рецепций гостиниц и торговых залов. Благодаря большей площади хорошо заметен издалека и вмещает больше информации или крупный графический элемент.</p>
+ 
+  <h3>Холдеры нестандартных форматов</h3>
+  <p>Изготавливаем подставки форматов А2 и меньше А5, а также полностью <strong>нестандартные размеры</strong> под вашу задачу. Бумажный носитель в холдере легко заменяется — не нужно заказывать новую конструкцию при смене меню или сезонных предложений.</p>
+ 
+  <h2>Где используются менюхолдеры</h2>
+ 
+  <ul class='rule'>
+    <li><strong>Рестораны, кафе, бары</strong> — меню, чайные карты, акционные предложения на столах.</li>
+    <li><strong>Гостиницы и хостелы</strong> — информация в холлах, описание услуг, прайс-листы.</li>
+    <li><strong>Офисы и банки</strong> — тарифы, объявления, навигация по этажам.</li>
+    <li><strong>Магазины и торговые центры</strong> — ценники, технические характеристики товаров, акции.</li>
+    <li><strong>Туристические бюро и госучреждения</strong> — расписания, правила, информационные материалы.</li>
+    <li><strong>Выставки и конференции</strong> — крупноформатные холдеры А3 для стендов и презентаций.</li>
+  </ul>
+ 
+  <!-- ФОТО #2: холдер крупным планом или в интерьере -->
+  <img
+    class="img-foto"
+    src="/img/menyuholdery-2.webp"
+    srcset="
+      /img/menyuholdery-2-400.webp   400w,
+      /img/menyuholdery-2-900.webp   900w,
+      /img/menyuholdery-2-1200.webp 1200w,
+      /img/menyuholdery-2.webp 1920w
+    "
+    sizes="
+      (max-width: 480px) 400px,
+      (max-width: 920px) 900px,
+      (max-width: 1440px) 1200px,
+      1920px
+    "
+    alt="Менюхолдер А4 из акрила в интерьере ресторана — подставка под меню"
+  />
+ 
+  <h2>Какие материалы и размещение печатных материалов возможны</h2>
+ 
+  <p>В менюхолдеры можно вкладывать любые печатные материалы:</p>
+ 
+  <ul class='rule'>
+    <li>меню, чайные и коктейльные карты;</li>
+    <li>прайс-листы и каталоги услуг;</li>
+    <li>акционные и сезонные предложения;</li>
+    <li>листовки, визитки, рекламные вкладки;</li>
+    <li>выставочные материалы и технические характеристики товаров;</li>
+    <li>QR-коды и навигационная информация.</li>
+  </ul>
+ 
+  <p><strong>Двусторонняя подставка под меню</strong> позволяет экономить место и размещать больше информации на имеющейся площади — материал вставляется с обеих сторон конструкции.</p>
+ 
+  <h2>Нанесение логотипа и персонализация</h2>
+ 
+  <p>На любой менюхолдер можно нанести <strong>логотип или название заведения</strong> — это превращает обычную подставку в элемент фирменного стиля. Доступные способы нанесения:</p>
+ 
+  <ul class='rule'>
+    <li><strong>Лазерная гравировка</strong> — точная и долговечная, не стирается и не выгорает.</li>
+    <li><strong>УФ-печать</strong> — полноцветный логотип или изображение с фотографическим качеством.</li>
+  </ul>
+ 
+  <h2>Преимущества оргстекла для менюхолдеров</h2>
+ 
+  <ul class='rule'>
+    <li><strong>Прозрачный эстетичный вид</strong> — не отвлекает от содержимого, выглядит стильно в любом интерьере.</li>
+    <li><strong>Малый вес</strong> — удобно переставлять, не бьётся об стол.</li>
+    <li><strong>Возможность тонирования</strong> — матовое, цветное или зеркальное оргстекло под стиль заведения.</li>
+    <li><strong>Долговечность</strong> — не желтеет, не трескается при нормальной эксплуатации.</li>
+    <li><strong>Лёгкая замена носителя</strong> — бумажный вкладыш меняется за секунды без инструментов.</li>
+  </ul>
+ 
+  <h2>Как заказать менюхолдеры</h2>
+ 
+  <ol class='rule'>
+    <li><strong>Определите формат и количество</strong> — А5, А4, А3 или нестандартный размер, количество штук.</li>
+    <li><strong>Пришлите макет или описание</strong> — если нужно нанесение логотипа, форматы CDR, AI, DXF, SVG, PDF.</li>
+    <li><strong>Получите расчёт</strong> — стоимость зависит от формата, количества и наличия нанесения.</li>
+    <li><strong>Согласуйте детали</strong> — материал (прозрачный/матовый/цветной), сроки, способ получения.</li>
+    <li><strong>Получите заказ</strong> — самовывоз в Киеве или доставка Новой Почтой.</li>
+  </ol>
+ 
+  <!-- ФОТО #3: разные форматы менюхолдеров вместе
+  <img
+    class="img-foto"
+    src="/img/menyuholdery-3.webp"
+    srcset="
+      /img/menyuholdery-3-400.webp   400w,
+      /img/menyuholdery-3-900.webp   900w,
+      /img/menyuholdery-3-1200.webp 1200w,
+      /img/menyuholdery-3.webp 1920w
+    "
+    sizes="
+      (max-width: 480px) 400px,
+      (max-width: 920px) 900px,
+      (max-width: 1440px) 1200px,
+      1920px
+    "
+    alt="Менюхолдеры А3, А4, А5 из акрила — сравнение форматов"
+  />
+  -->
+ 
+  <h2>Часто задаваемые вопросы</h2>
+ 
+  <h3>Какой минимальный заказ?</h3>
+  <p>Принимаем заказы от 1 штуки. Стоимость зависит от формата и наличия нанесения логотипа.</p>
+ 
+  <h3>Можно ли заказать нестандартный размер?</h3>
+  <p>Да, изготавливаем подставки любого размера — от меньше А5 до А2 и больше.</p>
+ 
+  <h3>Сколько времени занимает изготовление?</h3>
+  <p>Стандартный заказ — 1–3 рабочих дня. Срочное выполнение возможно — уточняйте при заказе.</p>
+ 
+  <h3>Есть ли доставка по Украине?</h3>
+  <p>Да, отправляем Новой Почтой по всей Украине. Самовывоз — г. Киев, ул. Гетмана Данилы Апостола, 6.</p>
+ 
+  <h3>Можно ли сделать двусторонний менюхолдер?</h3>
+  <p>Да, изготавливаем односторонние и двусторонние конструкции. Двусторонний вариант позволяет размещать материал с обеих сторон.</p>
+ 
+  <h3>Можно ли нанести логотип на готовый менюхолдер?</h3>
+  <p>Да, выполняем лазерную гравировку и УФ-печать — как на новых изделиях, так и на готовых конструкциях, которые вы привезёте.</p>
+ 
+  <hr>
+ 
+  <h2>Заказать менюхолдеры просто</h2>
+  <p>Оставьте заявку через сайт, напишите в мессенджеры или позвоните — ответим на все вопросы и быстро выполним заказ.</p>
+  <p><strong>Промпостач — качественные подставки под меню из акрила. Собственное производство с 1996 года.</strong></p></div>
+<!-- <link rel="stylesheet" href=""/>  -->
+<footer class="app-footer">
+	<div class="footer-footer">
+		<div class="footer-container">
+			<div class="footer"></div>
+			<div class="footer-bg"></div>
+			<div class="footer-content">
+				<div class="footer-info">
+					<div class="footer-head">Наши контакты</div>
+					<div class="footer-info-title">Мы работаем 9:00 - 17:00</div>
+				</div>	
+				<div class="footer-info-contact">
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Location.png" alt="Адрес" width="24" height="24">
+						</div>
+						<a href="https://maps.google.com/maps?ll=50.522475,30.480653&z=15&t=m&hl=ru&gl=US&mapclient=embed&cid=7827649011644501388" target="_blank" rel="nofollow"><div class="footer-href">Киев, ул. Гетьмана <br>Данила Апостола, д. 6</div></a>
+					</div>
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Mail.png" alt="Почта" width="24" height="24">
+						</div>
+						<a href="mailto:info@snab.kiev.ua"><div class="footer-href">info@snab.kiev.ua</div></a>
+					</div>
+					<div class="footer-info-item">
+						<div class="footer-icon">
+						<img src="/img/Phone.png" alt="Телефон" width="24" height="24">
+						</div>
+						<a href="tel:+380504625083"><div class="footer-href">050 462 50 83</div></a>
+					</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</footer>	</div>
+<script src="/js/script.js" defer></script>
+
+<script>
+  window.addEventListener('scroll', function gtagLazyLoad() {
+    const s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y5JKLT28XD';
+    s.defer = true;
+    document.head.appendChild(s);
+    window.removeEventListener('scroll', gtagLazyLoad);
+
+    s.onload = function () {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y5JKLT28XD');
+    };
+  });
+</script>	</body>
+</html>

@@ -94,17 +94,26 @@ Redirect 301 /ua/stellaj-nastenni https://snab.kiev.ua/ua/vitryna-dlya-modeley
 Redirect 301 /ru/stellaj-nastenni https://snab.kiev.ua/ru/vitrina-dlya-modeley
 Redirect 301 /ua/price https://snab.kiev.ua/ua/tsiny
 Redirect 301 /ru/price https://snab.kiev.ua/ru/tseny
-Redirect 301 /ua/sfery-primeneniya-orgstekla https://snab.kiev.ua/ua/sfery-zastosuvannya-orhhskla
-Redirect 301 /ua/sposoby-primeneniya-orgstekla https://snab.kiev.ua/ua/sposoby-zastosuvannya-orhhskla
-Redirect 301 /ua/rezka-kaprolona https://snab.kiev.ua/ua/rizka-kaprolonu
+
+# UA версія (виправляємо на фінальні URL відразу)
+Redirect 301 /ua/sfery-primeneniya-orgstekla.html /ua/sfery-zastosuvannya-orhhskla
+Redirect 301 /ua/sfery-primeneniya-orgstekla /ua/sfery-zastosuvannya-orhhskla
+Redirect 301 /ua/sposoby-primeneniya-orgstekla /ua/sfery-zastosuvannya-orhhskla
+
+# RU версія (прибираємо розширення .html)
+Redirect 301 /ru/sfery-primeneniya-orgstekla.html /ru/sfery-primeneniya-orgstekla
+Redirect 301 /ru/sposoby-primeneniya-orgstekla /ru/sfery-primeneniya-orgstekla
+
+
+
+
 
 # Редіректи для .html файлів (404 помилки)
 Redirect 301 /ftoroplast.html /ru/ftoroplast
 Redirect 301 /lazernaya-rezka-akrila.html /ru/lazernaya-rezka-akrila
 Redirect 301 /ru/ftoroplast.html /ru/ftoroplast
 Redirect 301 /ru/index.html /ru/
-Redirect 301 /ua/sfery-primeneniya-orgstekla.html /ua/sfery-zastosuvannya-orhhskla
-Redirect 301 /ru/sfery-primeneniya-orgstekla.html /ru/sfery-primeneniya-orgstekla
+
 
 # Редірект для tekstolit-cena
 Redirect 301 /tekstolit-cena /ru/tekstolit
@@ -113,6 +122,9 @@ Redirect 301 /tekstolit-cena /ru/tekstolit
 # або редірект на головну:
 Redirect 301 /feed /ua/
 Redirect 301 /comments/feed /ua/
+
+
+
 
 # ❌ 404 сторінка
 ErrorDocument 404 /404

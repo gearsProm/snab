@@ -258,7 +258,7 @@ p {
   bottom: 5.5px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 950px) {
   .header-burger {
     display: flex;
     justify-content: center;
