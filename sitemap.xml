@@ -94,18 +94,18 @@
   </url>
 
   <url>
-    <loc>https://snab.kiev.ua/ua/stellaj-nastenni</loc>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://snab.kiev.ua/ua/stellaj-nastenni" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://snab.kiev.ua/ru/stellaj-nastenni" />
+    <loc>https://snab.kiev.ua/ua/vitryna-dlya-modeley</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://snab.kiev.ua/ua/vitryna-dlya-modeley" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://snab.kiev.ua/ru/vitrina-dlya-modeley" />
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Ціни -->
   <url>
-    <loc>https://snab.kiev.ua/ua/price</loc>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://snab.kiev.ua/ua/price" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://snab.kiev.ua/ru/price" />
+    <loc>https://snab.kiev.ua/ua/tsiny</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://snab.kiev.ua/ua/tsiny" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://snab.kiev.ua/ru/tseny" />
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -153,16 +153,16 @@
 
   <!-- Блог -->
   <url>
-    <loc>https://snab.kiev.ua/ua/sfery-primeneniya-orgstekla</loc>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://snab.kiev.ua/ua/sfery-primeneniya-orgstekla" />
+    <loc>https://snab.kiev.ua/ua/sfery-zastosuvannya-orhhskla</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://snab.kiev.ua/ua/sfery-zastosuvannya-orhhskla" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://snab.kiev.ua/ru/sfery-primeneniya-orgstekla" />
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://snab.kiev.ua/ua/rezka-kaprolona</loc>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://snab.kiev.ua/ua/rezka-kaprolona" />
+    <loc>https://snab.kiev.ua/ua/rizka-kaprolonu</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://snab.kiev.ua/ua/rizka-kaprolonu" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://snab.kiev.ua/ru/rezka-kaprolona" />
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

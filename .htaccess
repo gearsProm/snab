@@ -33,20 +33,21 @@ Redirect 301 /ru/tekstolit_1.php /ru/tekstolit
 Redirect 301 /ru/uslugi /ru/yslygi
 Redirect 301 /lazer_cut.php /ru/lazernaya-rezka-akrila
 Redirect 301 /yslygi.php /ru/yslygi
-Redirect 301 /asbo_price.php /ru/asboizdeliya
-Redirect 301 /pvh.php /ru/listy-pvkh-vspenennyy
-Redirect 301 /emali /ru/emali-2
+Redirect 301 /asbo_price.php /ua
+Redirect 301 /pvh.php /ua
+Redirect 301 /ru/listy-pvkh-vspenennyy /ua
+Redirect 301 /emali /ua
 
-Redirect 301 /orgsteklo-v-interere /ru/orgsteklo-v-interere
-Redirect 301 /stelazh-dlya-modelej-z-akrilu /ua/stellaj-nastenni
-Redirect 301 /ctef /ru/ctef
-Redirect 301 /laki92 /ru/laki92
+Redirect 301 /orgsteklo-v-interere /ua
+
+Redirect 301 /ctef /ua
+Redirect 301 /laki92 /ua
 Redirect 301 /uslugi /ru/yslygi
-Redirect 301 /izdeliya-iz-akrila /ru/izdeliya-iz-akrila
-Redirect 301 /stekloplastik /ru/izdeliy-ctekloplastik
+Redirect 301 /izdeliya-iz-akrila /ua
+Redirect 301 /stekloplastik /ua
 
-Redirect 301 /index.php /index
-Redirect 301 /ru/index.php /index
+Redirect 301 /index.php /ua
+Redirect 301 /ru/index.php /ua
 
 Redirect 301 /orgsklo-lysty /ua/prays-orgsteklo
 Redirect 301 /orgsteklo /ru/prays-orgsteklo
@@ -56,34 +57,38 @@ Redirect 301 /rule /ru/rule
 Redirect 301 /prays-orgsteklo /ru/prays-orgsteklo
 Redirect 301 /ftoroplast /ru/ftoroplast
 Redirect 301 /tekstolit /ru/tekstolit
-Redirect 301 /stellaj-nastenni /ru/stellaj-nastenni
-Redirect 301 /price /ru/price
-Redirect 301 /izdeliya-iz-polimerov /ru/izdeliy-ctekloplastik
-Redirect 301 /ru/izdeliya-iz-polimerov /ru/izdeliy-ctekloplastik
-Redirect 301 /game-box /ru/game-box
+
+Redirect 301 /price /ru/tseny
+Redirect 301 /prays /ru/tseny
+Redirect 301 /izdeliya-iz-polimerov /ua
+Redirect 301 /ru/izdeliya-iz-polimerov /ua
+Redirect 301 /game-box /ua
 Redirect 301 /kaprolon-v-sterzhnyakh /ru/kaprolon-v-sterzhnyakh
 Redirect 301 /kaprolon-v-stryzhnyah /ua/kaprolon-v-sterzhnyakh
 Redirect 301 /ru/orgsklo-lysty /ru/prays-orgsteklo
-Redirect 301 /ru/stekloplastik /ru/izdeliy-ctekloplastik
-Redirect 301 /ru/stelazh-dlya-modelej-z-akrilu /ru/stellaj-nastenni
-Redirect 301 /vodnye-gorki /ru/vodnye-gorki
-Redirect 301 /stellaj-nastenni/ /ru/stellaj-nastenni
-Redirect 301 /listy-pvkh-vspenennyy /ru/listy-pvkh-vspenennyy
+Redirect 301 /ru/stekloplastik /ua
+Redirect 301 /stellaj-nastenni /ru/vitrina-dlya-modeley
+Redirect 301 /stellaj-nastenni/ /ru/vitrina-dlya-modeley
+Redirect 301 /stelazh-dlya-modelej-z-akrilu /ua/vitryna-dlya-modeley
+Redirect 301 /ru/stelazh-dlya-modelej-z-akrilu /ru/vitrina-dlya-modeley
+Redirect 301 /vodnye-gorki /ua
+
+Redirect 301 /listy-pvkh-vspenennyy /ua
 Redirect 301 /sfery-primeneniya-orgstekla /ru/sfery-primeneniya-orgstekla
 
 Redirect 301 /lazerne-rizannya-akrilu /ua/lazernaya-rezka-akrila
-Redirect 301 /statti/obshhie-rekomendacii-po-mexanicheskoj-obrabotke-poliamida /ru/obshhie-rekomendacii-po-mexanicheskoj-obrabotke-poliamida
-Redirect 301 /sverlenie-otverstij-v-kaprolone /ru/sverlenie-otverstij-v-kaprolone
+Redirect 301 /statti/obshhie-rekomendacii-po-mexanicheskoj-obrabotke-poliamida /ua
+Redirect 301 /sverlenie-otverstij-v-kaprolone /ua
 Redirect 301 /sposoby-primeneniya-orgstekla /ru/sposoby-primeneniya-orgstekla
-Redirect 301 /emali-2 /ru/emali-2
-Redirect 301 /prays /ru/price
-Redirect 301 /polikarbonat /ru/polikarbonat
+Redirect 301 /emali-2 /ua
+
+Redirect 301 /polikarbonat /ua
 Redirect 301 /uk/ /ua/
-Redirect 301 /hamam /ru/hamam
+Redirect 301 /hamam /ua
 Redirect 301 /ua/lazernaya-rezka-akrila/ /ua/lazernaya-rezka-akrila
-Redirect 301 /price-laki /ru/price-laki
-Redirect 301 /tehplastina-cena /ru/tehplastina-cena
-Redirect 301 /izdeliya-iz-akrila /ru/yslygi
+Redirect 301 /price-laki /ua
+Redirect 301 /tehplastina-cena /ua
+
 Redirect 301 /rezka-faneri /ru/rezka-faneri
 Redirect 301 /laser-gravirovka /ru/laser-gravirovka
 # Редирект з російського URL на український всередині папки /ua/
@@ -99,13 +104,17 @@ Redirect 301 /ru/price https://snab.kiev.ua/ru/tseny
 Redirect 301 /ua/sfery-primeneniya-orgstekla.html /ua/sfery-zastosuvannya-orhhskla
 Redirect 301 /ua/sfery-primeneniya-orgstekla /ua/sfery-zastosuvannya-orhhskla
 Redirect 301 /ua/sposoby-primeneniya-orgstekla /ua/sfery-zastosuvannya-orhhskla
+Redirect 301 /ua/rezka-kaprolona /ua/rizka-kaprolonu
 
 # RU версія (прибираємо розширення .html)
 Redirect 301 /ru/sfery-primeneniya-orgstekla.html /ru/sfery-primeneniya-orgstekla
 Redirect 301 /ru/sposoby-primeneniya-orgstekla /ru/sfery-primeneniya-orgstekla
 
 
-
+Redirect 301 /ru/rezka-fanery /ru/rezka-faneri
+Redirect 301 /ru/portfolio/pidstavky-z-akrilu /ru/portfolio/pidstavky-iz-akrila
+Redirect 301 /laser-gravirovka.html /ru/laser-gravirovka
+Redirect 301 /ru/portfolio/korob-z-akrilu /ru/portfolio/korobki-iz-akrila
 
 
 # Редіректи для .html файлів (404 помилки)
@@ -113,6 +122,13 @@ Redirect 301 /ftoroplast.html /ru/ftoroplast
 Redirect 301 /lazernaya-rezka-akrila.html /ru/lazernaya-rezka-akrila
 Redirect 301 /ru/ftoroplast.html /ru/ftoroplast
 Redirect 301 /ru/index.html /ru/
+Redirect 301 /ua/index.html /ua/
+
+# Старі назви послуг (Google Search Console 404, 2026-07-18)
+Redirect 301 /ru/rezka-akrila /ru/lazernaya-rezka-akrila
+Redirect 301 /ua/graviruvannya /ua/lazerne-hraviyuvannya
+Redirect 301 /ua/rizka-tkanyny /ua
+Redirect 301 /nabivki-cena /ua
 
 
 # Редірект для tekstolit-cena

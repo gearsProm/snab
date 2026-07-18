@@ -8,5 +8,4 @@ Disallow: /private/
 Allow: /ua/
 Allow: /ru/
 
-Sitemap: https://snab.kiev.ua/ua/sitemap.xml
-Sitemap: https://snab.kiev.ua/ru/sitemap.xml
+Sitemap: https://snab.kiev.ua/sitemap.xml
