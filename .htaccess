@@ -134,6 +134,20 @@ Redirect 301 /nabivki-cena /ua
 # Редірект для tekstolit-cena
 Redirect 301 /tekstolit-cena /ru/tekstolit
 
+# GSC Coverage Drilldown — crawled but not indexed (2026-07-25)
+Redirect 301 /ru/izdeliya-iz-akrila /ua
+Redirect 301 /ru/nabivki-cena /ua
+Redirect 301 /ru/pvx-prozrachnyj /ua
+Redirect 301 /ua/orgsteklo /ua/prays-orgsteklo
+
+# .html-дублікати чистих URL (GSC Coverage Drilldown, 2026-07-25)
+Redirect 301 /ru/tekstolit.html /ru/tekstolit
+Redirect 301 /ua/kaprolon-v-sterzhnyakh.html /ua/kaprolon-v-sterzhnyakh
+Redirect 301 /ru/laser-gravirovka.html /ru/laser-gravirovka
+Redirect 301 /ru/rule.html /ru/rule
+Redirect 301 /ru/deflektor.html /ru/deflektor
+Redirect 301 /price.html /ru/tseny
+
 # RSS feeds — 410 Gone (якщо більше не підтримуються)
 # або редірект на головну:
 Redirect 301 /feed /ua/
