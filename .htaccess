@@ -148,6 +148,18 @@ Redirect 301 /ru/rule.html /ru/rule
 Redirect 301 /ru/deflektor.html /ru/deflektor
 Redirect 301 /price.html /ru/tseny
 
+# GSC Coverage Drilldown — нові 404 (2026-07-28)
+Redirect 301 /kater /ua
+Redirect 301 /ru/kater /ua
+Redirect 301 /ru/sverlenie-otverstij-v-kaprolone /ua
+Redirect 301 /ru/vodnye-gorki /ua
+Redirect 301 /ru/polikarbonat /ua
+Redirect 301 /ru/tekstolit-cena /ru/tekstolit
+Redirect 301 /ru/ctef /ua
+Redirect 301 /ru/game-box /ua
+Redirect 301 /ru/laki92 /ua
+Redirect 301 /ua/price-list /ua/tsiny
+
 # RSS feeds — 410 Gone (якщо більше не підтримуються)
 # або редірект на головну:
 Redirect 301 /feed /ua/
